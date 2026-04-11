@@ -1,0 +1,3143 @@
+{
+  "_meta": {
+    "version": "0.2",
+    "description": "Agricultural investment fund ecosystem — funds, investors, and capital relationships",
+    "last_updated": "2026-04-10",
+    "sources": [
+      "Flourish network graph CSVs (Points + Links)",
+      "fund_landscape.html bubble chart data",
+      "portfolio_companies.csv",
+      "Capital stack PDF (MCE, Huruma, CSAFSF/respA)",
+      "DFC press releases",
+      "Fund websites"
+    ],
+    "notes": "Gaps marked with null. Tranche data available for MCE, Huruma, CSAFSF. AgriFI is a Fund node (EU-funded facility that deploys into other funds). investor_type options: DFI / Bilateral Donor / Foundation / Commercial / NGO / Corporate"
+  },
+  "funds": [
+    {
+      "id": "AgDevCo",
+      "name": "AgDevCo",
+      "full_name": "Agricultural Development Company",
+      "fund_manager": "AgDevCo Holdings",
+      "website": "https://www.agdevco.com/",
+      "portfolio_page": "https://www.agdevco.com/our-investments/",
+      "aum_usd_millions": 340,
+      "aum_source": "Reported AUM as of 2024 group financial statements",
+      "geography_focus": "Sub-Saharan Africa (11 countries)",
+      "instrument_type": "Debt + Equity",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 40,
+      "avg_ticket_usd_millions": 8.5,
+      "tenor_years": 8,
+      "notes": "Specialist subsidized impact investor providing patient long-term debt, mezzanine and equity to early-stage African agricultural SMEs.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "ABC",
+      "name": "ABC Fund",
+      "full_name": "Agri-Business Capital Fund",
+      "fund_manager": "Bamboo Capital Partners",
+      "website": "https://agri-business-capital.com/",
+      "portfolio_page": "https://agri-business-capital.com/ourinvestments.html",
+      "aum_usd_millions": 50,
+      "aum_source": "Initial close size — target size ($216M) not used",
+      "geography_focus": "Sub-Saharan Africa, African Caribbean Pacific",
+      "instrument_type": "Debt + Equity",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 20,
+      "avg_ticket_usd_millions": 2.5,
+      "tenor_years": 5,
+      "notes": "Open-ended blended-finance fund with three share tranches to crowd in commercial investors alongside concessional public capital.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "ARAF",
+      "name": "ARAF",
+      "full_name": "Acumen Resilient Agriculture Fund",
+      "fund_manager": "Acumen Capital Partners",
+      "website": "https://arafund.com/",
+      "portfolio_page": "https://arafund.com/portfolio/",
+      "aum_usd_millions": 58,
+      "aum_source": "Reported AUM as of latest available",
+      "geography_focus": "East and West Africa (Ghana, Kenya, Nigeria, Uganda)",
+      "instrument_type": "Equity",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 13,
+      "avg_ticket_usd_millions": 4.46,
+      "tenor_years": 12,
+      "notes": "World's first climate adaptation-focused agribusiness equity fund, with a first-loss layer anchored by the Green Climate Fund.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "Huruma",
+      "name": "Huruma Fund",
+      "full_name": "Huruma Fund",
+      "fund_manager": "GAWA Capital",
+      "website": "https://fondohuruma.com/en/",
+      "portfolio_page": "https://fondohuruma.com/en/category/investments/",
+      "aum_usd_millions": 130,
+      "aum_source": "Final close €120M converted to USD",
+      "geography_focus": "Latin America, Caribbean, Sub-Saharan Africa, Asia",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 15,
+      "avg_ticket_usd_millions": 8.67,
+      "tenor_years": 5,
+      "notes": "Largest social impact fund in Spain. Invests primarily in agri-focused MFIs (70%+) and agri-SMEs across three continents.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "Kampani",
+      "name": "Kampani",
+      "full_name": "Kampani",
+      "fund_manager": "Kampani NV",
+      "website": "https://www.kampani.org/",
+      "portfolio_page": "https://www.kampani.org/portfolio",
+      "aum_usd_millions": 14,
+      "aum_source": "€13M+ deployed per fund website, converted to USD",
+      "geography_focus": "Sub-Saharan Africa, Latin America (15+ countries)",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 30,
+      "avg_ticket_usd_millions": 0.47,
+      "tenor_years": 7,
+      "notes": "Small-ticket quasi-equity and unsecured debt for agri-cooperatives in the missing middle. NGO shareholders provide governance support.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "FAF",
+      "name": "Fairtrade Access Fund",
+      "full_name": "Fairtrade Access Fund",
+      "fund_manager": "Incofin Investment Management",
+      "website": "https://incofinfaf.com/",
+      "portfolio_page": null,
+      "aum_usd_millions": 80,
+      "aum_source": "Target portfolio size of $80M used as proxy",
+      "geography_focus": "Latin America, Caribbean, Sub-Saharan Africa (19 countries)",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 30,
+      "avg_ticket_usd_millions": 2.67,
+      "tenor_years": 3,
+      "notes": "Evergreen open-ended debt fund since 2012 for Fairtrade or sustainably certified producer organizations.",
+      "has_portfolio_data": false
+    },
+    {
+      "id": "N3F",
+      "name": "N3F",
+      "full_name": "Nutritious Foods Financing Facility",
+      "fund_manager": "Incofin Investment Management",
+      "website": "https://www.gainhealth.org/impact/programmes/nutritious-foods-financing-n3f",
+      "portfolio_page": null,
+      "aum_usd_millions": 10,
+      "aum_source": "Proxy: ~$4M deployed in year 1 (2024)",
+      "geography_focus": "Sub-Saharan Africa (East and West Africa)",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 6,
+      "avg_ticket_usd_millions": 1.67,
+      "tenor_years": 5,
+      "notes": "First fund dedicated solely to nutrition in Sub-Saharan Africa. GAIN provides technical assistance.",
+      "has_portfolio_data": false
+    },
+    {
+      "id": "MCE",
+      "name": "MCE / MESA Fund",
+      "full_name": "MCE Empowering Sustainable Agriculture Fund",
+      "fund_manager": "MCE Social Capital",
+      "website": "https://www.mcesocap.org/",
+      "portfolio_page": "https://www.mcesocap.org/portfolio-list",
+      "aum_usd_millions": 42,
+      "aum_source": "Final close Oct 2023 — $41.6M",
+      "geography_focus": "Sub-Saharan Africa, Latin America (10 countries)",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 35,
+      "avg_ticket_usd_millions": 1.2,
+      "tenor_years": 5,
+      "notes": "Closed-end debt fund focused on gender-inclusive agri-businesses and smallholder climate resilience.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "CSAFSF",
+      "name": "CSAFSF",
+      "full_name": "Climate-Smart Agriculture and Food Systems Fund",
+      "fund_manager": "responsAbility Investments",
+      "website": "https://www.responsability.com/",
+      "portfolio_page": null,
+      "aum_usd_millions": 106,
+      "aum_source": "Total commitment per responsAbility press release",
+      "geography_focus": null,
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": null,
+      "avg_ticket_usd_millions": null,
+      "tenor_years": null,
+      "notes": "Climate-smart agriculture fund. No public name or public presence — operational details not disclosed.",
+      "has_portfolio_data": false
+    },
+    {
+      "id": "AATIF",
+      "name": "AATIF",
+      "full_name": "Africa Agriculture and Trade Investment Fund",
+      "fund_manager": "Cygnum Capital",
+      "website": "https://www.aatif.lu/home.html",
+      "portfolio_page": "https://www.aatif.lu/en/investment-portfolio",
+      "aum_usd_millions": 131,
+      "aum_source": "Outstanding portfolio USD 131M per Innpact — Jan 2024",
+      "geography_focus": "Sub-Saharan Africa, North Africa",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 10,
+      "avg_ticket_usd_millions": 13.1,
+      "tenor_years": null,
+      "notes": "One of the earliest blended finance agri-funds, anchored by KfW/BMZ and EU with a technical assistance facility.",
+      "has_portfolio_data": true
+    },
+    {
+      "id": "Farmfit",
+      "name": "Farmfit Fund",
+      "full_name": "IDH Farmfit Fund",
+      "fund_manager": "IDH Sustainable Trade Initiative",
+      "website": "https://www.idhsustainabletrade.com/farmfit-fund/",
+      "portfolio_page": null,
+      "aum_usd_millions": 108,
+      "aum_source": "€100M converted to USD",
+      "geography_focus": null,
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": null,
+      "avg_ticket_usd_millions": null,
+      "tenor_years": null,
+      "notes": "Blended finance fund anchored by Netherlands MFA. Focuses on smallholder-inclusive agribusinesses. FMO and Rabobank are senior investors.",
+      "has_portfolio_data": false
+    },
+    {
+      "id": "RootCapital",
+      "name": "Root Capital",
+      "full_name": "Root Capital",
+      "fund_manager": "Root Capital",
+      "website": "https://rootcapital.org/",
+      "portfolio_page": null,
+      "aum_usd_millions": 110,
+      "aum_source": "Annual disbursements used as proxy — AUM not publicly reported",
+      "geography_focus": "Latin America, Sub-Saharan Africa, Southeast Asia",
+      "instrument_type": "Debt",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": 189,
+      "avg_ticket_usd_millions": 0.58,
+      "tenor_years": 2,
+      "notes": "Nonprofit lender targeting the missing middle — agribusinesses too large for microfinance but too risky for commercial banks. Portfolio not publicly disclosed.",
+      "has_portfolio_data": false
+    },
+    {
+      "id": "AgriFI",
+      "name": "AgriFI",
+      "full_name": "AgriFI (EU/EDFI)",
+      "fund_manager": "EDFI Management Company",
+      "website": "https://www.agrifi.eu/",
+      "portfolio_page": "https://www.agrifi.eu/portfolio/",
+      "aum_usd_millions": 130,
+      "aum_source": "EUR 120M facility funded by the European Union — per agrifi.eu",
+      "geography_focus": "Sub-Saharan Africa, South and Southeast Asia",
+      "instrument_type": "Debt + Equity",
+      "return_expectation": "More Concessional",
+      "fund_status": "active",
+      "portfolio_count": null,
+      "avg_ticket_usd_millions": null,
+      "tenor_years": null,
+      "notes": "EU-funded blended finance facility managed by EDFI, deploying into agri-SME funds and direct investments. Invested €5M in Fairtrade Access Fund.",
+      "has_portfolio_data": false
+    }
+  ],
+  "investors": [
+    {
+      "id": "EU",
+      "name": "European Union",
+      "investor_type": "Bilateral Donor",
+      "website": "https://ec.europa.eu/"
+    },
+    {
+      "id": "Netherlands",
+      "name": "Netherlands MFA",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.government.nl/ministries/ministry-of-foreign-affairs"
+    },
+    {
+      "id": "UK",
+      "name": "UK (FCDO)",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
+    },
+    {
+      "id": "US",
+      "name": "USAID",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.usaid.gov/"
+    },
+    {
+      "id": "Switzerland",
+      "name": "Switzerland (SDC)",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.eda.admin.ch/sdc"
+    },
+    {
+      "id": "Luxembourg",
+      "name": "Luxembourg",
+      "investor_type": "Bilateral Donor",
+      "website": "https://mae.gouvernement.lu/"
+    },
+    {
+      "id": "Norway",
+      "name": "Norway",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.norad.no/"
+    },
+    {
+      "id": "Enabel",
+      "name": "Enabel",
+      "investor_type": "Bilateral Donor",
+      "website": "https://enabel.be/"
+    },
+    {
+      "id": "GAC",
+      "name": "Global Affairs Canada",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.international.gc.ca/"
+    },
+    {
+      "id": "FMO",
+      "name": "FMO",
+      "investor_type": "DFI",
+      "website": "https://www.fmo.nl/"
+    },
+    {
+      "id": "DFC",
+      "name": "DFC (US)",
+      "investor_type": "DFI",
+      "website": "https://www.dfc.gov/"
+    },
+    {
+      "id": "KfW",
+      "name": "KfW (on behalf of BMZ)",
+      "investor_type": "DFI",
+      "website": "https://www.kfw-entwicklungsbank.de/"
+    },
+    {
+      "id": "BII",
+      "name": "British International Investment",
+      "investor_type": "DFI",
+      "website": "https://www.bii.co.uk/"
+    },
+    {
+      "id": "Norfund",
+      "name": "Norfund",
+      "investor_type": "DFI",
+      "website": "https://www.norfund.no/"
+    },
+    {
+      "id": "Swedfund",
+      "name": "Swedfund",
+      "investor_type": "DFI",
+      "website": "https://www.swedfund.se/"
+    },
+    {
+      "id": "IFAD",
+      "name": "IFAD",
+      "investor_type": "DFI",
+      "website": "https://www.ifad.org/"
+    },
+    {
+      "id": "GCF",
+      "name": "Green Climate Fund",
+      "investor_type": "DFI",
+      "website": "https://www.greenclimate.fund/"
+    },
+    {
+      "id": "PROPARCO",
+      "name": "PROPARCO",
+      "investor_type": "DFI",
+      "website": "https://www.proparco.fr/"
+    },
+    {
+      "id": "BIO",
+      "name": "BIO (Belgium)",
+      "investor_type": "DFI",
+      "website": "https://www.bio-invest.be/"
+    },
+    {
+      "id": "COFIDES",
+      "name": "COFIDES",
+      "investor_type": "DFI",
+      "website": "https://www.cofides.es/"
+    },
+    {
+      "id": "Sidi",
+      "name": "Sidi",
+      "investor_type": "DFI",
+      "website": "https://www.sidi.fr/"
+    },
+    {
+      "id": "FONPRODE",
+      "name": "FONPRODE/AECID",
+      "investor_type": "Bilateral Donor",
+      "website": "https://www.aecid.es/"
+    },
+    {
+      "id": "Ceniarth",
+      "name": "Ceniarth",
+      "investor_type": "Foundation",
+      "website": "https://ceniarthllc.com/"
+    },
+    {
+      "id": "GramFoundation",
+      "name": "Grameen Foundation",
+      "investor_type": "Foundation",
+      "website": "https://www.grameenfoundation.org/"
+    },
+    {
+      "id": "IKEA",
+      "name": "IKEA Foundation",
+      "investor_type": "Foundation",
+      "website": "https://www.ikeafoundation.org/"
+    },
+    {
+      "id": "CIFF",
+      "name": "CIFF",
+      "investor_type": "Foundation",
+      "website": "https://ciff.org/"
+    },
+    {
+      "id": "VisaFoundation",
+      "name": "Visa Foundation",
+      "investor_type": "Foundation",
+      "website": "https://usa.visa.com/visa-everywhere/visa-foundation.html"
+    },
+    {
+      "id": "ImagoDei",
+      "name": "Imago Dei Fund",
+      "investor_type": "Foundation",
+      "website": "https://imagodeifund.org/"
+    },
+    {
+      "id": "ImpactAssets",
+      "name": "ImpactAssets",
+      "investor_type": "Foundation",
+      "website": "https://www.impactassets.org/"
+    },
+    {
+      "id": "EleanorCrook",
+      "name": "Eleanor Crook Foundation",
+      "investor_type": "Foundation",
+      "website": "https://eleanorcrookfoundation.org/"
+    },
+    {
+      "id": "KingBaudouin",
+      "name": "King Baudouin Foundation",
+      "investor_type": "Foundation",
+      "website": "https://www.kbs-frb.be/"
+    },
+    {
+      "id": "Rabobank",
+      "name": "Rabobank",
+      "investor_type": "Commercial",
+      "website": "https://www.rabobank.com/"
+    },
+    {
+      "id": "Private",
+      "name": "Private investors",
+      "investor_type": "Commercial"
+    },
+    {
+      "id": "CaixaBank",
+      "name": "CaixaBank",
+      "investor_type": "Commercial",
+      "website": "https://www.caixabank.com/"
+    },
+    {
+      "id": "Allianz",
+      "name": "Allianz",
+      "investor_type": "Commercial",
+      "website": "https://www.allianz.com/"
+    },
+    {
+      "id": "FairtradInt",
+      "name": "Fairtrade International",
+      "investor_type": "NGO",
+      "website": "https://www.fairtrade.net/"
+    },
+    {
+      "id": "COLEAD",
+      "name": "COLEAD",
+      "investor_type": "NGO",
+      "website": "https://www.colead.be/"
+    },
+    {
+      "id": "TRIAS",
+      "name": "TRIAS",
+      "investor_type": "NGO",
+      "website": "https://www.trias.ngo/"
+    },
+    {
+      "id": "BroederlijkDelen",
+      "name": "Broederlijk Delen",
+      "investor_type": "NGO",
+      "website": "https://www.broederlijkdelen.be/"
+    },
+    {
+      "id": "Alterfin",
+      "name": "Alterfin",
+      "investor_type": "NGO",
+      "website": "https://www.alterfin.be/"
+    },
+    {
+      "id": "Rikolto",
+      "name": "Rikolto",
+      "investor_type": "NGO",
+      "website": "https://www.rikolto.org/"
+    },
+    {
+      "id": "LouvainCoop",
+      "name": "Louvain Cooperation",
+      "investor_type": "NGO",
+      "website": "https://www.louvaincooperation.org/"
+    },
+    {
+      "id": "Oxfam",
+      "name": "Oxfam",
+      "investor_type": "NGO",
+      "website": "https://www.oxfam.org/"
+    },
+    {
+      "id": "CLACFairtrade",
+      "name": "CLAC Fairtrade",
+      "investor_type": "NGO",
+      "website": "https://clac-comerciojusto.org/"
+    },
+    {
+      "id": "Mondelez",
+      "name": "Mondelēz",
+      "investor_type": "Corporate",
+      "website": "https://www.mondelezinternational.com/"
+    },
+    {
+      "id": "JDE",
+      "name": "Jacobs Douwe Egberts",
+      "investor_type": "Corporate",
+      "website": "https://www.jdecoffees.com/"
+    },
+    {
+      "id": "Unilever",
+      "name": "Unilever",
+      "investor_type": "Corporate",
+      "website": "https://www.unilever.com/"
+    },
+    {
+      "id": "MacArthur",
+      "name": "MacArthur Foundation",
+      "investor_type": "Foundation",
+      "website": "https://www.macfound.org/"
+    }
+  ],
+  "investments": [
+    {
+      "investor_id": "UK",
+      "fund_id": "AgDevCo",
+      "amount_usd_millions": 135,
+      "tranche": null,
+      "source_url": "https://wasafirihub.com/case-studies/strengthening-the-uks-support-transforming-food-systems-in-africa/"
+    },
+    {
+      "investor_id": "BII",
+      "fund_id": "AgDevCo",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Norfund",
+      "fund_id": "AgDevCo",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Swedfund",
+      "fund_id": "AgDevCo",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "DFC",
+      "fund_id": "AgDevCo",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "EU",
+      "fund_id": "ABC",
+      "amount_usd_millions": 48.6,
+      "tranche": null,
+      "source_url": "https://www.eeas.europa.eu/node/58285_en"
+    },
+    {
+      "investor_id": "Luxembourg",
+      "fund_id": "ABC",
+      "amount_usd_millions": 5.4,
+      "tranche": null,
+      "source_url": "https://www.eeas.europa.eu/node/58285_en"
+    },
+    {
+      "investor_id": "Switzerland",
+      "fund_id": "ABC",
+      "amount_usd_millions": 10.2,
+      "tranche": null,
+      "source_url": "https://www.eda.admin.ch/eda/en/fdfa/fdfa/aktuell/newsuebersicht/2020/06/abc-fonds.html",
+      "source_date": "2024-01-09"
+    },
+    {
+      "investor_id": "IFAD",
+      "fund_id": "ABC",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "GCF",
+      "fund_id": "ARAF",
+      "amount_usd_millions": null,
+      "tranche": "First Loss"
+    },
+    {
+      "investor_id": "FMO",
+      "fund_id": "ARAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "PROPARCO",
+      "fund_id": "ARAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "IKEA",
+      "fund_id": "ARAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "CIFF",
+      "fund_id": "ARAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "EU",
+      "fund_id": "Huruma",
+      "amount_usd_millions": 10.8,
+      "tranche": "First Loss",
+      "source_url": "https://knowledge4policy.ec.europa.eu/projects-activities/huruma-fund_en"
+    },
+    {
+      "investor_id": "FONPRODE",
+      "fund_id": "Huruma",
+      "amount_usd_millions": 21.6,
+      "tranche": "Junior"
+    },
+    {
+      "investor_id": "Private",
+      "fund_id": "Huruma",
+      "amount_usd_millions": 97.2,
+      "tranche": "Senior"
+    },
+    {
+      "investor_id": "AgriFI",
+      "fund_id": "FAF",
+      "amount_usd_millions": 5.4,
+      "tranche": null,
+      "source_url": "https://www.agrifi.eu/news/agrifi-invests-5-million-eur-in-the-incofin-fairtrade-access-fund/",
+      "source_date": "2024-01-09"
+    },
+    {
+      "investor_id": "KfW",
+      "fund_id": "FAF",
+      "amount_usd_millions": 3.8,
+      "tranche": null,
+      "source_url": "https://www.microcapital.org/microcapital-brief-incofin-raises-6-5m-kfw-fairtrade-access-fund-drc-focused-fpm/",
+      "source_date": "2024-01-09"
+    },
+    {
+      "investor_id": "FMO",
+      "fund_id": "FAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "BIO",
+      "fund_id": "FAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "GramFoundation",
+      "fund_id": "FAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "FairtradInt",
+      "fund_id": "FAF",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Switzerland",
+      "fund_id": "N3F",
+      "amount_usd_millions": 5,
+      "tranche": null,
+      "source_url": "https://www.shareweb.ch/site/EI/Documents/PSD/Topics/Blended%20Finance/Factsheet%20Investment%20Credit.pdf",
+      "source_date": "2024-01-05"
+    },
+    {
+      "investor_id": "US",
+      "fund_id": "N3F",
+      "amount_usd_millions": 6,
+      "tranche": null,
+      "source_url": "https://www.usaid.gov/news-information/speeches/sep-5-2023-deputy-administrator-isobel-coleman-nutritious-foods-financing-facility-event",
+      "source_date": "2024-01-05"
+    },
+    {
+      "investor_id": "EleanorCrook",
+      "fund_id": "N3F",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "FMO",
+      "fund_id": "MCE",
+      "amount_usd_millions": 10,
+      "tranche": "Senior",
+      "source_url": "https://www.fmo.nl/project-detail/61973"
+    },
+    {
+      "investor_id": "DFC",
+      "fund_id": "MCE",
+      "amount_usd_millions": 10,
+      "tranche": "Senior",
+      "source_url": "https://www.dfc.gov/sites/default/files/media/documents/9000115406.pdf"
+    },
+    {
+      "investor_id": "Ceniarth",
+      "fund_id": "MCE",
+      "amount_usd_millions": 3,
+      "tranche": "Junior",
+      "source_url": "https://ceniarthllc.com/investee/mce-empowering-sustainable-agriculture-fund/"
+    },
+    {
+      "investor_id": "VisaFoundation",
+      "fund_id": "MCE",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "ImagoDei",
+      "fund_id": "MCE",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "ImpactAssets",
+      "fund_id": "MCE",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "GAC",
+      "fund_id": "CSAFSF",
+      "amount_usd_millions": 36.8,
+      "tranche": "Senior",
+      "source_url": "https://www.responsability.com/en/press-releases/responsability-mobilizes-usd-106-million-for-a-climate-smart-agriculture-food-systems-strategy-from-public-and-private-sector-impact-investors"
+    },
+    {
+      "investor_id": "FMO",
+      "fund_id": "CSAFSF",
+      "amount_usd_millions": 25,
+      "tranche": "Senior",
+      "source_url": "https://www.fmo.nl/project-detail/61443"
+    },
+    {
+      "investor_id": "Ceniarth",
+      "fund_id": "CSAFSF",
+      "amount_usd_millions": 3,
+      "tranche": "Senior",
+      "source_url": "https://ceniarthllc.com/investee/climate-smart-agriculture-food-systems-fund/"
+    },
+    {
+      "investor_id": "DFC",
+      "fund_id": "CSAFSF",
+      "amount_usd_millions": 10,
+      "tranche": "Mezz / Junior",
+      "source_url": "https://www.dfc.gov/sites/default/files/media/documents/9000115406.pdf"
+    },
+    {
+      "investor_id": "KfW",
+      "fund_id": "CSAFSF",
+      "amount_usd_millions": 14,
+      "tranche": "Mezz / Junior",
+      "source_url": "https://www.kfw-entwicklungsbank.de/ipfz/Projektdatenbank/Climate-Smart-Agriculture-and-Food-Systems-Fund-CSFSF-45021.htm"
+    },
+    {
+      "investor_id": "KfW",
+      "fund_id": "AATIF",
+      "amount_usd_millions": 64.8,
+      "tranche": null,
+      "source_url": "https://www.kfw-entwicklungsbank.de/Evaluierungsbericht/Evaluierungen/African-Agriculture-and-Trade-Investment-Fund-(AATIF)/index-4.html"
+    },
+    {
+      "investor_id": "EU",
+      "fund_id": "AATIF",
+      "amount_usd_millions": null,
+      "tranche": null,
+      "source_url": "https://www.aatif.lu/en/institutions-backing-the-fund"
+    },
+    {
+      "investor_id": "Netherlands",
+      "fund_id": "Farmfit",
+      "amount_usd_millions": 54,
+      "tranche": null,
+      "source_url": "https://www.government.nl/documents/reports/2020/05/12/mobilised-private-climate-finance-report-2019"
+    },
+    {
+      "investor_id": "FMO",
+      "fund_id": "Farmfit",
+      "amount_usd_millions": null,
+      "tranche": "Senior"
+    },
+    {
+      "investor_id": "Rabobank",
+      "fund_id": "Farmfit",
+      "amount_usd_millions": null,
+      "tranche": "Senior"
+    },
+    {
+      "investor_id": "COLEAD",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "TRIAS",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "BroederlijkDelen",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Alterfin",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Rikolto",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "LouvainCoop",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Oxfam",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Enabel",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "CLACFairtrade",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Sidi",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "KingBaudouin",
+      "fund_id": "Kampani",
+      "amount_usd_millions": null,
+      "tranche": null
+    },
+    {
+      "investor_id": "Mondelez",
+      "fund_id": "Farmfit",
+      "amount_usd_millions": null,
+      "tranche": null,
+      "source_url": "https://www.idhsustainabletrade.com/farmfit-fund/"
+    },
+    {
+      "investor_id": "JDE",
+      "fund_id": "Farmfit",
+      "amount_usd_millions": null,
+      "tranche": null,
+      "source_url": "https://www.idhsustainabletrade.com/farmfit-fund/"
+    },
+    {
+      "investor_id": "Unilever",
+      "fund_id": "Farmfit",
+      "amount_usd_millions": null,
+      "tranche": null,
+      "source_url": "https://www.idhsustainabletrade.com/farmfit-fund/"
+    },
+    {
+      "investor_id": "DFC",
+      "fund_id": "RootCapital",
+      "amount_usd_millions": 35,
+      "tranche": null,
+      "source_url": "https://www.dfc.gov/media/press-releases/dfc-improves-rural-livelihoods-and-empowers-women-through-35-million"
+    },
+    {
+      "investor_id": "IKEA",
+      "fund_id": "RootCapital",
+      "amount_usd_millions": null,
+      "tranche": null,
+      "source_url": "https://rootcapital.org/root-capital-and-ikea-foundation-building-resilience-smallholder-farmers-east-africa/"
+    },
+    {
+      "investor_id": "MacArthur",
+      "fund_id": "RootCapital",
+      "amount_usd_millions": null,
+      "tranche": null,
+      "source_url": "https://www.macfound.org/grantee/root-capital-10114672/"
+    }
+  ],
+  "portfolio_companies": [
+    {
+      "fund_name": "AATIF",
+      "company_name": "EBID",
+      "country": "West Africa",
+      "sector_raw": "Financial intermediary",
+      "borrower_type_raw": "FSP",
+      "company_website": null,
+      "source_text": "Providing support to smallholder farmers in West Africa.",
+      "source_url": "https://www.aatif.lu/en/investment-portfolio/ebid",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "260 Brands (Seba Foods)",
+      "country": "Zambia",
+      "sector_raw": "Maize, Soybean",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Facilitating deeper engagement with smallholder maize and soybean farmers in Zambia.",
+      "source_url": "https://www.aatif.lu/en/260-brands-seba-foods-z-ltd",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "SAF Ingredients",
+      "country": "Senegal",
+      "sector_raw": "Agricultural exports",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Boosting agricultural export and job creation in Senegal.",
+      "source_url": "https://www.aatif.lu/en/societe-africaine-d-ingredients-saf-ingredients",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "Export Trading Group (ETG)",
+      "country": "Pan-Africa",
+      "sector_raw": "Agricultural trade",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Improving local value addition and export across Africa.",
+      "source_url": "https://www.aatif.lu/en/export-trading-group",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "CKL Africa Ltd.",
+      "country": "East Africa",
+      "sector_raw": "Livestock inputs",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Providing critical inputs, know-how and R&D assistance to farmers in the East African livestock sector.",
+      "source_url": "https://www.aatif.lu/en/ckl-africa-ltd",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "African Milling Company",
+      "country": "Zambia",
+      "sector_raw": "Maize milling",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Helping grow a stable off-take market for local maize farmers in Zambia.",
+      "source_url": "https://www.aatif.lu/en/african-milling-company",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "Sterling Bank",
+      "country": "Nigeria",
+      "sector_raw": "Agricultural lending",
+      "borrower_type_raw": "FSP",
+      "company_website": null,
+      "source_text": "Improving capacity for agricultural lending in Nigeria.",
+      "source_url": "https://www.aatif.lu/en/sterling-bank",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "NSIA Banque",
+      "country": "Cote d'Ivoire",
+      "sector_raw": "Agricultural lending",
+      "borrower_type_raw": "FSP",
+      "company_website": null,
+      "source_text": "Diversifying lending and investment activity in Cote d'Ivoire.",
+      "source_url": "https://www.aatif.lu/en/nsia-banque",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "Mount Meru Millers",
+      "country": "Zambia",
+      "sector_raw": "Cotton, Sunflower, Soya",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Providing cotton, sunflower and soya farmers a stable off-take market in Zambia.",
+      "source_url": "https://www.aatif.lu/en/mount-meru-millers",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "AATIF",
+      "company_name": "Amsons Industries (T) Ltd.",
+      "country": "Tanzania",
+      "sector_raw": "Wheat",
+      "borrower_type_raw": "Agribusiness",
+      "company_website": null,
+      "source_text": "Revamping the local wheat production industry in Tanzania.",
+      "source_url": "https://www.aatif.lu/en/amsons-industries-t-ltd",
+      "notes": "Current investment"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "SunCulture",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "https://sunculture.com/",
+      "source_text": "SunCulture is a Kenya-based solar irrigation company that designs, assembles, finances, and services solar powered water pumps. SunCulture’s water pumps allow farmers to grow crops throughout the year, even in periods of droughts, and increase the land under their cultivation. The company’s services, weather forecasts, and agronomy tips help smallholder farmers spend less time fetching water, improve their productivity, and increase their crop and livestock yields, leading to greater incomes and improved resilience to climate change.",
+      "source_url": "https://arafund.com/sunculture-2/'",
+      "notes": ""
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Tomato Jos",
+      "country": "Nigeria",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "http://www.tomatojos.net/home",
+      "source_text": "Tomato Jos (TJ) is a Nigeria-based agricultural production company that integrates stakeholders in the tomato value chain. The team manages a highly productive commercial farm, a comprehensive smallholder farmer out-grower program, and a tomato paste processing operation. To ensure sustainability and profitability for the farmers, TJ provides access to high-quality farm inputs on credit, training on good agricultural practices, and guaranteed off-take of their produce. The increase in smallholder farmers’ productivity translates into higher and more diversified incomes, which in turn improves their livelihood and increases the resilience to climate change.",
+      "source_url": "https://arafund.com/tomato-jos/'",
+      "notes": ""
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Uzima Chicken",
+      "country": "Uganda, Rwanda, Democratic Republic of the Congo",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "https://www.uzimachicken.com/",
+      "source_text": "Uzima Chicken is a poultry business supplying fast-growing, highly productive, and highly resilient day-old chicks (“DOCs”), feed, vaccines, and training to smallholder farmers in Uganda, Rwanda, and Democratic Republic of the Congo. Uzima uniquely serves the needs of rural poultry smallholder farmers by providing a chicken breed that is highly disease resistant, is more productive for eggs and meat as compared to indigenous breeds, and is highly adaptable to humid and dry conditions. Through access to this breed, smallholder farmers can increase and diversify their incomes and improve their resilience to climate change.",
+      "source_url": "https://arafund.com/uzima-chicken/'",
+      "notes": ""
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Farmerline",
+      "country": "26 countries",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Marketplace combines digital tools, logistics, field agents, farm resources and agribusiness partnerships to support African farmers with access to high-quality fertilizer and seeds; free education on climate-smart farming practices; and connections to international markets. The company’s in-house technology platform Mergdata is also licensed by global food traders and manufacturers who use its customisable tools to improve the lives of farmers around the world. To date, the company has digitized over 1 million farmers through partnerships across 26 countries.",
+      "source_url": "https://arafund.com/farmerline/'",
+      "notes": "Link redirects to same page"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Farmworks",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Is a horticulture company in Kenya. Its hub and spoke model leverages clusters of mid-sized, leased commercial farms to provide smallholder farmers with access to intensive agronomy training, quality and cost-effective farm inputs, and direct access to markets. The company enhances the resilience of farmers by addressing their key pain points, including lack of sufficient agriculture expertise, a dearth of affordable and quality inputs and machinery, and high post-harvest losses.",
+      "source_url": "https://arafund.com/farmworks/'",
+      "notes": "Link redirects to same page"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Flow Equity Africa Ventures",
+      "country": "Ethiopia",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "(“FEAV”) is promoted by the founders of Uzima Chicken and is established to replicate the successful Uzima poultry business model in other countries across Sub-Saharan Africa. FEAV’s mission is to provide smallholder farmers with access to high-quality poultry breeds and training, enabling them to increase their incomes and improve their resilience to climate change. FEAV is currently operating in Ethiopia and is looking to expand into other countries in the region.",
+      "source_url": "https://arafund.com/flow-equity-africa-ventures/'",
+      "notes": "Link redirects to same page"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Stable Foods",
+      "country": "",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Unlocks smallholders’ potential at scale to produce affordable food for their communities. Through its \"Climate-Smart Village\" model, the company provides smallholder farmers with access to irrigation, high-quality inputs, and off-take for their produce. By providing these services, Stable Foods helps farmers increase their productivity and incomes, while also ensuring that their communities have access to affordable, fresh produce, available every day.",
+      "source_url": "https://arafund.com/stable-foods/'",
+      "notes": "Link redirects to same page"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Beyond Good",
+      "country": "Madagascar, Uganda",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Is a bean-to-bar chocolate company that sources cocoa from farmers in Madagascar and Uganda. The company works directly with farmers to improve their fermentation practices and provides market offtake, ensuring that farmers receive a fair price for their cocoa. By producing chocolate at the source, Beyond Good is able to capture more value for the farmers and their communities, leading to increased incomes and improved livelihoods.",
+      "source_url": "https://arafund.com/beyond-good/'",
+      "notes": ""
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Victory Farms",
+      "country": "East Africa",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Is the fastest growing end-to-end aquaculture platform in East Africa. The company operates a fully integrated tilapia farm in Kenya, providing high-quality, affordable protein to the local market. Victory Farms is committed to sustainability and uses data-driven farming practices to ensure that its operations are efficient and environmentally friendly. The company’s goal is to become the most sustainable fish platform on the planet.",
+      "source_url": "https://arafund.com/victory-farms/'",
+      "notes": ""
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "East Africa Foods",
+      "country": "Tanzania",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "(EAF) is a leading data and tech driven aggregator and distributor of fresh produce in Tanzania. The company works with smallholder farmers to provide them with access to markets, while also ensuring that urban consumers have access to high-quality, affordable food. EAF’s tech-enabled supply chain reduces waste and improves efficiency, creating value for all stakeholders that work with the company.",
+      "source_url": "https://arafund.com/east-africa-foods/'",
+      "notes": "Link redirects to Tomato Jos"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Complete Farmer",
+      "country": "",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Is an end-to-end digital platform with a marketplace that connects African farmers with global buyers. The company provides farmers with access to high-quality inputs, agronomy support, and a guaranteed market for their produce. By using data and technology, Complete Farmer is able to improve the efficiency of the agricultural supply chain, ensuring that farmers receive a fair price for their products, while expanding trade internationally.",
+      "source_url": "https://arafund.com/complete-farmer/'",
+      "notes": "Link redirects to Uzima Chicken"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Winich Farms",
+      "country": "Nigeria",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Is a supply chain solution that connects smallholder farmers in Nigeria to large-scale processors. The company’s platform provides farmers with access to market information, logistics support, and digital payments, ensuring that they can sell their produce quickly and efficiently. By streamlining the supply chain, Winich Farms helps farmers increase their incomes and reduce post-harvest losses.",
+      "source_url": "https://arafund.com/winich-farms/'",
+      "notes": "Link redirects to SunCulture"
+    },
+    {
+      "fund_name": "ARAF",
+      "company_name": "Ibisa",
+      "country": "Kenya, Ghana, India, the Philippines",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Is a parametric insurance company that facilitates access to weather-related insurance for smallholder farmers across Kenya, Ghana, India and the Philippines. IBISA works with insurance and re-insurance firms, as well as various distribution partners to facilitate the creation of cost-efficient parametric insurance products. IBISA supports smallholder farmers’ recovery from weather-related losses, ensuring that they are able to continue investing in their productive capacity.",
+      "source_url": "https://arafund.com/ibisa-2/'",
+      "notes": "Link redirects to SunCulture"
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "A2P",
+      "country": "Côte d'Ivoire",
+      "sector_raw": "",
+      "borrower_type_raw": "Inputs",
+      "company_website": "https://www.afriquephytoplus.com/fr/",
+      "source_text": "In 2022, AgDevCo provided a €5.5 million mezzanine debt investment to Afrique Phyto Plus (A2P), an agro-input trading and manufacturing company operating in Côte d'Ivoire, Mali, Burkina Faso, Cameroon and wider West Africa. In 2025, AgDevCo followed up with an additional €2.0 million debt investment. These investments will support A2P’s continued growth and impact, including the construction of a new warehouse, expansion into new countries, and increased working capital requirements.",
+      "source_url": "https://www.agdevco.com/our-investments/a2p/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Cashew Coast",
+      "country": "Côte d'Ivoire",
+      "sector_raw": "",
+      "borrower_type_raw": "Processing",
+      "company_website": "https://www.cashewcoast.com/",
+      "source_text": "Founded in 2019 in Côte d'Ivoire, the group owns and operates two cashew factories with a combined processing capacity of 19,000 MT/year of raw cashew nuts. It is fully traceable, organic, employs 750 people, and sources cashew nuts from over 7,000 smallholder farmers. AgDevCo’s investment will finance the expansion and upgrade of the company’s processing capacity, as well as farmer productivity enhancements, and warehousing across producing regions.",
+      "source_url": "https://www.agdevco.com/our-investments/cashew-coast/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "DekelOil",
+      "country": "Côte d'Ivoire",
+      "sector_raw": "",
+      "borrower_type_raw": "Processing",
+      "company_website": "https://dekelagrivision.com/",
+      "source_text": "AgDevCo’s investment will be used to to support DekelOIl’s Environmental, Social and Governance activities and to strenghen DekelOIl’s balance sheet through the refinancing of short and medium-term facilities, thereby freeing up cashflow for working capital and growth initiaitives.",
+      "source_url": "https://www.agdevco.com/our-investments/dekeloil/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "East Africa Magical Farms",
+      "country": "Ethiopia",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "https://www.emf-flowers.com/news/?lang=en",
+      "source_text": "EMF is a leading premium carnations producer with farms in Ethiopia and Kenya. Our $9.0m mezzanine loan will support the expansion into two further farms in Kenya enabling the company to increase its production by 40 hectares. The expansion will provide valuable employment and training opportunities for local communities in the Naivasha region, with employee numbers expected to reach 600 FTEs. The company is actively exploring the future use of sea freight to minimise its carbon footprint.",
+      "source_url": "https://www.agdevco.com/our-investments/emf/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Hatch Africa",
+      "country": "Ethiopia",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "https://hatchafrica.co/",
+      "source_text": "Hatch Africa’s vision is to make farmers healthier and wealthier. AgDevCo invested $6.5m in mezzanine financing alongside IDH Farmfit Fund to scale Hatch’s innovative business model of distributing dual-purpose breeds of day-old-chicks to millions of smallholder farmer households. The investment is into Flow Equity Africa Ventures (FEAV), the holding company for Hatch’s operations in Kenya, Ghana, and Cote d’Ivoire.",
+      "source_url": "https://www.agdevco.com/our-investments/feav/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Babator Irrigated Farming Hub (BIFH)",
+      "country": "Ghana",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo's committed investment of over $4 million has secured a 10,369-hectare 50-year land lease with the relevant authorities in a traditional land tenure environment. In order to show the yield potential of crops not yet grown commercially in the area, detailed technical studies (including soil, topography and irrigation engineering) and six seasons of crop trials have been carried out. With over seven years of project development experience, we have completed all feasibility and technical studies, developed a good relationship with the community and developed a 356-ha irrigated 'proof of concept' at the Babator Farming Company.",
+      "source_url": "https://www.agdevco.com/our-investments/babator-irrigated-farming-hub-bifh/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Tropo Farms",
+      "country": "Ghana",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://www.voltacatch.com/",
+      "source_text": "Tropo Farms is the biggest tilapia fish producer in West Africa and among the largest in Sub-Saharan Africa. Established in 1997, Tropo has developed sophisticated aquaculture practices tailored for local conditions.",
+      "source_url": "https://www.agdevco.com/our-investments/tropo/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Agris",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://www.agris.group/",
+      "source_text": "An East African agribusiness platform focussing on horticulture production and distribution. AgDevCo’s investment will support the growth of Agris’ production and distribution of high-quality herbs, vegetables, and avocados from its farms in Kenya, serving domestic and international markets.",
+      "source_url": "https://www.agdevco.com/our-investments/agris/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Agventure",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "Processing",
+      "company_website": "http://agvke.com/",
+      "source_text": "A farmer-owned Kenyan business that is leading the way in regenerative agricultural practices for non-irrigated cereal-based systems. AgDevCo’s mezzanine loan of $9.5 million will enable the company to continue to develop its canola oil production capabilities – it sells oil under the Pure Mountain brand in Kenya – allowing the company to increase its volumes purchased from out-grower farmers. It will also help to build Agventure Seed’s platform to supply high quality certified seed to farmers.",
+      "source_url": "https://www.agdevco.com/our-investments/agventure/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Evergreen Avocado Limited",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "AgDevCo’s $8.0m mezzanine loan will support the development of a 390 hectare avocado research and production hub in Naivasha. As part of the project the company will invest in a 3 Ha R&D plot for irrigation, varieties, genetics and crop protection/IPM trials, and aims to share learnings from these trials with other avocado farmers in order to further develop the sector in Kenya. At its peak, the project will create employment for about 190 people on the farm.",
+      "source_url": "https://www.agdevco.com/our-investments/evergreen-avocado-limited/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Sagana Nuts",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "Processing",
+      "company_website": "",
+      "source_text": "AgDevCo’s $1.2m loan to Sagana Nuts Limited will fund the construction of a new factory and purchase of equipment that allows the company to increase its processing capacity from 2,000MT to 3,000MT. With the expansion, Sagana will be able to source nut-in-shell macadamia from an additional c. 1,000 smallholder farmers as well as increase volumes from the existing ones. The proposed investment will create about 100 new jobs.",
+      "source_url": "https://www.agdevco.com/our-investments/sagana-nuts/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Victory Farms Limited",
+      "country": "Kenya",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://www.victoryfarmskenya.com/",
+      "source_text": "AgDevCo has provided a $4m mezzanine loan to Victory Farms, the fastest-growing fish farm in Sub-Saharan Africa. AgDevCo’s investment supports the company’s continued growth and impact, including the construction of a feed mill and expansion into Rwanda.",
+      "source_url": "https://www.agdevco.com/our-investments/victory-farms-limited/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Jacoma",
+      "country": "Malawi",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://jacomaestates.com/",
+      "source_text": "AgDevCo invested $9.6m in long term loans to develop a 1,400 ha irrigated farming hub of three macadamia farms in Northern Malawi. In addition to its farming operations, Jacoma sources chilli and paprika from local smallholder farmers which it exports globally. The funding also provided 100ha of year-round irrigation to the local community to grow chilli and food crops.",
+      "source_url": "https://www.agdevco.com/our-investments/jacoma-tropha/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Kasinthula",
+      "country": "Malawi",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "Kasinthula is a smallholder cane growing scheme based in the Chikwawa Region in Malawi, comprising of 1,429ha of irrigated sugar cane developed over a 15-year period from 1997-2012. Kasinthula is one of the first fair trade sugar producer in the region. The performance of the company has been deteriorating over the last five years and in early 2019 it ran out of funding and face imminent collapse. The loan provided by AgDevCo, together with the DFID grant and the appointment of a new professional farm management company, have allowed the company to come out of distress and continue to operate. This means that the existing number of employees have been sustained and that, following the turn-around period, dividends will resume to the farmer beneficiaries, with a multiplier effect on the surrounding community.",
+      "source_url": "https://www.agdevco.com/our-investments/kasinthula/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Dawson",
+      "country": "Mozambique",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "A Mozambique-based primary producer of macadamias and avocados. AgDevCo’s long-term investment will allow the company to expand current macadamia and avocado production to 1,000 ha over the next 5 years. The expansion will drive rural job creation as well as critical skills development while scaling local production to unlock further value chain growth opportunities.",
+      "source_url": "https://www.agdevco.com/our-investments/dowson/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "ECA",
+      "country": "Mozambique",
+      "sector_raw": "",
+      "borrower_type_raw": "Processing",
+      "company_website": "https://www.ecamoz.com/",
+      "source_text": "AgDevCo has provided both debt and equity financing, most of which has been used to establish a state-of-the-art maize mill and develop an outgrower programme. ECA is able to offer a reliable market and fair prices by securing off-take agreements and linking farmers with high-volume market players. AgDevCo has helped to achieve a guaranteed market for higher-priced maize and has introduced sustainable farming practices.",
+      "source_url": "https://www.agdevco.com/our-investments/eca/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Quinta da Bela Vista Limitada (QBV)",
+      "country": "Mozambique",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "QBV is located in Boane, Mozambique adjacent to the Pequenos Libombos dam. The project started in 2016 and 128 ha of bananas have been planted to date. AgDevCo funds will be used for refinancing existing short-term loans, working capital and capex related to the project. This will sustain the current employees and contribute to the increase of employees in the next years. Most employees come from densely populated but extremely poor areas with limited formal employment. Thus, the project is improving livelihoods in surrounding communities. The export of bananas offers Mozambique the opportunity to increase foreign exchange revenue.",
+      "source_url": "https://www.agdevco.com/our-investments/quinta-da-bela-vista-limitada-qbv/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Transurban",
+      "country": "Mozambique",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "AgDevCo’s investment helped grow Ovos de Ouro (OdO), an egg farm in Morrumbene to a 65,000 hen layer operation integrated with a feed mill in Matola, a hatchery in Boane and dedicated outlets selling its produce (feed, day old checks and eggs) in Southern Mozambique. OdO produces good quality, affordable protein in the form of eggs, a small amount of broilers as well as day-old-broiler chicks.",
+      "source_url": "https://www.agdevco.com/our-investments/transurban/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Westfalia Fruto",
+      "country": "Mozambique",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://www.westfaliafruit.com/",
+      "source_text": "AgDevCo has partnered with Westfalia South Africa to create a farm hub that will transform Mozambique into a fruit-exporting country. A 25% equity stake was taken by AgDevCo to finance land clearance and avocado orchard planting. A loan was also committed to purchase farming equipment and for working capital purposes. AgDevCo is also playing a pivotal role in the design and implementation of the outgrower scheme.",
+      "source_url": "https://www.agdevco.com/our-investments/westfalia-fruto/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Uzima Chicken",
+      "country": "Rwanda",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo’s debt investment into Uzima Chicken Limited provides the operational funding required for rapid growth as a domestic producer of day-old chicks for local smallholder farmers and, ultimately, the creation of a succesful export market. To achieve this, Uzima is investing in a new high-quality hatchery facility in Bugesera District, Rwanda, which will allow Uzima to expand production capacity to 8-10 million birds a year.",
+      "source_url": "https://www.agdevco.com/our-investments/uzima-chicken/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Agristar",
+      "country": "South Africa",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://www.agris.group/",
+      "source_text": "Agristar is a South African primary producer of macadamias with interests in (i) Global Macadamias, a South African processing plant and global marketing company and now in (ii) Jacoma, a Malawian primary producer of macadamias. AgDevCo’s investment has contributed to create a large, geographically diversified macadamia platform and will support the future growth of the macadamia industry across the region. The combination of Agristar and Jacoma will allow the transfer of knowledge and best practices between the two farming groups, provide geographic and climatic diversification for Agristar and give Jacoma greater access to Agristar's sector leading processing and marketing capabilities.",
+      "source_url": "https://www.agdevco.com/our-investments/agristar/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Skutwater",
+      "country": "South Africa",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo provided a non-controlling minority equity investment into Skutwater Boerdery (Pty) Ltd (Skutwater) to partner with Mahela Group and ZZ2 Group, two prominent farming businesses in South Africa. AgDevCo’s investment will allow the current operation to expand from a combined 190 hectares of citrus and avocadoes to 400 hectares under phase 1, with further potential to expand to 1,500 hectares under phase 2. The partnership includes the intention that Skutwater actively pursues expansion opportunities in southern Africa (outside of South Africa) with an initial focus on Mozambique.",
+      "source_url": "https://www.agdevco.com/our-investments/skutwater/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Africado",
+      "country": "Tanzania",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo’s investment will allow Africado to grow its avocado estate operations, expand the outgrower scheme and increase its pack-shed capacity to accommodate higher production from its own estate and from outgrowers. Thus, strengthening a sustainable business which provides economic benefit to the local community in terms of employment, access to market and income uplift for smallholder farmers and nationally by increasing export earnings.",
+      "source_url": "https://www.agdevco.com/our-investments/africado/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "EFAfrica Group",
+      "country": "Tanzania",
+      "sector_raw": "",
+      "borrower_type_raw": "Financial Intermediaries",
+      "company_website": "https://www.efafrica.group/",
+      "source_text": "EFAfrica Group is an equipment leasing company serving over 1,500 smallholder farmers and SMEs across Kenya, Tanzania and Zambia, many of whom lack the formality and collateral requirements sought by regular banks. Popular leases include trucks, tractors and other agricultural equipment, with a typical value of between $10,000 and $80,000.",
+      "source_url": "https://www.agdevco.com/our-investments/efafrica-group/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Pee Pee Tanzania Limited (PPTL)",
+      "country": "Tanzania",
+      "sector_raw": "",
+      "borrower_type_raw": "Processing",
+      "company_website": "https://pptl.biz/",
+      "source_text": "AgDevCo’s long-term debt investment into Pee Pee Tanzania Limited (PPTL) will allow the company to expand its manufacturing capacity, including setting up a new dedicated factory for the production of grain storage bags. The storage bags offer smallholder farmers a simple and low-cost way of storing grain and seed without using chemicals to control insect pests. They are durable and can be stored in family homes.",
+      "source_url": "https://www.agdevco.com/our-investments/pee-pee-tanzania-limited-pptl/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Nakifuma Farming Company",
+      "country": "Uganda",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "Nakifuma Farming Company is a greenfield investment founded by AgDevCo and Centurion Agricultural Partners in 2018 to establish a new 390-sow pig breeding and finishing unit on the outskirts of Kampala, Uganda. The company is one of only a handful of commercial-scale pork farms in the country. Nakifuma is using improved genetics and animal husbandry practices to deliver quality meat to satisfy the rapidly growing local demand",
+      "source_url": "https://www.agdevco.com/our-investments/nakifuma-farming-company/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "New Forests Company",
+      "country": "Uganda",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://newforests.earth/",
+      "source_text": "New Forests Company (NFC), founded in 2004, is a vertically integrated forestry company with 18,000 hectares of FSC-certified pine and eucalyptus plantations in Uganda and Tanzania. The company also manages 12,000 hectares of conservation area, promoting biodiversity and carbon sequestration.",
+      "source_url": "https://www.agdevco.com/our-investments/new-forests-company/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Uzima Chicken (Uganda)",
+      "country": "Uganda",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo’s debt investment into Uzima Uganda provides the funding required for the expansion of operations in Uganda including production of day-old chicks for local smallholder farmers. To achieve this, Uzima is investing in setting and stocking up a new farm at Buruli, expanding its hatchery capacity and increasing its feed production volume. This is expected to expand Uzima’s production capacity to 8-10 million birds a year over a 5-year period.",
+      "source_url": "https://www.agdevco.com/our-investments/uzima-uganda/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Goldenlay",
+      "country": "Zambia",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "https://goldenlay.co.zm/",
+      "source_text": "Established in 2005, Goldenlay has a fully automated layer production facility and includes backward integration into irrigated and dryland cropping. AgDevCo’s investment provides a long-term financing solution which allows the business to better finance current operations and deliver on expansion and value addition projects.",
+      "source_url": "https://www.agdevco.com/our-investments/goldenlay/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Hybrid Poultry",
+      "country": "Zambia",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo’s long-term investment will allow the company to expand its current processing capacity though a new processing plant. The increased processing will support community economic uplift through increased employment opportunities and the investment will also contribute to improved nutrition with an increased production of chicken as a cheap source of proteins.",
+      "source_url": "https://www.agdevco.com/our-investments/hybrid-poultry/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Katito Farming Enterprises Ltd",
+      "country": "Zambia",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production",
+      "company_website": "",
+      "source_text": "AgDevCo is the lead investor and developer of Katito Farm, partnering with two other shareholders. Katito produces mainly high quality seed potatoes under irrigation alongside seed potato grading and handling and cold storage infrastructure.",
+      "source_url": "https://www.agdevco.com/our-investments/katito-farming-enterprises-ltd/",
+      "notes": ""
+    },
+    {
+      "fund_name": "AgDevCo",
+      "company_name": "Saise Farming Enterprises Ltd (SFEL)",
+      "country": "Zambia",
+      "sector_raw": "",
+      "borrower_type_raw": "Primary production with added-value activity",
+      "company_website": "",
+      "source_text": "AgDevCo’s investment was used to establish a fully operational early generation seed potato farm comprising land development, staff housing, irrigation, securing of mains electricity and the purchase of farm equipment, sheds, cold stores, back up generators and processing machinery.",
+      "source_url": "https://www.agdevco.com/our-investments/saise-farming-enterprises-ltd-sfel/",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Ecakoog",
+      "country": "Côte d’Ivoire",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Ecakoog is a cooperative of cocoa farmers located in the southwest region of Cote d’Ivoire. They source, market and export cocoa beans. Ecakoog provides a variety of services to its member farmers, including technical assistance in good agricultural practices, sound management practices, and responsible social and environmental practices. They offer training and pre-payment advances to their members. The cooperative also supports women farmers to help them generate more revenue by diversifying their production to other food crops, such as maize and rice. Ecakoog has 8,233 members, and the cooperative is Fair Trade certified, with 1,763 producers certified RA and 105 certified Bio. Since its inception, Ecakoog has been locally selling cocoa until 2021, when it ventured into the international market. The cooperative growth strategy is to increase its activity in the export market.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "JKCC",
+      "country": "Uganda",
+      "sector_raw": "Coffee",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "JKCC General Supplies is a Ugandan based coffee trader which started its operations in 2017 as a coffee trader buying coffee beans from smallholder farmers and selling them to local offtakers based in Uganda. In 2020, the company secured its coffee export license and began secondary processing of coffee. Today, the Company exports about 80% of its produce to coffee trading companies and multinationals based in Europe. The Company serves as an offtaker for about 3,720 smallholder coffee farmers across 16 districts in Uganda who have been organized and formally registered as an association called Consortium of Central and Western Farmers Association. JKCC procures Fair Average Quality (FAQ) Coffee from its coffee farmers, instead of dried coffee cherries (KKiboko) – which ensures that farmers secure higher income for their coffee through value addition. Farmers typically receive about 45% higher net proceeds on selling FAQ compared to KKiboko. JKCC General Supplies is currently in the process of receiving fairtrade certification for 1,687 farmers for the first time.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Wish Kenya",
+      "country": "Kenya",
+      "sector_raw": "Macadamia",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Wish Kenya Limited processes macadamia nuts, cashew nuts, and local nuts into kernels and high-value products (cookies, macadamia oil) which it sells in international and local markets. The company works with approximately 600 smallholder farmers through a network of agents operating across the various macadamia growing regions. The Company's processing facilities are strategically located in Thika, due to its proximity to the macadamia growing regions, making it a focal point for numerous macadamia processors in the area. This effectively streamlines its operations and optimizes the efficiency of its supply chain management. The company has been in the macadamia industry for the past 13 years and has diversified its product offering to include products offered in the local market. In 2021, WKL transitioned from processing macadamia nuts for exporters to actively participating in the export of macadamia nuts. The company now processes and packages its macadamia kernels in labeled cartons for the export market. Additionally, WKL processes the by-products of the macadamia nuts into macadamia oil and sells them in the local market to supermarkets and shops.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Locafrique",
+      "country": "Senegal",
+      "sector_raw": "Multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Locafrique is a Tier-1 credit-only financial institution headquartered in Dakar, Senegal. The institution has been operating since 1977 and has grown to become one of the largest credit-only financial institutions in the UEMOA region, providing customized solutions to SMEs, producers, manufacturers/processors, and cooperatives in various sectors, such as agriculture, construction, renewable energy, and transport. Locafrique has been one of the largest financiers of the agriculture sector in Senegal. Their focus is on a value chain approach and financing diverse types of players across the agriculture value chain. Since 2017, Locafrique has primarily focused on rice (over 80% of financing), potatoes, cashews, vegetables and legumes, bananas, and livestock value chains. More than 87% of Locafrique's agri-clients are agriculture groups and associations ('GIE' - Groupes à Intérêts Economiques), with an average of about 150 members. In 2023, more than 75% of Locafrique's agriculture portfolio comprised asset financing products. Locafrique has a compelling reputation as a leading agricultural financier in a sector that is largely underserved by Tier-1 financial institutions.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "PAMECAS",
+      "country": "Senegal",
+      "sector_raw": "Multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "PAMECAS is a licensed decentralized financial institution and operates as a network of savings and credit cooperatives that focuses on socially responsible lending and inclusive finance. It is one of the largest rural focused microfinance institutions in Senegal, with a network of 28 branches and 107 service points around the country. PAMECAS plays a crucial role in providing financial services to the agricultural sector, with a gross loan portfolio of EUR 126 million, of which 21% is allocated to this sector. They have over 940,000 depositors, of which 43 are women and 100,000 active borrowers, of which 47% are women, 38% men and the rest are group borrowers. PAMECAS serves over 61,000 members organized in groups, primarily within the agriculture sector with 79% of these members (49,000) being women members. While on average, only 19 of loans within the sector are disbursed to women, over 55% of PAMECAS’ individual clients are women.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Nyesigiso",
+      "country": "Mali",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Nyesigiso is a network of rural savings and credit cooperatives operating in Mali, which collects savings from members and provides them loans and microcredits. Nyesigiso operates under the status of Decentralised Financial Entities (“Systèmes financiers Décentralisés” SFDs). Nyesigiso is headquartered in Bamako, Mali. With over 260,000 members and a presence in six of Mali’s nine regions, Nyesigiso is the country’s second largest microfinance institution with one of the largest rural farmers networks. Nyesigiso’s strategy over the past half decade has been to encourage femaleparticipation through creating loan products solely dedicated to women. TheInstitution has also focused on personnel gender diversity. As of June 2021,Nyesigiso had 278 permanent staff, 48% of whom are women.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Africa Négoce Industries (ANI)",
+      "country": "Benin",
+      "sector_raw": "Cashew",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Africa Négoce Industries (ANI) is a raw cashew nut processor based in Benin. ANI collects raw cashew nuts mainly from farmer cooperatives and processes them into cashew kernels for the export market. Smallholder farmers working with ANI benefit from a stable access to markets with constant prices, thus positively impacting their livelihoods. ANI will enter a purchasing relationship with Fédération Nationale des Producteursd'Anacarde du Bénin - composed of 40,000 smallholder farmers - the country's second-biggest cooperatives union in the cashew sector. ANI is also in the process of getting the BIO certification and aims to be certified by the end of 2023. This certification will allow ANI to benefit from certification premiums when selling organic kernels.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Grace and Mercy",
+      "country": "Nigeria",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Grace and Mercy is a non-bank microfinance institution based in Nigeria that addresses the financial needs of economically disadvantaged and marginalized women engaged in small trading and micro-productive activities. The company is therefore uniquely positioned to reach the ABC Fund’s target segment of rural women operating in the agricultural sector. As of December 2022, the number of rural borrowers is 166,417 with 99.9% of them being women. The number of permanent rural employees is 810, of whom 4% are women and 48% are young.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Promo Fruits",
+      "country": "Benin",
+      "sector_raw": "Pineapple",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Promo Fruits is one of the largest pineapple juice processors in Benin. Promo Fruits procures fresh fruits from local cooperatives to be processed into juices and nectars free of preservatives and additives.The ABC Fund has loaned Promo Fruits EUR 800,000 to cover its working capital needs, to import materials to manufacture juice cans and to purchase equipment to create polytunnels which smallholder farmers use to create optimum temperatures and humidity levels for fruit growing, leading to higher yields. This equipment is expected to boost 750 smallholder farmers’ production capacity and income. Promo Fruits provides free advice and training on harvest techniques and phytosanitary treatment for the control of plant diseases, to smallholder farmers. The ABC Fund’s support will help the company generate sufficient cash flow to continue offering these services to farmers.PromoFruits continues to expand and plans to increase the production capacity of its processing plant. As of December 2022, the company is working with 2,683 smallholder farmers, of whom 34% are women and 70% are youth.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Groupe Diakhate",
+      "country": "Mali",
+      "sector_raw": "Poultry feed",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Groupe Diakhate is a poultry feed manufacturer based in Mali. The ABC Fund has loaned Groupe Diakhate EUR 450,000 to purchase feed raw materials such as cotton seeds, soybean meal, and maize and acquire new modern and efficient equipment, including two processing machines and a solar electricity generating system to sustainably power the process. The investment will enable Groupe Diakhate to strengthen its relationships with farmer cooperatives representing 250 farmers and become more involved in its production process. It will also enable the company to increase its workforce. For the upcoming season, Groupe Diakhate plans to launch a programme of assistance to supply both fertilizers and seeds to smallholder farmers as well as mechanization services to improve their productivity.As of December 2022, the company is working with 26 cooperatives representing 250 farmers with 65% of them being women and 72% young people.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Matale Hill Brothers",
+      "country": "Uganda",
+      "sector_raw": "Coffee",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Matale Hill Brothers Ltd (MHB) is a company based in Uganda involved in the secondary processing of coffee. MHB buys coffee from smallholder farmers and traders across the coffee-growing fields of Uganda, processes the coffee, and markets it to their various off-takers. MHB sells graded and ungraded coffee to various multinationals and local companies in Uganda. The company has received a credit facility of USD 257,200 (EUR 254,000) from the ABC Fund to meet its working capital needs.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "EBO",
+      "country": "Uganda",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "EBO is a savings and credit cooperative society (SACCO) with nearly 48,000 members, which provides sustainable financial services to almost 12,000 borrowers, most of whom are smallholder farmers operating predominantly in the agriculture and food crops sector in rural Uganda. Its mission is to serve rural smallholder farmers by providing them with sustainable quality financial services that promote improved livelihoods of the rural and peri-urban poor.Out of EBO’s six branches, five are based in rural towns servicing clients engaged primarily in agriculture activities. More than half of EBO’s active borrowers are women and over 80% of the institution’s loans are deployed to groups and individuals engaged in the agriculture sector.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "YEHU",
+      "country": "Kenya",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Yehu is a credit-only microfinance institution that provides financial services to disadvantaged communities in rural Kenya. The company aims to empower rural marginalized entrepreneurs both socially and economically by enhancing access to innovative, affordable and sustainable financial solutions. The company has rapidly grown in the coastal region of Kenya in the last 15 years and successfully replicated its model in the eastern region of Kenya. The company currently serves more than 35,000 clients, almost a quarter of which are operating in agriculture, through 12 branch outlets.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Premier Credit Kenya",
+      "country": "Kenya",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Premier Credit is a credit-only microfinance institution which provides credit to individuals and SMEs in Kenya. The company’s SME clients generally own small businesses that require short-term working capital for specific expenses, at short notice and to meet an immediate business need, such as farming inputs for example. Premier Credit has an expansive network of branches, with over half of its branches located in rural areas, where a majority of households derive their income from agricultural activities.As of December 2022, Premier has over 39,000 rural borrowers, of whom 47% are women and 30% are young. The company employs over 900 people, 94% of whom are young and 65% are women.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "PEBCo",
+      "country": "Benin",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "PEBCo is one of the largest agribusiness financiers in Benin, with an existing agribusiness portfolio of over EUR 11M. It is also the third largest SFD in the country, and has over 280,000 clients, over 57% of which are women. The company provides short- and long-term loans and microcredit but also collects deposits and savings from its clients. PEBCo’s growth over the past couple of decades has been driven by its expansion in rural Benin, with 50% of its clients being based in rural areas, and it is now one of the few SFDs in the country with at least one branch in each of Benin’s twelve provinces. Over the past four years, PEBCo has steadily increased the volume and size of agribusiness loans offered to individuals, and, especially, to groups and cooperatives of farmers. As of December 2022, the number of rural borrowers of PEBCo is 26,973, of whom 71% are women. The rural portfolio represents 74% of the total loan portfolio of the institution, while the agri-portfolio represents 49%.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Success for People",
+      "country": "Ghana",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Success for People (SfP) is a Ghana-based Tier 2 deposit taking microfinance institution offering credit and savings opportunities to small and micro enterprises, groups and individuals with a special focus on smallholder farmers and women groups who have been excluded from the formal banking system. The Institution is also committed to building the capacity of entrepreneurs through training. The majority (83%) of its clients are women and 73% of its borrowers are between the ages of 24 and 35. SfP has been supported by AGRA to develop a ‘Goods Receipt Note’ product allowing farmers to store their produce in a warehouse and sell it when prices are better through the Ghana Commodity Exchange or on the spot market.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Finamiga",
+      "country": "Colombia",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Established in 2014, Finamiga has been the fastest growing microfinance institution in Colombia for the past two years. Operating in 146 municipalities, among which 38 are post-conflict zones, it has disbursed more than 30,000 loans, and has more than 10,000 active clients. As a double bottom line institution, Finamiga designs its products with a central emphasis in strengthening microbusiness and rural agriculture initiatives through productive credit loans.As of December 2022, the company is supporting 3,557 smallholder farmers with its products and services, including 40% women farmers and 44% young people. Finamiga’s clients come from diverse socioeconomic backgrounds with 32% of them living in vulnerable conditions and 9.8% in extreme poverty based on the Poverty Probability Index (PPI) Survey which is applied in every loan. Finamiga’s loans allow farmers and rural clients to increase their incomes by helping them gain efficiencies in transportation costs and distribution, enabling them to use the funds as working capital to acquire supplies for their crops, as well as increasing their capability to invest in land.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "UNACREP",
+      "country": "Benin",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Union Nationale des Caisses Rurales d’Epargne et de Prêt (‘UNACREP’)is a microfinance institutionbased in Benin, West Africa.UNACREP provides short- and long-term loans and microcredits to its members, collects deposits and savings from its members and clients and trains and builds capacity of its members. Over the past two decades, it has built a network of over 130,000 members, four of ten of whom are women. Nearly half (48%) of its borrowers are women and women-led groups. It is headquartered in Porto Novo, the capital of Benin, and has 65 branches and outlets spread around the country.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "CIDRE",
+      "country": "Bolivia",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Centro de Investigación y Desarrollo Regional (‘CIDRE IFD’)is a microfinance institution which provides financial solutions helping to improve the lives of thousands of farmers and their families in rural Bolivia. It has more than 40 years’ experience with microcredit and commercial loans, reaching more than 20,000 clients across Bolivia through 30 branches. This distribution enables CIDRE IFD to serve almost 80% of municipalities in Bolivia.The organization is the fourth financial institution in terms of loan portfolio in Bolivia and is the second largest lender for the agricultural sector. Its typical clients are small producers and farmers, with nearly one in five (18%) below the national poverty line and almost 40% of clients being women.CIDRE IFD has developed tailored solutions such as allowing farmers to present “non-conventional collateral” such as cattle, final products and machinery. This collateral has ensured financial access to those who are not in a position to secure a mortgage against their assets, or to those who are neglected by traditional banks in Bolivia. An average loan size is around USD 5,200 with average duration of 76 months.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Mali Shi",
+      "country": "Mali",
+      "sector_raw": "shea butter",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Mali Shi is a shea butter processor based in the surroundings of Bamako, Mali. Mali Shi is the first operational industrial shea butter processing plant in Mali. It produces unrefined shea butter, which is used for the food and cosmetics industries. The company plays a crucial role in the value chain, sourcing its raw materials locally and promoting local transformation into shea butter. Shea collection is an important source of income for rural communities in Mali, especially for women.Mali Shi procures raw shea nuts from women cooperatives and individual collectors based mainly in Sikasso, Ségou, Kayes and Koulikoro regions. The company also procures from local shea traders. Mali Shi seeks to structure a stronger direct supply network and reduce dependency on local traders.Currently, Mali Shi employs 106 people, of whom 72% are youth.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Bio Amandes",
+      "country": "Côte d’Ivoire",
+      "sector_raw": "shea butter",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Bio Amandes is a shea butter processor basedin the northern region of Côte d’Ivoire. Bio Amandes is the only industrial processor of the shea sector in Côte d’Ivoire, involved in both locally sourcing and producing shea butter. Through its operations, the company adds value to this sector, employs a local workforce, and sources raw materials directly from 7,300 women.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Kaworo",
+      "country": "Burkina Faso",
+      "sector_raw": "Produces grains and seeds",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Kaworo is a producer of grains (mainly maize, millet, sesame, cowpeas and sorghum) and seeds for sale locally. Kaworo’s mission is to create jobs through the development of agricultural activities in its areas of intervention. Kaworo began operations in 1981 with 7 hectares of land. The company is headquartered in Dedougou, western part of Burkina Faso. It produces the grains and seeds on its own farm and through its outgrower scheme. When the demand for its produce exceeds the supply from its farms and the outgrower scheme, it buys from other smallholder farmers outside its outgrower network to meet the demand. Under its outgrower scheme, Kaworo provides smallholder farmers with farming inputs (seeds, fertiliser, pesticides and weedicides) and mechanisation services on credit. The cost of the services is deducted from the farmers proceeds upon sales. The scheme currently has 525 outgrowers of which 28% are women and 40% are youth. The total land under cultivation by outgrowers is 1,500 Hectares. In 2019/2020, Kaworo managed to produce a total of 1 753 tons of cereals.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "EtablissementYaffa&Frères",
+      "country": "Mali",
+      "sector_raw": "Mango exporter",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "EtablissementYaffa et Frères (EYF) is one of the largest local fresh mangos exporters in Mali, and is the only company in Mali to deliver mangos directly from its packing facility to supermarkets by air freight. Its export destinations include Europe (France, Belgium, Holland, Switzerland and Germany), Maghreb, and Central Africa. The company also trades imported fish and local chicken off-season. These activities represent 10% of the company’s revenue. EYF is a member of COLEACP and as such, has benefited from technical assistance on management and certification to meet EU export specifications. EYF only purchases GLOBAL GAP and GRASP certified mangoes.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "ROCFED",
+      "country": "Côte d’Ivoire",
+      "sector_raw": "Mango producer",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "ROCFED is a fresh mango exporter based in the Northern region of Côte d’Ivoire. The company buys local fresh mangoes, and exports them to European markets. The company sources mangoes directly from smallholder farmers and through the intermediary of aggregators. ROCFED is certified by GLOBAL GAP, GRASP, and Rain Forest Alliance.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Apollo",
+      "country": "Kenya",
+      "sector_raw": "Multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Apollo is a Kenyan ag-tech which uses machine learning and automated operations technology to help small scale farmers access the resources they need to maximise their profitability. Apollo provides an optimised bundle for farmers that includes financing, farming inputs, advice and insurance. Apollo’s vertically integrated digital approach leverages machine learning and satellite data to service customers throughout the entire lifecycle, from acquisition, to credit decisions, and finally, collecting repayments. Apollo acquires customers through a variety of digital marketing channels, and onboards them through their network of field agents, which currently numbers more than 1,200 across Kenya. These agents use Apollo’s mobile app and software to onboard farmers, including collecting the GPS boundaries of their fields. Apollo then uses machine learning models to evaluate customer credit worthiness. Once approved, the farmer receives a voucher code via SMS to redeem at one of Apollo’s 350+ agro-dealer distribution partners in Kenya, who use Apollo software to manage last-mile distribution. The farmer is provided with seeds and fertilizer, instead of cash, and pays back the loan via mobile payments after harvest. The majority of Apollo’s customers farm maize, Africa’s most abundant staple food crop, but Apollo is building on previously run pilots to launch new crops and products that can enable a shift from subsistence maize farming to more profitable, commercial farming.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "ECOOKIM",
+      "country": "Côte d’Ivoire",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "The Enterprise Cooperative Kimbe (“Ecookim”) is a union of cooperatives established in 2004 in Côte d’Ivoire. Currently, Ecookim is composed of 29 cooperatives located in rural communities across 12 different provinces, mainly in the Western and Southern region of the country.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "FACTS",
+      "country": "Kenya, Uganda",
+      "sector_raw": "multi (financial services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "FACTS Advance BV provides short-term supply chain financing solutions for SMEs, agribusinesses and entrepreneurs, primarily in Kenya and Uganda.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "SOCAK KATANA",
+      "country": "Côte d’Ivoire",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Socak Katana is a cocoa cooperative based in Côte d’Ivoire and engages over 2,700 members from the three West Ivorian regions of Guemon, Cavally and Tonkpi.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "CABF",
+      "country": "Côte d’Ivoire",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "CABF is a cocoa cooperative located in Zégban in the Southern Region of Côte d’Ivoire. The cooperative started in 2004 with only 127 cocoa members, and has grown to over 2,800 farmer members. Out of them, 62% are cocoa and rubber producers and 38% are cashew nut producers.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Dragon Farming",
+      "country": "Ghana",
+      "sector_raw": "Soya",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Dragon Farming provides innovative and environmentally sustainable products to satisfy the nutritional needs of farmed animals, especially poultry and tilapia,in Ghana and beyond. Dragon Farming processes raw soya beans into soya bean meal, full fat soya and soya oil.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "Anatrans",
+      "country": "Burkina Faso",
+      "sector_raw": "Cashew nuts",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "ANATRANS is a raw cashew nuts processor based in Burkina-Faso. The company purchases raw cashew nuts from a network of farmer groups and cooperatives before sorting, drying, shelling, packaging and selling the processed products to export markets.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "ABC",
+      "company_name": "INSOTEC",
+      "country": "Ecuador",
+      "sector_raw": "multi (microfinance services)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "INSOTEC provides micro-credits to companies in the agricultural sector, in particular smallholder farmers, to improve financial inclusion among low-income or vulnerable households.",
+      "source_url": "https://agri-business-capital.com/ourinvestments.html",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Finexpar",
+      "country": "Paraguay",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "finexpar.com.py",
+      "source_text": "Finexpar is a solid financial Institution in Paraguay, founded in 1989 and regulated by the Central Bank since then. Since 2012, it has transformed from a small family business to a leader financial institution, managed by a team of highly recognized banking professionals.",
+      "source_url": "https://fondohuruma.com/en/finexpar/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Cresol",
+      "country": "Brazil",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "cresol.com.br",
+      "source_text": "The Cresol System was established in 1996 in the state of Paraná, southern Brazil, as an attempt to provide credit and other financial and non-financial services to smallholder farmers in the region. With over EUR 1,500 million in assets, Cresol is the third largest cooperative group in Brazil.",
+      "source_url": "https://fondohuruma.com/en/cresol/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Babban Gona",
+      "country": "Nigeria",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "babbangona.com",
+      "source_text": "Babban Gona is an Agribusiness in northern Nigeria that serves farmers in small groups, providing them with financing, high-quality inputs, training and market sales. In combination, these services help maize farmers reduce risk and increase their incomes.",
+      "source_url": "https://fondohuruma.com/en/babban-gona/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "ProCredito",
+      "country": "Mexico",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "procredito.com.mx",
+      "source_text": "ProCredito is a non-regulated financial company in Mexico (SOFOM) focused on serving the semi-formal SME through business loans (working capital and fixed assets) with an average loan size of EUR 28,000. It is the spin-off of ProCredit Mexico, founded by ProCredit Holding (which operates financial institutions in Eastern Europe and Latin America). It was established in Mexico in 2007 through an investment by the IADB and DOEN (Dutch Lottery Foundation) to promote SME lending.",
+      "source_url": "https://fondohuruma.com/en/procredito/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "MEGA",
+      "country": "Mexico",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "gfmega.com/en",
+      "source_text": "MEGA is an independent leasing company in Mexico, founded in 2003 and has been regulated by the CNMV and Banxico since 2016",
+      "source_url": "https://fondohuruma.com/en/mega/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "CAURIE",
+      "country": "Senegal",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "caurie-mf.com",
+      "source_text": "CAURIE was created in 1999 as a Microfinance Program between CRS1 and Caritas Senegal, becoming a supervised savings & credit cooperative in 2009. In less than 23 years, it has become the leading Microfinance Institution in social innovation (>85,000 borrowers), developing a unique “Village Banking (BVL)” group methodology to reach vulnerable women (87% borrowers; 44% live in poverty) in remote rural areas (63% clients) across 13 of 14 regions in Senegal.",
+      "source_url": "https://fondohuruma.com/en/caurie/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Microserfin",
+      "country": "Panama",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "microserfin.com",
+      "source_text": "Microserfin, a leading microfinance institution that is part of the BBVA Microfinance Foundation, focuses on financial inclusion of the most vulnerable microentrepreneurs in Panama. The institution offers productive loans, as well as microinsurance, financial literacy, technical assistance and health services.",
+      "source_url": "https://fondohuruma.com/en/microserfin/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "CFE",
+      "country": "Panama",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "cfe.com.pa",
+      "source_text": "Centro Financiero Empresarial (CFE) is one of the most inclusive MFIs in Panama, providing financial products to MSMEs and entrepreneurs at the base of the economic pyramid, the missing middle, in a country with a very fragmentated and underpenetrated microfinance market. CFE was founded in 2009 and has identified agricultural financing as the key to effectively fulfilling underserved farmers’ needs.",
+      "source_url": "https://fondohuruma.com/en/cfe/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "WayCool",
+      "country": "India",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "waycool.in",
+      "source_text": "WayCool Foods is one of India’s largest and fastest growing agribusiness companies. Focused on food development and distribution, the company leverages innovative technology to scale and manage the complex agricultural supply chain from cultivation to sale.",
+      "source_url": "https://fondohuruma.com/en/waycool/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Pahal",
+      "country": "India",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "pahalfinance.com",
+      "source_text": "Pahal is a Microfinance Institution (MFI) that provides loans to low-income households with a strong outreach to women and farmers. Launched in 2011, it is currently present in 7 states of central India with a network of 201 branches and high penetration potential. In 10 years, it has supported more than 800,000 households in marginalised communities.",
+      "source_url": "https://fondohuruma.com/en/pahal/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Crecer",
+      "country": "Bolivia",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "crecerifd.bo",
+      "source_text": "CRECER is a Bolivian IFD (Development Finance Institution) with more than 20 years of experience, focused on offering financial products to improve the quality of life of women and their families. It is the second largest institution in Bolivia by number of clients and serves the poorest areas. It also offers free trainings in financial education, technology, and cervical cancer prevention. In 2021, Crecer will begin to offer savings products and short-term deposits.",
+      "source_url": "https://fondohuruma.com/en/crecer/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Pro Mujer",
+      "country": "Bolivia",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "promujer.org.bo",
+      "source_text": "Pro Mujer Bolivia, as part of the Pro Mujer microfinance network, has been serving low-income, self-employed women all over the country for more than 30 years. Pro Mujer mainly offers community lending products, supporting and empowering women with small loans, while providing health and education services.",
+      "source_url": "https://fondohuruma.com/en/pro-mujer/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Alternativa",
+      "country": "Peru",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "alternativa.com.pe",
+      "source_text": "Alternativa’s origins date back to 1992 from a project launched by the Chamber of Commerce of Lambayeque and the Inter-American Development Bank to boost the development of micro and small enterprises. Edpyme Alternativa has focused on building a strong rural presence, aiming to provide formal financing solutions to unbanked communities in remote areas of Northern Peru.",
+      "source_url": "https://fondohuruma.com/en/alternativa/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "Norandino",
+      "country": "Peru",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "coopacnorandino.com",
+      "source_text": "Cooperativa de Ahorro y Crédito (COOPAC) Norandino is a regulated savings & credit cooperative founded in 2005 under the initiative of 24 organized farmers from the coffee segment and 3 coffee cooperatives, under the motto “For farmers, by farmers”, which it continues to adhere to today.",
+      "source_url": "https://fondohuruma.com/en/norandino/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "INSOTEC",
+      "country": "Ecuador",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "insotec-ec.com",
+      "source_text": "INSOTEC is a leading microfinance NGO with nearly 40 years’ experience and family business roots, working to reach the most vulnerable population and smallholder farmers in Ecuador.",
+      "source_url": "https://fondohuruma.com/en/insotec/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Huruma",
+      "company_name": "FACES",
+      "country": "Ecuador",
+      "sector_raw": "",
+      "borrower_type_raw": "",
+      "company_website": "faces.org.ec",
+      "source_text": "Founded in 1991, Fundación de Apoyo Comunitario y Social del Ecuador (FACES) is one of the largest microfinance institutions (NGO) in Ecuador, with the mission to contribute to the fight against poverty and unemployment in Ecuador by supporting microentrepreneurs with financial and technical resources.",
+      "source_url": "https://fondohuruma.com/en/faces/",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "African Mushroom Growers",
+      "country": "Uganda",
+      "sector_raw": "Mushrooms",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "African Mushroom Growers (AMG) is a Ugandan SME specializing in the cultivation, production, and distribution of mushrooms and mushroom-based products. Founded in 2012 by Abel Kiddu, AMG traces its origins to a family story: inspired by his mother's training in mushroom farming, Mr. Kiddu began cultivating mushrooms as a way of generating income. Over the years, AMG has established itself as a recognized player in Uganda's mushroom sector.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Ahonto",
+      "country": "Ivory Coast",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Ahonto is a cocoa cooperative in Ivory Coast. The investment from Kampani supports their processing and marketing capabilities. They work with local farmers to improve yields and sustainability.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Amaati",
+      "country": "Ghana",
+      "sector_raw": "Fonio (grain & flower)",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Amaati is a Ghanaian social enterprise whose mission is to build sustainable communities through the use of the Fonio grain, which nourishes the land, the people and society. Amaati uses the triple-bottom line approach to support landless vulnerable women in rural Savanah to revive an extinct and a neglected crop called Fonio, on marginal lands. The cultivation of Fonio and other crops supports land regeneration, and also serves as a source of income.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Bio Phyto",
+      "country": "Benin",
+      "sector_raw": "Organic Agricultural Inputs",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Bio Phyto is a company based in Benin that produces and commercialises organic fertilisers and pesticides. It is located in Allada, 50km north of Cotonou. Currently, the company employs 52 people and sources its raw material from over 2,000 smallholder farmers. Bio Phyto's organic inputs are specifically designed to increase the yields of all crops.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Byeffe Foods Ltd",
+      "country": "Uganda",
+      "sector_raw": "Agro-composite porridge flours",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Byeffe Foods is a food processing company in Uganda specializing in nutrient-dense porridge flours. Their mission is to tackle malnutrition while providing a stable market for local farmers. The company focuses on value addition for crops like pumpkins and millet.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "COOKKANZ",
+      "country": "DRC",
+      "sector_raw": "Speciality coffee and cocoa diversification",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "COOKKANZ is a cooperative based in the Democratic Republic of Congo focused on coffee and cocoa. They aim to diversify the income of smallholder farmers through improved processing. The cooperative plays a vital role in providing access to international markets.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "East Africa Fruit Company",
+      "country": "Tanzania",
+      "sector_raw": "Fruit and vegetables",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "East Africa Fruit Company is a Tanzanian social enterprise that builds a tech-enabled supply chain. They work directly with smallholder farmers to reduce post-harvest losses and increase income. The company distributes fresh produce to formal and informal retailers in urban centers.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "EasyHatch",
+      "country": "Rwanda",
+      "sector_raw": "Poultry",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "EasyHatch is a Rwandan hatchery business that provides quality day-old chicks to local farmers. They address the lack of reliable poultry inputs in the region to bolster food security. The company offers technical support to ensure the success of their farmer partners.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Greenfield Agricultural Services",
+      "country": "Ghana",
+      "sector_raw": "Cocoa, Agricultural Inputs",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Greenfield Agricultural Services is a Ghanaian company providing essential inputs to cocoa farmers. They supply fertilizers and pesticides to improve crop health and yields. The business model integrates input supply with farmer training and support.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Mambo Coffee Company Ltd",
+      "country": "Tanzania",
+      "sector_raw": "Coffee",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Mambo Coffee is a Tanzania-based exporter of specialty Arabica coffee. They work with thousands of smallholder farmers to ensure high-quality production standards. The investment supports their processing capacity and market expansion.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Mujuni",
+      "country": "Uganda",
+      "sector_raw": "Dairy/ Milk products",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Mujuni is a dairy processor in Uganda focused on high-quality milk products. They source milk from smallholder farmers, providing them with a reliable and fair market. The company aims to increase local dairy production and processing standards.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "OEL",
+      "country": "Kenya",
+      "sector_raw": "Macadamia nuts",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Orient Enterprises Limited (OEL) is a Kenyan processor of macadamia nuts for the export market. They work with a network of smallholder farmers to source raw nuts. The company is investing in modern processing equipment to improve quality and efficiency.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "OJA",
+      "country": "Benin",
+      "sector_raw": "Pineapple",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "OJA is a pineapple processor in Benin focused on value-added products like juice and dried fruit. They support local farmers by providing a stable market for their produce. The company aims to formalize the pineapple value chain in the region.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "SCAMED",
+      "country": "Ivory Coast",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "SCAMED is a cocoa cooperative in Ivory Coast that focuses on sustainable production. They provide training and inputs to their members to improve cocoa quality. The investment supports their logistical and marketing operations.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "SCOOPANAB",
+      "country": "Ivory Coast",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "SCOOPANAB is a large-scale cocoa cooperative in Ivory Coast. They aim to improve the livelihoods of their farmer members through direct market access. The company is investing in warehousing and transportation infrastructure.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Sommalife",
+      "country": "Ghana",
+      "sector_raw": "Shea nuts",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Sommalife is a Ghanaian social enterprise focused on the shea nut value chain. They work primarily with women collectors to improve their income and processing methods. The company uses technology to trace products and ensure fair trade practices.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "SOPROCOPIV",
+      "country": "Congo DRC",
+      "sector_raw": "Cocoa, Coffee, Cinchona",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "SOPROCOPIV is a multi-crop cooperative in the North Kivu region of the DRC. They specialize in the export of organic coffee and cocoa. The cooperative plays a critical role in providing economic stability in a conflict-affected area.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "SPF",
+      "country": "Rwanda",
+      "sector_raw": "Seed potato",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "SPF (Seed Potato Fund) is a Rwandan company dedicated to the production of high-quality seed potatoes. They address a critical bottleneck in the potato value chain by ensuring farmers have access to healthy seeds. The company works closely with research institutions and farmer groups.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Swatini",
+      "country": "Kenya",
+      "sector_raw": "Macadamia",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Swatini is a Kenyan agro-processor specializing in macadamia nuts. They source directly from thousands of small-scale farmers across Kenya. The investment from Kampani supports their expansion into global markets.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "UPAS",
+      "country": "Ivory Coast",
+      "sector_raw": "Cocoa",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "UPAS is a cocoa cooperative in Ivory Coast committed to sustainable and fair production. They provide technical assistance to farmers to increase their productivity. The cooperative focuses on strengthening its internal management and marketing systems.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "UNERIZ",
+      "country": "Burkina Faso",
+      "sector_raw": "Rice",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "UNERIZ is a union of rice producers in Burkina Faso. They focus on processing local paddy rice into high-quality milled rice for the domestic market. The investment supports their milling capacity and quality control measures.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Vert",
+      "country": "Kenya",
+      "sector_raw": "Fresh vegetables",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Vert is a Kenyan exporter of fresh vegetables, including green beans and peas. They manage an extensive network of smallholder farmers to ensure a year-round supply. The company is a pioneer in implementing international food safety standards in Kenya.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Yayra Glover",
+      "country": "Ghana",
+      "sector_raw": "Banana/ Plantains",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Yayra Glover is a Ghanaian social enterprise focused on organic cocoa and fruit production. They are expanding their operations into organic banana and plantain production for export. The company is known for its strong commitment to environmental sustainability.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Yeyasso",
+      "country": "Ivory Coast",
+      "sector_raw": "Cocoa & Chocolate",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Yeyasso is a cocoa cooperative in Ivory Coast that has moved up the value chain into chocolate production. They empower their members by processing their own cocoa beans into finished products. The company focuses on the premium and artisanal chocolate market.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Agropia",
+      "country": "Peru",
+      "sector_raw": "Native potatoes & chips",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Agropia is a Peruvian cooperative of smallholder farmers in the Andes. They specialize in the production and processing of native potatoes into organic chips. The cooperative promotes the conservation of potato biodiversity while increasing farmer income.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "APASEM",
+      "country": "Peru",
+      "sector_raw": "Ginger & Turmeric",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "APASEM is a Peruvian association of producers focused on organic ginger and turmeric. They export high-quality products to international markets, primarily in Europe and North America. The investment supports their processing facility and certification efforts.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "COOSEMPODA",
+      "country": "Nicaragua",
+      "sector_raw": "Vegetables & Coffee",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "COOSEMPODA is a multi-sector cooperative in Nicaragua producing vegetables and coffee. They provide their members with technical training and access to collective marketing. The cooperative aims to build resilient farming systems for smallholder producers.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "FACES Microfinanzas",
+      "country": "Ecuador",
+      "sector_raw": "Multi-crop/ Livestock",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "FACES is a microfinance institution in Ecuador that provides credit and technical assistance to rural entrepreneurs. They focus on supporting small-scale farmers involved in livestock and various crops. The investment from Kampani strengthens their agricultural lending portfolio.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "FECCEG",
+      "country": "Guatemala",
+      "sector_raw": "Coffee, Honey, Panela",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "FECCEG is a federation of smallholder cooperatives in Guatemala. They produce specialty coffee, organic honey, and whole brown sugar (panela) for export. The federation is committed to social inclusion and economic empowerment for indigenous farmers.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Najil Cab",
+      "country": "Mexico",
+      "sector_raw": "Honey",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Najil Cab is a Mexican company specializing in the production and export of high-quality organic honey. They work with Mayan beekeepers in the Yucatan Peninsula to preserve traditional practices. The company provides a direct link to international specialty markets.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Norandino",
+      "country": "Peru",
+      "sector_raw": "Coffee, Cocoa, Panela",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Norandino is a major Peruvian cooperative known for its high-quality coffee and cocoa exports. They have a strong focus on fair trade and organic certification. The investment from Kampani supports their processing infrastructure and farmer outreach programs.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Sanchirio Palomar",
+      "country": "Peru",
+      "sector_raw": "Coffee",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Sanchirio Palomar is a coffee cooperative in Peru's Chanchamayo province. They produce specialty Arabica coffee for the global market. The cooperative is investing in improved drying and milling facilities to increase product value.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Cassia Coop",
+      "country": "Indonesia",
+      "sector_raw": "Cinnamon & spices",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Cassia Coop is an Indonesian company focused on the sustainable production of cassia cinnamon. They work directly with thousands of smallholder farmers in Sumatra. The company operates its own processing center to ensure transparency and quality.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "Kampani",
+      "company_name": "Tun Yat",
+      "country": "Myanmar",
+      "sector_raw": "Agri-machinery rental",
+      "borrower_type_raw": "",
+      "company_website": "",
+      "source_text": "Tun Yat is a technology-driven agricultural service provider in Myanmar. They offer a rental platform for tractors and harvesters to smallholder farmers who cannot afford their own machinery. The company aims to mechanize small-scale farming to increase efficiency and yields.",
+      "source_url": "https://www.kampani.org/portfolio",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "4 de Octubre",
+      "country": "Ecuador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.4deoctubre.net",
+      "source_text": "4 de Octubre is a female-led savings and loans cooperative established in Ecuador in 1998 with over 7,000 borrowers.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "A Call to Business",
+      "country": "Sierra Leone",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "http://acalltobusiness.co.uk/sierra-leone",
+      "source_text": "A Call to Business (ACTB) Savings and Loan is a microfinance institution in Sierra Leone that provides financial services to low-income populations in urban and peri-urban areas. ACTB targets small, medium, and micro-traders and entrepreneurs through its primary product, the small and very small enterprise loan.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ADICLA",
+      "country": "Guatemala",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.adicla.org.gt",
+      "source_text": "ADICLA is a Guatemalan financial service provider that that supports the low-income population, serving primarily women and rural micro borrowers.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ADIGUA",
+      "country": "Guatemala",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.adigua.org",
+      "source_text": "ADIGUA is a microfinance organization supporting entrepreneurs in central and western Guatemala, with a focus on smallholder farmers and women’s groups.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ADISA",
+      "country": "Guatemala",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://adisa.org.gt",
+      "source_text": "Founded in 1991  by a group of local community leaders, Asociación para el Desarrollo Integral de San Antonio llotenango (“ADISA”) is a non profit financial service provider serving women micro entrepreneurs in the Guatemalan province of Quiché. Their mission is to provide timely, specialized and competitive financial and non-financial services promoting rural development that contributes to increasing income and improving the quality of life of borrowers and their families.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ADRA",
+      "country": "Peru",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.adra.org.pe/",
+      "source_text": "ADRA Peru is a subsidiary of the Adventist Development and Relief Agency (ADRA) International, a global humanitarian agency with the purpose of promoting social and economic development. ADRA Peru offers mainly village-banking loans to its clients with the goal of enhancing the socio-economic development of its borrowers and to improve their living conditions and self-esteem through additional services.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "AgriEvolve",
+      "country": "Uganda",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://agrievolve.com/",
+      "source_text": "AgriEvolve, an agricultural Small and Growing Business (SGB), is a coffee processor and exporter based in Western Uganda that provides a fully integrated, end to end operation to smallholder farmers that simplifies the complex coffee chain. AgriEvolve was celebrated as an outstanding performer in the region by 60Decibels in 2025, and 51% of the smallholder famers it serves are women.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Agro & Social Fund",
+      "country": "Albania",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://asf.al/en/",
+      "source_text": "Agro & Social Fund (ASF) is an Albanian financial institution with a mission to support groups that are traditionally excluded from the formal banking sector, like women, Roma communities, and the underbanked, in regions across Albania. Of the individuals comprising the management team at ASF, 83% are women.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Aldea Global",
+      "country": "Nicaragua",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://aglobal.org.ni",
+      "source_text": "Aldea Global is a Nicaraguan association whose key activity is the sourcing and exporting of premium coffee from small-scale farmers to buyers in Europe and North America. In addition, Aldea Global provides microfinance services, access to high-quality inputs, technical assistance and certification support to its associates.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Agora Microfinance Zambia",
+      "country": "Zambia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.amz.co.zm",
+      "source_text": "Agora Microfinance Zambia is a microfinance institution dedicated to serving low-income, rural households in Zambia with appropriate financial products.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Amazonas",
+      "country": "Bolivia",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "N/A",
+      "source_text": "Amazonas is a Bolivian Brazil nut company that sources nuts from rural collectors, processes them, and ships to buyers in the US and Europe. Amazonas has strong gender and environmental impacts—women account for the majority of company leadership, and Brazil nut production creates an alternative to unsustainable and illegal economic activities such as mining and timber.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Arariwa",
+      "country": "Peru",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://arariwa.org.pe/",
+      "source_text": "Arariwa is a rural-focused non-profit financial institution operating in Peru's Cusco region for more than 35 years. Arariwa maintains a strong focus on the vulnerable populations of Peru, reaching these groups through village banking methodology. All village banking clients receive financial education, and of the clients, 73% are women and 54% are rural.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Arnur Credit",
+      "country": "Kazakhstan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://arnurcredit.kz",
+      "source_text": "Arnur Credit mainly serves farmers and household plot owners and entrepreneurs in southern Kazakhstan. The majority of its borrowers live in rural areas and make a living from agriculture. The institution has flexible products tailored  to the needs of those populations and a wide network of offices to cover far away villages where employment opportunities are limited. MCE was one of the first MIVs to lend to the institution in 2010.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ASA Kenya, ASA Tanzania, ASA Uganda",
+      "country": "Kenya",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://kenya.asa-international.com",
+      "source_text": "ASA Kenya is a financial servicer provider (FSP) offering low-income female business owners small loans to start or grow businesses. Their lending approach is based on individual lending via client groups, without joint-liability. Over the last 10 years, ASA Kenya has expanded to become one of the largest FSPs in Kenya, serving 162k borrowers, 99% of which are women. ‍ASA Tanzania, one of the largest FSPs in Tanzania in terms of geographical coverage and branch network, is a financial service provider operating in Tanzania. A typical borrower is a woman (99% of clients are women) in an urban or peri-urban area engaging in small-scale trading activities. ‍ASA Uganda, similar to ASA Tanzania, has become one of the largest FSPs in Uganda, in terms of geographical coverage and branch network. As of March 2025, 100% of its clients were women and about 74% of borrowers were in rural areas.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ASEI",
+      "country": "El Salvador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://asei-sv.org/",
+      "source_text": "La Asociación Salvadoreña de Extensionistas Empresariales del INCAE (ASEI) is a local NGO based in San Salvador that aims to empower low-income entrepreneurs, especially women, by providing small loans, financial education, and healthcare services.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Asian Credit Fund",
+      "country": "Kazakhstan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://asiancreditfund.com/en",
+      "source_text": "The Asian Credit Fund (ACF) is a microfinance institution established in 1997 that provides microloans and other business services to small and growing businesses in Kazakhstan. ACF’s financial services are designed specifically to promote small and growing businesses, develop rural households sustainably, and facilitate home ownership throughout the country.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Avanza Solido",
+      "country": "Mexico",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.avanzasolido.com.mx/",
+      "source_text": "Avanza Sólido, S.A. de C.V. SOFOM, E.N.R. (“Avanza  Solido”) is a microfinance institution  headquartered  in Tuxtla Gutiérrez, Mexico, dedicated to providing financial services to underserved communities in impoverished regions of the country.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Azahar Coffee Company",
+      "country": "Colombia",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://azaharcoffee.com",
+      "source_text": "Azahar is a Colombian small business involved in the sourcing and exporting of premium specialty coffee from 5,000 small-scale farmers in post-conflict areas. Its uniquely impactful approach comes from traceability initiatives like its Sustainable Coffee Buyers Guide, which helps buyers understand price point to income ratios based on region. Additionally, Azahar promotes climate mitigation techniques like natural pest prevention, soil enrichment and water-efficiency amongst its farmers.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Baobab DRC",
+      "country": "Democratic Rep Of Congo",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://baobabgroup.com/rdc/",
+      "source_text": "Baobab DRC is a subsidiary of the Baobab Group, a leading financial inclusion network of microfinance institutions that provide a wide range of digital and mobile solutions to over half a million individuals and small enterprises across Africa and China.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "COMACO",
+      "country": "Zambia",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://itswild.org/",
+      "source_text": "Community Markets for Conservation (COMACO) is a pioneering social enterprise that works closely with rural communities across Zambia’s Luangwa Valley to promote sustainable agricultural practices with enhanced market access in a way that incentivizes forest and wildlife conservation, promotes household income and food security, and increases climate resilience for small-scale farmers.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Cooperativa Laguna de Los Condores",
+      "country": "Peru",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://coopldc.org/",
+      "source_text": "Cooperative Laguna de los Condores (Coop. LDC) is a farmers' organization, working with over 800 coffee farmers in the Amazonas region of Peru. Coop. LDC sources coffee from farmers through a network of 45 collection points, then processes and sells the product to local exporters and international buyers.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Crecer",
+      "country": "Bolivia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.crecerifd.bo:8443/BoliviaCrecerJforms/faces/inicio.xhtml",
+      "source_text": "MCE’s first client back in 2006, Crecer is a leading MFI in Bolivia that serves every region of the country with a variety of financial and non-financial services. Crecer is committed to reaching underserved populations of the country through a mix of individual and village banking loan products.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "CrediCampo",
+      "country": "El Salvador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "http://www.credicampo.com.sv/",
+      "source_text": "CrediCampo is a cooperative in El Salvador that works in collaboration with Fundación Campo, its partner foundation, to alleviate poverty and empower rural communities through access to credit and community development services.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "East Africa Fruits",
+      "country": "Tanzania",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://www.eafreshproduce.com/",
+      "source_text": "East Africa Fruits Co. is a social enterprise founded in 2015 that works to improve market access for smallholder farmers in Tanzania, increase farmers’ incomes by reducing post-harvest losses and adding value to fresh produce, and modernize agribusiness sector.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Edesa",
+      "country": "Costa Rica",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://edesacr.com/",
+      "source_text": "Edesa is a non-banking financial institution based in Costa Rica that provides financial services to rural areas to generate entrepreneurship and to progressively build up equity at the community level.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Ehtirom Plus",
+      "country": "Uzbekistan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://ehtiromplus.uz",
+      "source_text": "Ehtirom Plus is a financial service provider based in Eastern Uzbekistan with a mission to accelerate financial inclusion in rural areas of Fergana valley. In a country characterized by  low levels of financial inclusion, their impact is evident in their strong focus on underserved rural communities.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Elet Capital",
+      "country": "Kyrgyzstan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "http://www.elet.kg/",
+      "source_text": "Elet Capital, an MFI based in Bishkek, Kyrgyzstan, focuses on serving low-income rural entrepreneurs with formal financial services that would otherwise be unavailable.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Enlace",
+      "country": "El Salvador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.enlace.com.sv",
+      "source_text": "Enlace is a Salvadoran microfinance institution founded in 1998 as a collaborative social project between Catholic Relief Services, USAID, the José Simeón Cañas Central American University and other local NGOs. Enlace works primarily through group lending, granting working capital loans for productive purposes, as well as individual microloans for home improvement.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Fundación Espoir",
+      "country": "Ecuador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "http://www.espoir.org.ec/",
+      "source_text": "Fundación Espoir is a socially focused MFI in Ecuador that provides a range of financial and non-financial services to underserved communities, including individual and village banking loans, health services, and strong educations programs.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Esta Dana Ventura",
+      "country": "Indonesia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.estadanaventura.co.id/",
+      "source_text": "Esta Dana Ventura, based in the Greater Jakarta metropolitan area in Indonesia and founded in 2015, was founded to improve people’s welfare and equitable economic growth in Indonesia through supporting entrepreneurship. The FSP is strongly gender focused, supporting primarily female micro-entrepreneurs engaged in trading activities such as household goods and basic necessities.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Ethical Apparel Africa",
+      "country": "Ghana",
+      "sector_raw": "",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://www.ethicalapparelafrica.com/",
+      "source_text": "Ethical Apparel Africa (EAA) is a garment company based in Ghana, and exports garments to the US and Europe. EAA produces from its own factory, and emphasizes ethical practices, sustainability, and job creation, especially for women.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "FACES Microfinanzas",
+      "country": "Ecuador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://faces.org.ec/",
+      "source_text": "Fundación de Apoyo Comunitario y Social del Ecuador (“FACES”) is a non-profit MFI established in 1991 with the mission to provide credit and non-credit services to the under-banked population in Ecuador.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Financiera FAMA",
+      "country": "Nicaragua",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "http://www.financierafama.com.ni/",
+      "source_text": "Financiera FAMA, owned by Fundación FAMA, is a Nicaraguan MFI committed to providing financial services to underserved populations of the country with a particular focus on women.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "FINCA Armenia",
+      "country": "Armenia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.finca.am/en/",
+      "source_text": "FINCA Armenia is a branch of FINCA International providing financial services to low-income entrepreneurs in Armenia. They serve 22K+ micro and small entrepreneurs (as of 2022), with a special focus on the smallest borrowers in rural areas (58% of the clients).",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "FINCA Kosovo",
+      "country": "Kosovo",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.fincakosovo.org/",
+      "source_text": "FINCA Kosovo seeks to be the leading provider of microfinance services throughout Kosovo with a strong focus on low-income clients and micro-entrepreneurs. FINCA Kosovo is a part of the FINCA International microfinance network.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Friendship Bridge",
+      "country": "Guatemala",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.friendshipbridge.org/",
+      "source_text": "Friendship Bridge is a financial institution that operates in Guatemala with a mission to empower Guatemalan women in poverty to build better futures through access to credit and education. Friendship Bridge primarily uses the village banking methodology, complemented by non-formal education and non-financial services like health support and technical assistance. Recently, it has introduced an individual loan product. Friendship Bridge has received the award of Top 3 Performer in the LATAM Region of the 60Decibels Index.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Furuz",
+      "country": "Tajikistan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.furuz.tj",
+      "source_text": "Furuz is an financial service provider offering savings accounts, long term deposits and money exchange operations to people in the center and southern regions of Tajikistan.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Good Nature Agro",
+      "country": "Zambia",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://goodnatureagro.com/",
+      "source_text": "Good Nature Agro (GNA) invests in Zambian small-scale farmers to generate lasting income by providing technical assistance, inputs and access to a readymade market.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Humo",
+      "country": "Tajikistan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.humo.tj/en/",
+      "source_text": "HUMO is a deposit-taking MFI that maintains a strong focus on rural populations of Tajikistan, offering a range of financial services and non-financial services such as financial literacy training. HUMO has been a partner of MCE since 2008.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "IDH Microfinanciera",
+      "country": "Honduras",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.idhmicrofinanciera.hn",
+      "source_text": "Instituto de Desarrollo Hondureño (IDH) is a nonprofit microfinance institution founded in 1974 with the purpose of providing credit and non-credit services to underbanked populations in Honduras.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Imkon",
+      "country": "Uzbekistan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "N/A",
+      "source_text": "Imkon Finans (Imkon) is a small microfinance organization in Uzbekistan, located in the rural region of Andijan. MCE's due diligence revealed that 60-75% of Imkon's clients have no prior credit history, underscoring Imkon's deep reach into the communities of Andijan.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Inclusiva",
+      "country": "Peru",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.coopacinclusiva.pe",
+      "source_text": "Inclusiva is a small lending and savings cooperative operating in the rural regions of Peru since 2019. Inclusiva has a strong focus on the region’s lower income population situated in the mountainous and remote areas of Peru that are often overlooked by most of the competitors in the microfinance sector.  Quilmaná, the district where Inclusiva has its biggest portfolio, has a population of about 20K inhabitants, for whom Inclusiva is the only financing option.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Inka Moss",
+      "country": "Peru",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "http://inkamoss.com/",
+      "source_text": "Inka Moss is a social enterprise that works with communities in the Peruvian Andes to source, process, and export moss that naturally grows in the region. The company incorporates members of these communities as suppliers in its value chain, providing technical assistance and education to ensure sustainable harvesting practices and increased incomes.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Juhudi Kilimo",
+      "country": "Kenya",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://juhudikilimo.com",
+      "source_text": "Juhudi Kilimo is a financial service provider serving smallholder farmers in Kenya. Juhudi finances specific agricultural assets that offer immediate and sustainable income for farmers. Almost 100% of their 75K borrowers live in rural areas and 69% are female, with loans branching out from dairy to other value chains like maize, bananas and coffee.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "LAPO Sierra Leone",
+      "country": "Sierra Leone",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://lapo-sl.org",
+      "source_text": "Lift Above Poverty Organization Sierra Leone (LAPO SL) is a microfinance institution that seeks to give its clients access to flexible financial services in order to empower women to challenge age-long customs and traditions that constrain their access to economic opportunity.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Lazika Capital",
+      "country": "Georgia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.lazikacapital.ge",
+      "source_text": "Lazika Capital is a Georgian microfinance institution that targets small enterprises in rural and semi-urban regions to promote economic development through the provision of financial services, primarily business and agriculture loans.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "LOLC Cambodia",
+      "country": "Cambodia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "N/A",
+      "source_text": "LOLC Cambodia is a leading microfinance institution which was founded in 1994. Today the organization has grown to serve more than hundreds of thousands of rural Cambodians with micro loans and savings accounts.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "LOLC Ventura Indonesia",
+      "country": "Indonesia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.lolc.com/ventura",
+      "source_text": "LOLC Ventura is an Indonesian financial service provider that supports microenterprises in rural areas where financial inclusion is limited. The provider uses a group loan methodology to serve its more than 75,000 customers, a group made up of 100% rural women.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Maxima",
+      "country": "Cambodia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.maxima.com.kh/home-en/",
+      "source_text": "MAXIMA Microfinance Plc. has been a client of MCE since 2022. The organization recently launched a new digital loan product that targets hard-to-reach borrowers through referral agents that live in rural communities. The organization serves more than 8,000 borrowers, of which 80% are women, and 83% live outside the capital city.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "MiCredito",
+      "country": "Nicaragua",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.micredito-es.com",
+      "source_text": "MiCrédito is a non-bank microfinance institution serving customers at the bottom of the socioeconomic pyramid in urban and rural Nicaragua.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Micreditoya",
+      "country": "Colombia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://micreditoya.com.co/nosotros/",
+      "source_text": "Micreditoya Microfinanciera S.A.S. (“Micreditoya”) is an MFI with the mission to serve the basis of the pyramid in the South of Colombia with responsibility and transparency, which it does by offering small loans to both urban and rural borrowers seeking to develop their businesses, improve their housing conditions, or invest in their families’ education.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Microinvest",
+      "country": "Moldova",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://microinvest.md",
+      "source_text": "Microinvest is a microfinance institution that contributes to the economic and social development of Moldova by offering responsible and transparent lending primarily in the form of business loans, agriculture loans, and small loans.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Norandino",
+      "country": "Peru",
+      "sector_raw": "Agriculture Value Chain",
+      "borrower_type_raw": "SGB",
+      "company_website": "https://coopnorandino.com.pe/",
+      "source_text": "Cooperativa Agraria Norandino Ltda (Norandino) is one of Peru's leading agro-industrial cooperatives, operating in northern Peru. Norandino collects, processes, and exports a variety of products, primarily coffee, cocoa beans, cocoa paste, and panela, to international buyers in Europe, the US, and Canada. Norandino has been active for over thirty years and is distinguished by its strong social and environmental commitment, prioritizing certified and high quality products (97% of its exports were certified as of 2024).",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Oxus Tajikistan",
+      "country": "Tajikistan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.oxus.tj/index.php/en/",
+      "source_text": "Oxus Tajikistan is an enterprise engaged in providing financial services to the working poor and the unbanked in Tajikistan. OXUS is dedicated to creating and providing the most efficient microfinance services while improving the sustainable livelihoods of its customers through  green financing initiatives and supporting rural borrowers.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "PADECOMSM",
+      "country": "El Salvador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://padecomcredito.com/",
+      "source_text": "PADECOMSM Crédito is a microfinance cooperative in El Salvador that offers working capital financing to rural micro-borrowers for agricultural and commercial purposes, as well as home improvement loans and micro life insurance. Its client base consists of 50% women and 69% rural.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "ProCredito",
+      "country": "Mexico",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.procredito.com.mx",
+      "source_text": "ProCredito is a high-impact lender serving micro-, small- and medium-size enterprises in Mexico. Their strong gender and environmental policies are monitored with internal metric reporting, with a focus on loans towards clean transportation and water-wise agriculture.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Pro Mujer Nicaragua",
+      "country": "Nicaragua",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://promujer.org/ni/es/",
+      "source_text": "Pro Mujer Nicaragua is a nonprofit financial services provider focusing on women, and is a market leader in village banking. It has been working to advance gender equality in Nicaragua for more than 27 years through financial inclusion, health and wellbeing, and training opportunities by integrating a strong gender lens in the design of products and services.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Renesans",
+      "country": "Uzbekistan",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://renesans.uz/",
+      "source_text": "Renesans is an MFI based in Tashkent, the capital of Uzbekistan, which provides loan products that targets underserved populations, primarily self-employed entrepreneurs active in trade in local markets, services, small-scale agriculture, and other consumer-related purposes.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Transcapital",
+      "country": "Mongolia",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.transcapital.mn/",
+      "source_text": "Transcapital is a medium-sized MFI that provides access to financial services in the poor suburbs of Ulaanbaatar and rural areas of Mongolia.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Umoja Uganda",
+      "country": "Uganda",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://umoja-international.com/country/uganda",
+      "source_text": "Umoja MFI is a Ugandan microfinance institution focused on providing financial services to women in rural Uganda. With 100% female clients, 88% of whom are located in rural areas, Umoja showcases outstanding impact through a group loan model. As of June 2024, the average loan size was $93.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "Vision Fund Ecuador",
+      "country": "Ecuador",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.visionfund.ec",
+      "source_text": "Vision Fund Ecuador was originally established as the foundation Fondo de Desarrollo Microempresarial (FODEMI) in 1995 before growing to become a part of Vision Fund International and operating as a Bank specializing in Microcredit. It manages both the individual methodology and the Village banking methodology, differentiating itself in the sector by focusing on the agriculture sector and targeting vulnerable populations.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "VFI International, KosInvest",
+      "country": "Kosovo",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "https://www.visionfund.org/",
+      "source_text": "Vision Fund International (VFI) is the microfinance arm of World Vision International, a global development NGO. VFI operates through 25 microfinance institutions in four different regions: Africa, Asia, Latin America and the Caribbean, and Eastern Europe and the Caucasus. With 342 branches and 6,900 employees worldwide, VFI has provided numerous jobs and capital to populations in need. KosInvest is the subsidiary in Kosovo of VFI and focuses its outreach to children of low-income families. KosInvest plays a crucial role in Kosovo, offering smaller loans to microentrepreneurs that have little to no credit record.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    },
+    {
+      "fund_name": "MCE",
+      "company_name": "VisionFund México",
+      "country": "Mexico",
+      "sector_raw": "Microfinance",
+      "borrower_type_raw": "FSP",
+      "company_website": "http://www.vfmexico.net",
+      "source_text": "VisionFund México is a microfinance institution offering loans, insurance, and training primarily to women micro entrepreneurs in 8 of the 10 poorest states in Mexico. Serving as a microcredit arm of the World Vision Group, VisionFund México lays the foundation for local economies to thrive in sustainable communities.",
+      "source_url": "https://www.mcesocap.org/portfolio-list#list",
+      "notes": ""
+    }
+  ]
+}
