@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agricultural Investment Fund Ecosystem</title>
+<style>
+  :root {
+    --bg:#f4f1ec; --surface:#fff; --border:#d8d2c8;
+    --text:#1a1714; --text2:#3d3830; --text3:#80786e; --text4:#b0a99f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;display:flex;flex-direction:column;}
+  #topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+  #topbar h1{font-size:14px;font-weight:700;white-space:nowrap;}
+  #topbar .sub{font-size:11px;color:var(--text3);white-space:nowrap;}
+  .nav-link{font-size:11px;padding:3px 10px;border-radius:20px;border:1.5px solid var(--border);cursor:pointer;background:var(--bg);color:var(--text3);font-weight:500;text-decoration:none;white-space:nowrap;transition:all .12s;margin-left:auto;}
+  .nav-link:hover{border-color:#aaa;color:var(--text2);}
+  #filter-bar{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+  .filt{font-size:11px;padding:3px 10px;border-radius:20px;border:1.5px solid transparent;cursor:pointer;transition:all .12s;white-space:nowrap;font-weight:500;display:flex;align-items:center;gap:5px;}
+  .filt .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .filt.cat-off{background:var(--bg);border-color:var(--border);color:var(--text3);}
+  .filt.cat-off .dot{opacity:.35;}
+  .filt.cat-on{color:#fff;}
+  .filt.all-on{background:var(--text);color:#fff;border-color:var(--text);}
+  .filt.all-off{background:var(--bg);border-color:var(--border);color:var(--text3);}
+  #main{flex:1;display:flex;overflow:hidden;}
+  #canvas{position:relative;overflow:hidden;cursor:grab;background:var(--bg);flex:1;min-width:0;}
+  #canvas:active{cursor:grabbing;}
+  svg#graph{width:100%;height:100%;display:block;}
+  .node-g{cursor:pointer;}
+  .node-g circle{transition:filter .15s;}
+  .node-g:hover circle{filter:brightness(.84);}
+  .node-g.dimmed{opacity:.07;pointer-events:none;}
+  .edge{stroke-width:1.4;stroke-dasharray:4 4;opacity:.4;fill:none;}
+  .edge.dimmed{opacity:.03;}
+  .edge.lit{stroke-dasharray:none;opacity:.85;stroke-width:2.2;}
+  #panel{background:var(--surface);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;width:320px;flex-shrink:0;}
+  #panel-scroll{flex:1;overflow-y:auto;padding:16px 16px 28px;display:none;}
+  #panel-empty{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;color:var(--text4);font-size:13px;line-height:1.7;}
+  .p-cat{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+  .p-name{font-size:17px;font-weight:700;line-height:1.25;margin-bottom:10px;}
+  .p-section{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--border);}
+  .ptable{width:100%;border-collapse:collapse;margin-bottom:8px;}
+  .ptable td{padding:3.5px 0;font-size:11.5px;border-bottom:1px solid #f0ede8;vertical-align:top;}
+  .ptable tr:last-child td{border-bottom:none;}
+  .ptable td:first-child{color:var(--text3);width:44%;}
+  .ptable td:last-child{font-weight:500;text-align:right;}
+  .p-note{font-size:11px;color:var(--text2);line-height:1.55;font-style:italic;margin-bottom:8px;}
+  .p-source{font-size:10px;color:var(--text4);line-height:1.5;margin-top:4px;}
+  .cap-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid #f0ede8;font-size:11.5px;}
+  .cap-row:last-child{border-bottom:none;}
+  .cap-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+  .cap-investor{flex:1;color:var(--text2);}
+  .cap-amount{color:var(--text3);font-size:10.5px;font-family:monospace;}
+  .cap-tranche{font-size:10px;color:var(--text4);}
+  .portfolio-toggle{width:100%;padding:7px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;text-align:left;font-family:inherit;font-size:11.5px;font-weight:500;color:var(--text2);display:flex;justify-content:space-between;align-items:center;transition:background .12s;margin-top:10px;margin-bottom:6px;}
+  .portfolio-toggle:hover{background:#ece8e0;}
+  .portfolio-list{display:none;}
+  .portfolio-list.open{display:block;}
+  .portfolio-item{padding:4px 0;border-bottom:1px solid #f0ede8;font-size:11px;}
+  .portfolio-item:last-child{border-bottom:none;}
+  .portfolio-item .co-name{font-weight:500;color:var(--text2);}
+  .portfolio-item .co-meta{font-size:10px;color:var(--text3);margin-top:1px;}
+  .portfolio-item a{color:#3a7ac8;font-size:10px;text-decoration:none;}
+  .portfolio-item a:hover{text-decoration:underline;}
+  .conn-chip{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:4px;padding:2px 7px;cursor:pointer;border:1px solid transparent;transition:filter .12s;margin:0 3px 3px 0;}
+  .conn-chip:hover{filter:brightness(.86);}
+  .source-links a{display:block;font-size:10px;color:#3a7ac8;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.9;}
+  .source-links a:hover{text-decoration:underline;}
+  #research-wrap{border-top:1px solid var(--border);padding:10px 12px;flex-shrink:0;}
+  .research-bar{display:flex;gap:8px;align-items:center;}
+  #researchInput{flex:1;border:1px solid var(--border);background:var(--bg);border-radius:4px;padding:6px 10px;font-family:inherit;font-size:12px;color:var(--text);outline:none;}
+  #researchInput:focus{border-color:var(--text3);}
+  #researchInput::placeholder{color:var(--text4);}
+  #researchBtn{background:var(--text);color:#fff;border:none;border-radius:4px;padding:6px 12px;font-family:inherit;font-size:11.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:opacity .15s;}
+  #researchBtn:hover{opacity:.78;}
+  #researchBtn:disabled{opacity:.38;cursor:not-allowed;}
+  #researchStatus{font-size:10.5px;color:var(--text3);margin-top:5px;min-height:16px;}
+  #researchStatus.err{color:#c0392b;}
+  #researchStatus.ok{color:#27ae60;}
+  .spin{display:inline-block;animation:spin .9s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .disclaimer{font-size:9.5px;color:var(--text4);padding:5px 14px;text-align:center;border-top:1px solid #ece7de;font-style:italic;flex-shrink:0;background:var(--surface);}
+  #tooltip{position:absolute;background:rgba(26,23,20,.88);color:#fff;font-size:12px;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .1s;z-index:50;max-width:220px;}
+  #zoom-hint{position:absolute;bottom:12px;right:12px;font-size:11px;color:var(--text3);background:rgba(255,255,255,.85);border:1px solid var(--border);border-radius:6px;padding:4px 9px;pointer-events:none;}
+
+  /* Download dropdown */
+  .dl-wrap{position:relative;display:inline-block;}
+  .dl-btn{font-size:11px;padding:3px 10px;border-radius:20px;border:1.5px solid var(--border);cursor:pointer;background:var(--bg);color:var(--text3);font-weight:500;white-space:nowrap;transition:all .12s;}
+  .dl-btn:hover{border-color:#aaa;color:var(--text2);}
+  .dl-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;background:var(--surface);border:1px solid var(--border);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.10);padding:4px;z-index:50;min-width:180px;}
+  .dl-menu.open{display:block;}
+  .dl-item{display:block;width:100%;text-align:left;font-family:inherit;font-size:12px;padding:6px 10px;border:none;background:none;cursor:pointer;color:var(--text2);border-radius:4px;white-space:nowrap;}
+  .dl-item:hover{background:var(--bg);}
+
+  /* Capital stack chart */
+  .cap-chart{margin:10px 0 4px;border-radius:4px;overflow:hidden;}
+  .cap-chart-bar{display:flex;height:18px;width:100%;border-radius:3px;overflow:hidden;}
+  .cap-chart-seg{height:100%;transition:opacity .15s;cursor:default;}
+  .cap-chart-seg:hover{opacity:.8;}
+  .cap-chart-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:5px;}
+  .cap-chart-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text3);}
+  .cap-chart-leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+  .cap-chart-label{font-size:9px;color:var(--text4);margin-bottom:3px;}
+
+  .cluster-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;pointer-events:none;opacity:.45;}
+
+  /* ── Mobile ── */
+  @media (max-width: 700px) {
+    #panel { display: none !important; }
+    #resizer { display: none !important; }
+    #topbar { padding: 6px 10px; gap: 6px; }
+    #topbar h1 { font-size: 13px; }
+    #topbar .sub { display: none; }
+    #filter-bar { display: none; }
+    #group-toggle { display: none; }
+    #search { display: none; }
+    #zoom-hint { display: none; }
+    body { overflow: hidden; }
+
+    /* Mobile modal for node detail */
+    #mobile-modal {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-radius: 16px 16px 0 0;
+      max-height: 65vh;
+      overflow-y: auto;
+      z-index: 100;
+      padding: 16px 16px 32px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.12);
+    }
+    #mobile-modal.open { display: block; }
+    #mobile-modal-close {
+      position: sticky; top: 0;
+      float: right; font-size: 18px; cursor: pointer;
+      color: var(--text3); background: var(--surface);
+      border: none; padding: 0 0 8px 8px;
+      line-height: 1;
+    }
+    #mobile-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.3);
+      z-index: 99;
+    }
+    #mobile-overlay.open { display: block; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="topbar">
+  <div>
+    <h1>Agricultural Investment Fund Ecosystem</h1>
+    <div class="sub">Capital flows: investors → funds → portfolio companies</div>
+  </div>
+  <div id="filter-bar"></div>
+  <button id="group-toggle" class="nav-link" style="margin-left:0">⬡ Group by type</button>
+  <input id="search" type="search" placeholder="Search nodes…" autocomplete="off" style="font-size:11px;padding:3px 10px;border-radius:20px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);outline:none;width:160px;">
+  <div class="dl-wrap">
+    <button class="dl-btn" id="dl-btn">↓ Download data</button>
+    <div class="dl-menu" id="dl-menu">
+      <button class="dl-item" onclick="downloadCSV('funds')">Funds (CSV)</button>
+      <button class="dl-item" onclick="downloadCSV('investments')">Capital relationships (CSV)</button>
+    </div>
+  </div>
+  <a href="https://ancient-wave-403f.songbaelee.workers.dev/" class="nav-link" target="_blank">→ Positioning map</a>
+</div>
+<div id="main">
+  <div id="canvas">
+    <svg id="graph"><g id="g-clabels"></g><g id="g-edges"></g><g id="g-nodes"></g></svg>
+    <div id="tooltip"></div>
+    <div id="zoom-hint">scroll to zoom · drag to pan</div>
+  </div>
+  <div id="resizer" style="width:5px;background:var(--border);cursor:col-resize;flex-shrink:0;transition:background .15s;"></div>
+  <div id="panel">
+    <div id="panel-empty">Click any node to see details</div>
+    <div id="panel-scroll"></div>
+    <div id="research-wrap">
+      <div class="research-bar">
+        <input id="researchInput" type="text" placeholder="Add a fund by name…" />
+        <button id="researchBtn">Research ↗</button>
+      </div>
+      <div id="researchStatus"></div>
+    </div>
+  </div>
+</div>
+
+<div id="mobile-overlay"></div>
+<div id="mobile-modal">
+  <button id="mobile-modal-close">✕</button>
+  <div id="mobile-content"></div>
+</div>
+
+<div class="disclaimer">Data sourced from public records, fund websites, and annual reports. Gaps marked where information is not publicly disclosed.</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const API_KEY="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";
+const CATEGORIES={"Fund":{label:"Fund",color:"#c4633a",bg:"#fdeee6",text:"#7a3518"},"DFI":{label:"DFI",color:"#3a6fa0",bg:"#e6f0f8",text:"#1e4a6e"},"Bilateral Donor":{label:"Bilateral Donor",color:"#3a8050",bg:"#e6f4ec",text:"#1e5430"},"Foundation":{label:"Foundation",color:"#7a4fa0",bg:"#f0e8f8",text:"#4a2870"},"Commercial":{label:"Commercial",color:"#a07030",bg:"#f8f0e0",text:"#6a4a18"},"NGO":{label:"NGO",color:"#3a7a6a",bg:"#e6f4f0",text:"#1e5448"},"Corporate":{label:"Corporate",color:"#6a7a3a",bg:"#f0f4e0",text:"#3a4a18"}};
+const TRANCHE_COLOR={"Senior":"#3a6fa0","Junior":"#c48030","Mezz / Junior":"#c48030","First Loss":"#c04040"};
+function clusterCenters(W,H){return{"Fund":{x:W*.50,y:H*.46},"DFI":{x:W*.80,y:H*.25},"Bilateral Donor":{x:W*.20,y:H*.25},"Foundation":{x:W*.80,y:H*.68},"NGO":{x:W*.20,y:H*.68},"Commercial":{x:W*.84,y:H*.46},"Corporate":{x:W*.84,y:H*.60}};}
+
+// ── Data loaded from ecosystem_data.json ─────────────
+let FUNDS=[], INVESTORS=[], INVESTMENTS=[], PORTFOLIO={};
+let invById={}, fundById={}, organizations=[], connections=[];
+
+let nodes,links,sim,edgeSel,nodeSel;
+let selectedId=null,activeFilter="all",W,H;
+
+function init(){
+  const wrap=document.getElementById("canvas");
+  W=wrap.clientWidth; H=wrap.clientHeight;
+  document.getElementById("researchBtn").addEventListener("click",()=>{const q=document.getElementById("researchInput").value.trim();if(q)researchFund(q);});
+  document.getElementById("researchInput").addEventListener("keydown",e=>{if(e.key==="Enter"){const q=e.target.value.trim();if(q)researchFund(q);}});
+  // Show loading state
+  document.getElementById("panel-empty").textContent="Loading data…";
+  fetch("ecosystem_data.json")
+    .then(r=>{if(!r.ok)throw new Error("Could not load ecosystem_data.json — make sure it is in the same folder as this HTML file.");return r.json();})
+    .then(data=>{
+      FUNDS=data.funds||[];
+      INVESTORS=data.investors||[];
+      INVESTMENTS=data.investments||[];
+      // Build portfolio lookup
+      (data.portfolio_companies||[]).forEach(p=>{
+        if(!PORTFOLIO[p.fund_name])PORTFOLIO[p.fund_name]=[];
+        PORTFOLIO[p.fund_name].push(p);
+      });
+      // Build lookup maps
+      invById=Object.fromEntries(INVESTORS.map(i=>[i.id,i]));
+      fundById=Object.fromEntries(FUNDS.map(f=>[f.id,f]));
+      // Build organizations and connections
+      organizations=[
+        ...FUNDS.map(f=>({...f,category:"Fund",nodeType:"fund",r:14+Math.sqrt((f.aum_usd_millions||10)/340)*20})),
+        ...INVESTORS.filter(i=>new Set(INVESTMENTS.map(x=>x.investor_id)).has(i.id)).map(i=>({...i,category:i.investor_type,nodeType:"investor",r:9}))
+      ];
+      connections=INVESTMENTS.map(inv=>({from:inv.investor_id,to:inv.fund_id,amount:inv.amount_usd_millions,tranche:inv.tranche,source_url:inv.source_url,source_date:inv.source_date}));
+      document.getElementById("panel-empty").textContent="Click any node to see details";
+      buildFilters();
+      buildGraph();
+    })
+    .catch(err=>{
+      document.getElementById("panel-empty").innerHTML=`<span style="color:#c0392b;font-size:12px">${err.message}</span>`;
+    });
+}
+
+function buildFilters(){
+  const bar=document.getElementById("filter-bar");
+  const mkBtn=(cat,label,color)=>{
+    const b=document.createElement("button");
+    b.className=cat==="all"?"filt all-on":"filt cat-on";
+    b.dataset.cat=cat;
+    if(cat!=="all"){b.style.background=color;b.style.borderColor=color;b.innerHTML=`<span class="dot" style="background:#fff"></span>${label}`;}
+    else b.textContent="All";
+    b.addEventListener("click",()=>setFilter(cat));
+    bar.appendChild(b);
+  };
+  mkBtn("all","All","");
+  Object.entries(CATEGORIES).forEach(([id,c])=>mkBtn(id,c.label,c.color));
+}
+
+function setFilter(id){
+  if(id==="all"){selectedId=null;clearPanel();}
+  activeFilter=id;
+  document.querySelectorAll(".filt").forEach(b=>{
+    const bid=b.dataset.cat;
+    if(bid==="all"){b.className="filt "+(id==="all"?"all-on":"all-off");}
+    else{const c=CATEGORIES[bid];if(id==="all"||id===bid){b.className="filt cat-on";b.style.background=c.color;b.style.borderColor=c.color;b.style.color="#fff";}else{b.className="filt cat-off";b.style.background="";b.style.borderColor="";b.style.color="";}}
+  });
+  applyHighlight();
+}
+
+function buildGraph(){
+  const cc=clusterCenters(W,H);
+  nodes=organizations.map(o=>{const c=cc[o.category]||{x:W/2,y:H/2};return{...o,x:c.x+(Math.random()-.5)*80,y:c.y+(Math.random()-.5)*80};});
+  const byId=Object.fromEntries(nodes.map(n=>[n.id,n]));
+  links=connections.filter(c=>byId[c.from]&&byId[c.to]).map(c=>({...c,source:byId[c.from],target:byId[c.to]}));
+
+  if(sim)sim.stop();
+  sim=d3.forceSimulation(nodes)
+    .force("link",d3.forceLink(links).id(d=>d.id).distance(d=>(d.source.r+d.target.r)*2.8).strength(0.22))
+    .force("charge",d3.forceManyBody().strength(d=>d.category==="Fund"?-600:-160))
+    .force("cluster",alpha=>{const c=clusterCenters(W,H);nodes.forEach(d=>{const p=c[d.category];if(!p)return;d.vx+=(p.x-d.x)*alpha*.12;d.vy+=(p.y-d.y)*alpha*.12;});})
+    .force("collide",d3.forceCollide(d=>d.r+(d.category==="Fund"?16:9)).strength(0.85))
+    .alphaDecay(0.016).on("tick",tick);
+
+  const svg=d3.select("#graph");
+  const defs=svg.select("defs").empty()?svg.append("defs"):svg.select("defs");
+  defs.selectAll("*").remove();
+  const mkArrow=(id,color,opacity)=>{defs.append("marker").attr("id",id).attr("viewBox","0 0 8 8").attr("refX",8).attr("refY",4).attr("markerWidth",5).attr("markerHeight",5).attr("orient","auto").append("path").attr("d","M0,0 L8,4 L0,8 Z").attr("fill",color).attr("opacity",opacity);};
+  mkArrow("arrow-default","#c0b8b0",0.6);
+  mkArrow("arrow-lit","#6a5a4a",0.9);
+
+  if(!svg.select(".zoom-g").size()){
+    svg.call(d3.zoom().scaleExtent([.18,4]).on("zoom",e=>{
+      svg.select("#g-clabels").attr("transform",e.transform);
+      svg.select("#g-edges").attr("transform",e.transform);
+      svg.select("#g-nodes").attr("transform",e.transform);
+    }));
+  }
+
+  // Cluster labels
+  const cl=svg.select("#g-clabels"); cl.selectAll("*").remove();
+  Object.entries(CATEGORIES).forEach(([cat,c])=>{
+    const p=clusterCenters(W,H)[cat]; if(!p)return;
+    cl.append("text").attr("class","cluster-label").style("display","none").attr("x",p.x).attr("y",p.y-(cat==="Fund"?80:52)).attr("text-anchor","middle").attr("fill",c.color).text(c.label.toUpperCase());
+  });
+
+  edgeSel=d3.select("#g-edges").selectAll("path.edge").data(links,d=>`${typeof d.source==="object"?d.source.id:d.source}-${typeof d.target==="object"?d.target.id:d.target}`).join("path")
+    .attr("class","edge")
+    .attr("stroke",d=>d.tranche?(TRANCHE_COLOR[d.tranche]||"#c0b8b0"):"#c0b8b0")
+    .attr("stroke-width",d=>d.amount?Math.max(1,Math.min(3.5,d.amount/40)):1.2)
+    .attr("marker-end","url(#arrow-default)");
+
+  nodeSel=d3.select("#g-nodes").selectAll("g.node-g").data(nodes,d=>d.id).join("g").attr("class","node-g")
+    .call(d3.drag().on("start",(e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y;}).on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;}).on("end",(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
+    .on("click",(e,d)=>{e.stopPropagation();selectNode(d.id);})
+    .on("mouseenter",(e,d)=>showTip(e,d.full_name||d.name))
+    .on("mousemove",e=>moveTip(e)).on("mouseleave",hideTip);
+
+  nodeSel.append("circle").attr("r",d=>d.r).attr("fill",d=>CATEGORIES[d.category]?.bg||"#eee").attr("stroke",d=>CATEGORIES[d.category]?.color||"#aaa").attr("stroke-width",d=>d.category==="Fund"?2:1.5);
+
+  nodeSel.append("text").attr("text-anchor","middle").attr("pointer-events","none")
+    .attr("font-family","'IBM Plex Sans',system-ui,sans-serif").attr("font-weight","600")
+    .attr("fill",d=>CATEGORIES[d.category]?.text||"#333")
+    .each(function(d){
+      const el=d3.select(this);
+      const label=d.name||d.id;
+      const fs=d.category==="Fund"?Math.max(9,Math.min(12,d.r*.52)):8.5;
+      el.attr("font-size",fs);
+      if(d.category==="Fund"){
+        el.attr("dominant-baseline","central");
+        const words=label.split(" ");
+        const maxW=d.r*1.7;
+        let lines=[],cur="";
+        words.forEach(w=>{const test=cur?cur+" "+w:w;if(test.length*fs*.55>maxW&&cur){lines.push(cur);cur=w;}else cur=test;});
+        if(cur)lines.push(cur);
+        const lh=fs*1.25;
+        lines.forEach((line,i)=>el.append("tspan").attr("x",0).attr("dy",i===0?-((lines.length-1)*lh/2):lh).text(line));
+      } else {
+        el.attr("dominant-baseline","hanging").attr("dy",d.r+3).text(label.length>16?label.slice(0,14)+"\u2026":label);
+      }
+    });
+
+  svg.on("click",()=>{selectedId=null;clearPanel();applyHighlight();});
+
+  function tick(){
+    const pad=20;
+    nodes.forEach(d=>{d.x=Math.max(pad+d.r,Math.min(W-pad-d.r,d.x));d.y=Math.max(pad+d.r,Math.min(H-pad-d.r,d.y));});
+    edgeSel.attr("d",d=>{const dx=d.target.x-d.source.x,dy=d.target.y-d.source.y,dist=Math.sqrt(dx*dx+dy*dy)||1,off=d.target.r+6;return`M${d.source.x},${d.source.y} L${d.target.x-(dx/dist)*off},${d.target.y-(dy/dist)*off}`;});
+    nodeSel.attr("transform",d=>`translate(${d.x},${d.y})`);
+  }
+
+  const wrap=document.getElementById("canvas");
+  if(!wrap._resizeObserver){wrap._resizeObserver=new ResizeObserver(()=>{W=wrap.clientWidth;H=wrap.clientHeight;sim.alpha(.25).restart();});wrap._resizeObserver.observe(wrap);}
+}
+
+function applyHighlight(){
+  const neighbors=new Set();
+  if(selectedId){neighbors.add(selectedId);links.forEach(l=>{const s=typeof l.source==="object"?l.source.id:l.source,t=typeof l.target==="object"?l.target.id:l.target;if(s===selectedId)neighbors.add(t);if(t===selectedId)neighbors.add(s);});}
+  d3.selectAll("g.node-g").each(function(d){const catOk=activeFilter==="all"||d.category===activeFilter,selOk=!selectedId||neighbors.has(d.id);d3.select(this).classed("dimmed",!catOk||!selOk);});
+  d3.selectAll("path.edge").each(function(l){const s=typeof l.source==="object"?l.source.id:l.source,t=typeof l.target==="object"?l.target.id:l.target,conn=!selectedId||(neighbors.has(s)&&neighbors.has(t));d3.select(this).classed("dimmed",!conn).classed("lit",!!selectedId&&conn).attr("marker-end",selectedId&&conn?"url(#arrow-lit)":"url(#arrow-default)");});
+}
+
+function selectNode(id){
+  selectedId=selectedId===id?null:id;
+  if(!selectedId){clearPanel();applyHighlight();return;}
+  applyHighlight();
+  const org=organizations.find(o=>o.id===id);
+  if(!org)return;
+  if(isMobile()){
+    // Build panel HTML and show in modal
+    const ps=document.getElementById("panel-scroll");
+    renderPanel(org);
+    const content=ps.innerHTML;
+    showMobileModal(content);
+    ps.innerHTML="";ps.style.display="none";
+    document.getElementById("panel-empty").style.display="flex";
+  } else {
+    renderPanel(org);
+  }
+}
+
+function fmt(v){return v!=null?v:"\u2014";}
+function fmtM(v){return v!=null?"$"+v+"M":"\u2014";}
+
+function renderPanel(org){
+  const cat=CATEGORIES[org.category]||{};
+  const isInv=org.nodeType==="investor";
+  let h="";
+  h+=`<div class="p-cat" style="color:${cat.color||"#666"}">${cat.label||org.category}</div>`;
+  h+=`<div class="p-name">${org.full_name||org.name}</div>`;
+  if(isInv){
+    const funded=INVESTMENTS.filter(i=>i.investor_id===org.id);
+    const tot=funded.reduce((s,i)=>s+(i.amount_usd_millions||0),0);
+    h+=`<div class="p-section">Fund investments in this dataset</div>`;
+    funded.forEach(inv=>{const f=fundById[inv.fund_id];const tc=inv.tranche?(TRANCHE_COLOR[inv.tranche]||"#ccc"):"#ddd";h+=`<div class="cap-row"><div class="cap-dot" style="background:${tc}"></div><div class="cap-investor" style="cursor:pointer;color:#3a7ac8" onclick="selectNode('${inv.fund_id}')">${f?f.name:inv.fund_id}</div><div class="cap-amount">${inv.amount_usd_millions?"$"+inv.amount_usd_millions+"M":"\u2014"}</div>${inv.tranche?`<div class="cap-tranche">${inv.tranche}</div>`:""}</div>`;});
+    if(tot>0)h+=`<div class="p-source">Total disclosed: $${tot.toFixed(1)}M across ${funded.length} fund(s)</div>`;
+    if(org.website)h+=`<div class="p-section">Website</div><div class="source-links"><a href="${org.website}" target="_blank" rel="noopener">${org.website.replace(/^https?:\/\/(www\.)?/,"")}</a></div>`;
+  } else {
+    const fund=org;
+    h+=`<table class="ptable"><tr><td>Manager</td><td>${fmt(fund.fund_manager)}</td></tr><tr><td>AUM</td><td><strong>${fmtM(fund.aum_usd_millions)}</strong></td></tr><tr><td>Status</td><td>${fmt(fund.fund_status)}</td></tr>${fund.geography_focus?`<tr><td>Geography</td><td>${fund.geography_focus}</td></tr>`:""}${fund.instrument_type?`<tr><td>Instrument</td><td>${fund.instrument_type}</td></tr>`:""}${fund.tenor_years?`<tr><td>Tenor</td><td>${fund.tenor_years} yrs (est.)</td></tr>`:""}${fund.avg_ticket_usd_millions?`<tr><td>Avg ticket</td><td>${fmtM(fund.avg_ticket_usd_millions)}</td></tr>`:""}${fund.portfolio_count?`<tr><td>Portfolio cos.</td><td>${fund.portfolio_count}</td></tr>`:""}</table>`;
+    if(fund.aum_source)h+=`<div class="p-source">${fund.aum_source_url?`<a href="${fund.aum_source_url}" target="_blank" rel="noopener" style="color:#3a7ac8">📌 ${fund.aum_source} ↗</a>`:`📌 ${fund.aum_source}`}</div>`;
+    if(fund.notes)h+=`<div class="p-note" style="margin-top:8px">${fund.notes}</div>`;
+    const invLinks=INVESTMENTS.filter(i=>i.fund_id===fund.id);
+    if(invLinks.length){
+      // Capital stack chart — only if at least 2 investors have known amounts
+      const withAmounts=invLinks.filter(i=>i.amount_usd_millions);
+      if(withAmounts.length>=2){
+        const total=withAmounts.reduce((s,i)=>s+(i.amount_usd_millions||0),0);
+        // Group by tranche
+        const groups={Senior:[],Junior:[],Mezz:[],"First Loss":[],Other:[]};
+        withAmounts.forEach(inv=>{
+          const t=inv.tranche||"Other";
+          if(t==="Senior")groups.Senior.push(inv);
+          else if(t==="Junior")groups.Junior.push(inv);
+          else if(t==="Mezz / Junior")groups.Mezz.push(inv);
+          else if(t==="First Loss")groups["First Loss"].push(inv);
+          else groups.Other.push(inv);
+        });
+        const CHART_COLORS={"Senior":"#5b8db8","Junior":"#c48030","Mezz":"#c48030","First Loss":"#c04040","Other":"#b0a99f"};
+        const CHART_LABELS={"Senior":"Senior","Junior":"Junior","Mezz":"Mezz / Junior","First Loss":"First Loss","Other":"Other"};
+        let barSegs="",legendItems="",usedColors=new Set();
+        ["First Loss","Mezz","Junior","Senior","Other"].forEach(key=>{
+          const amt=groups[key].reduce((s,i)=>s+(i.amount_usd_millions||0),0);
+          if(!amt)return;
+          const pct=(amt/total*100).toFixed(1);
+          const color=CHART_COLORS[key];
+          const names=groups[key].map(i=>{const inv=invById[i.investor_id];return inv?inv.name:i.investor_id;}).join(", ");
+          barSegs+=`<div class="cap-chart-seg" style="width:${pct}%;background:${color}" title="${CHART_LABELS[key]}: $${amt}M (${pct}%) — ${names}"></div>`;
+          if(!usedColors.has(key)){
+            legendItems+=`<div class="cap-chart-leg-item"><div class="cap-chart-leg-dot" style="background:${color}"></div>${CHART_LABELS[key]} $${amt}M</div>`;
+            usedColors.add(key);
+          }
+        });
+        const disclosed=total;
+        h+=`<div class="cap-chart">
+          <div class="cap-chart-label">Capital stack — $${disclosed}M disclosed (${((disclosed/fund.aum_usd_millions||1)*100).toFixed(0)}% of AUM)</div>
+          <div class="cap-chart-bar">${barSegs}</div>
+          <div class="cap-chart-legend">${legendItems}</div>
+        </div>`;
+      }
+      h+=`<div class="p-section">Investors</div>`;
+      invLinks.forEach(inv=>{const investor=invById[inv.investor_id];const tc=inv.tranche?(TRANCHE_COLOR[inv.tranche]||"#ccc"):"#ddd";const ic=investor?(CATEGORIES[investor.investor_type]?.color||"#aaa"):"#aaa";const ib=investor?(CATEGORIES[investor.investor_type]?.bg||"#eee"):"#eee";const it=investor?(CATEGORIES[investor.investor_type]?.text||"#333"):"#333";h+=`<div class="cap-row"><div class="cap-dot" style="background:${tc}"></div><div class="cap-investor"><span class="conn-chip" style="background:${ib};color:${it};border-color:${ic}" onclick="selectNode('${inv.investor_id}')">${investor?investor.name:inv.investor_id}</span>${inv.source_url?`<a href="${inv.source_url}" target="_blank" rel="noopener" style="font-size:10px;color:#3a7ac8;margin-left:5px">(source${inv.source_date?" · accessed "+inv.source_date:""})</a>`:""}</div><div class="cap-amount">${inv.amount_usd_millions?"$"+inv.amount_usd_millions+"M":"\u2014"}</div>${inv.tranche?`<div class="cap-tranche">${inv.tranche}</div>`:""}</div>`;});
+    }
+    const portfolio=PORTFOLIO[fund.id]||[];
+    if(portfolio.length>0){h+=`<button class="portfolio-toggle" onclick="togglePortfolio(this)"><span>Portfolio companies</span><span>${portfolio.length} \u25be</span></button><div class="portfolio-list">`;portfolio.forEach(co=>{const meta=[co.country,co.sector_raw].filter(Boolean).join(" \xb7 ");h+=`<div class="portfolio-item"><div class="co-name">${co.company_name}</div>${meta?`<div class="co-meta">${meta}</div>`:""}${co.company_website&&co.company_website!=="N/A"?`<a href="${co.company_website.startsWith("http")?co.company_website:"https://"+co.company_website}" target="_blank" rel="noopener">${co.company_website.replace(/^https?:\/\/(www\.)?/,"")}</a>`:""}</div>`;});h+=`</div>`;}
+    else if(!fund.has_portfolio_data)h+=`<div class="p-source" style="margin-top:8px">Portfolio companies not publicly disclosed.</div>`;
+    if(fund.website)h+=`<div class="p-section">Links</div><div class="source-links"><a href="${fund.website}" target="_blank" rel="noopener">${fund.website.replace(/^https?:\/\/(www\.)?/,"")}</a>${fund.portfolio_page?`<a href="${fund.portfolio_page}" target="_blank" rel="noopener">Portfolio page \u2197</a>`:""}</div>`;
+  }
+  const ps=document.getElementById("panel-scroll");ps.innerHTML=h;ps.style.display="block";document.getElementById("panel-empty").style.display="none";ps.scrollTop=0;
+}
+
+window.togglePortfolio=function(btn){const list=btn.nextElementSibling;const open=list.classList.toggle("open");const span=btn.querySelector("span:last-child");span.textContent=span.textContent.replace(open?"\u25be":"\u25b4",open?"\u25b4":"\u25be");};
+function clearPanel(){document.getElementById("panel-scroll").style.display="none";document.getElementById("panel-empty").style.display="flex";}
+const tip=document.getElementById("tooltip");
+function showTip(e,t){tip.textContent=t;tip.style.opacity=1;moveTip(e);}
+function moveTip(e){tip.style.left=(e.offsetX+14)+"px";tip.style.top=(e.offsetY-10)+"px";}
+function hideTip(){tip.style.opacity=0;}
+
+const SCHEMA=`{"fund_name":"official fund name","full_name":"full official name","fund_manager":"managing organization","website":"fund website URL","aum_usd_millions":"AUM in USD millions — number or null","aum_source":"note on what figure was used","geography_focus":"primary geographic regions","instrument_type":"Debt / Equity / Debt + Equity","return_expectation":"More Concessional / Less Concessional","fund_status":"active/raising/closed","portfolio_count":"current active portfolio companies — integer or null","avg_ticket_usd_millions":"AUM divided by portfolio_count — number or null","tenor_years":"typical investment duration in years — number or null","notes":"one sentence on unique characteristics","investors":[{"investor_name":"name","investor_type":"DFI / Bilateral Donor / Foundation / Commercial / NGO / Government / Facility","amount_usd_millions":"number or null","tranche":"Senior / Junior / Mezz / First Loss / null"}]}`;
+
+async function researchFund(query){
+  const status=document.getElementById("researchStatus"),btn=document.getElementById("researchBtn");
+  status.className="";status.innerHTML=`<span class="spin">\u27f3</span> Researching "${query}"\u2026`;btn.disabled=true;
+  try{
+    const resp=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json","x-api-key":API_KEY,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:2048,system:"You are a data extraction API for agricultural investment funds. Output only valid JSON. Never add text before or after the JSON. Start with { and end with }.",messages:[{role:"user",content:`Research this agricultural investment fund and return structured data including investors and capital structure.\n\nSearch for: ${query}\n\nFor AUM: use active portfolio or initial close — never target size.\nFor portfolio_count: current active investees only.\nFor investors: include all known LPs with amounts and tranches where disclosed.\n\nRESPONSE: single JSON object only.\n\n${SCHEMA}`}],tools:[{type:"web_search_20250305",name:"web_search",max_uses:8},{type:"web_fetch_20260309",name:"web_fetch",allowed_callers:["direct"]}]})});
+    if(!resp.ok){const e=await resp.json().catch(()=>({}));throw new Error(resp.status===429?"Rate limit \u2014 wait a minute and retry.":(e.error?.message||`HTTP ${resp.status}`));}
+    const data=await resp.json();
+    let text=(data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("").trim();
+    if(text.includes("```")){text=text.split("```")[1];if(text.startsWith("json"))text=text.slice(4);}
+    if(text.includes("{"))text=text.slice(text.indexOf("{"));if(text.includes("}"))text=text.slice(0,text.lastIndexOf("}")+1);
+    text=text.replace(/[\u2018\u2019]/g,"'").replace(/[\u201C\u201D]/g,'"');
+    const fund=JSON.parse(text.trim());
+    const newId=fund.fund_name.replace(/\s+/g,"_").replace(/[^a-zA-Z0-9_]/g,"");
+    if(organizations.find(n=>n.id===newId||n.name?.toLowerCase()===fund.fund_name?.toLowerCase())){status.className="err";status.textContent=`"${fund.fund_name}" is already in the map.`;btn.disabled=false;return;}
+    const newFund={...fund,id:newId,category:"Fund",nodeType:"fund",r:14+Math.sqrt((fund.aum_usd_millions||10)/340)*20,_newly_added:true};
+    organizations.push(newFund);fundById[newId]=newFund;
+    (fund.investors||[]).forEach(inv=>{const invId=inv.investor_name.replace(/\s+/g,"_").replace(/[^a-zA-Z0-9_]/g,"");if(!invById[invId]){const newInv={id:invId,name:inv.investor_name,investor_type:inv.investor_type||"Unknown",category:inv.investor_type||"Unknown",nodeType:"investor",r:9};organizations.push(newInv);INVESTORS.push(newInv);invById[invId]=newInv;}INVESTMENTS.push({investor_id:invId,fund_id:newId,amount_usd_millions:inv.amount_usd_millions||null,tranche:inv.tranche||null});connections.push({from:invId,to:newId,amount:inv.amount_usd_millions||null,tranche:inv.tranche||null});});
+    selectedId=null;d3.select("#g-clabels").selectAll("*").remove();d3.select("#g-edges").selectAll("*").remove();d3.select("#g-nodes").selectAll("*").remove();
+    buildGraph();
+    status.className="ok";status.textContent=`\u2713 Added: ${fund.fund_name}${fund.aum_usd_millions?" ($"+fund.aum_usd_millions+"M AUM)":""}`;
+    document.getElementById("researchInput").value="";
+    setTimeout(()=>selectNode(newId),800);
+  }catch(err){status.className="err";status.textContent=`Error: ${err.message}`;}
+  btn.disabled=false;
+}
+
+// ── GROUP TOGGLE ─────────────────────────────────────
+let groupMode=false;
+document.addEventListener("DOMContentLoaded",()=>{
+  const gt=document.getElementById("group-toggle");
+  if(gt)gt.addEventListener("click",function(){
+    groupMode=!groupMode;
+    this.style.background=groupMode?"var(--text)":"";
+    this.style.color=groupMode?"#fff":"";
+    this.style.borderColor=groupMode?"var(--text)":"var(--border)";
+    if(sim){
+      sim.force("cluster",alpha=>{
+        const c=clusterCenters(W,H);
+        const str=groupMode?0.30:0.12;
+        nodes.forEach(d=>{const p=c[d.category];if(!p)return;d.vx+=(p.x-d.x)*alpha*str;d.vy+=(p.y-d.y)*alpha*str;});
+      });
+      sim.force("link").strength(groupMode?0.02:0.22);
+      d3.selectAll(".cluster-label").style("display",groupMode?"block":"none");
+      sim.alpha(0.5).restart();
+    }
+  });
+
+  // ── SEARCH ───────────────────────────────────────────
+  const srch=document.getElementById("search");
+  if(srch)srch.addEventListener("input",function(){
+    const term=this.value.toLowerCase().trim();
+    d3.selectAll("g.node-g").each(function(d){
+      const match=!term||(d.name||"").toLowerCase().includes(term)||(d.full_name||"").toLowerCase().includes(term);
+      d3.select(this).classed("dimmed",!match);
+    });
+    d3.selectAll("path.edge").classed("dimmed",true);
+    if(!term)applyHighlight();
+  });
+
+  // ── RESIZER ──────────────────────────────────────────
+  const resizer=document.getElementById("resizer");
+  const panel=document.getElementById("panel");
+  if(resizer&&panel){
+    let dragging=false,startX,startW;
+    resizer.addEventListener("mousedown",e=>{dragging=true;startX=e.clientX;startW=panel.offsetWidth;resizer.style.background="var(--text)";document.body.style.cursor="col-resize";document.body.style.userSelect="none";});
+    document.addEventListener("mousemove",e=>{if(!dragging)return;const delta=startX-e.clientX;panel.style.width=Math.max(220,Math.min(600,startW+delta))+"px";});
+    document.addEventListener("mouseup",()=>{if(!dragging)return;dragging=false;resizer.style.background="";document.body.style.cursor="";document.body.style.userSelect="";});
+  }
+});
+
+
+// ── DOWNLOAD CSV ─────────────────────────────────────
+function downloadCSV(type) {
+  let rows, filename;
+  if(type === 'funds') {
+    const cols = ['id','name','full_name','fund_manager','aum_usd_millions','aum_source','geography_focus','instrument_type','return_expectation','fund_status','portfolio_count','avg_ticket_usd_millions','tenor_years','website'];
+    rows = [cols.join(',')];
+    FUNDS.forEach(f => {
+      rows.push(cols.map(c => {
+        const v = f[c];
+        if(v == null) return '';
+        const s = String(v);
+        return s.includes(',') || s.includes('"') || s.includes('\n') ? '"'+s.replace(/"/g,'""')+'"' : s;
+      }).join(','));
+    });
+    filename = 'ag_funds.csv';
+  } else {
+    const cols = ['fund_name','investor_name','investor_type','amount_usd_millions','tranche','source_url','source_date'];
+    rows = [cols.join(',')];
+    INVESTMENTS.forEach(inv => {
+      const fund = fundById[inv.fund_id];
+      const investor = invById[inv.investor_id];
+      const row = [
+        fund ? fund.name : inv.fund_id,
+        investor ? investor.name : inv.investor_id,
+        investor ? investor.investor_type : '',
+        inv.amount_usd_millions ?? '',
+        inv.tranche ?? '',
+        inv.source_url ?? '',
+        inv.source_date ?? ''
+      ];
+      rows.push(row.map(v => {
+        const s = String(v);
+        return s.includes(',') || s.includes('"') || s.includes('\n') ? '"'+s.replace(/"/g,'""')+'"' : s;
+      }).join(','));
+    });
+    filename = 'ag_fund_capital_relationships.csv';
+  }
+  const blob = new Blob([rows.join('\n')], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  document.getElementById('dl-menu').classList.remove('open');
+}
+
+// Toggle download menu
+document.addEventListener('DOMContentLoaded', () => {
+  const dlBtn = document.getElementById('dl-btn');
+  const dlMenu = document.getElementById('dl-menu');
+  if(dlBtn && dlMenu) {
+    dlBtn.addEventListener('click', e => { e.stopPropagation(); dlMenu.classList.toggle('open'); });
+    document.addEventListener('click', () => dlMenu.classList.remove('open'));
+  }
+});
+
+// ── MOBILE MODAL ─────────────────────────────────────
+const isMobile = () => window.innerWidth <= 700;
+
+function showMobileModal(html) {
+  document.getElementById('mobile-content').innerHTML = html;
+  document.getElementById('mobile-modal').classList.add('open');
+  document.getElementById('mobile-overlay').classList.add('open');
+}
+function closeMobileModal() {
+  document.getElementById('mobile-modal').classList.remove('open');
+  document.getElementById('mobile-overlay').classList.remove('open');
+  selectedId = null; applyHighlight();
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const closeBtn = document.getElementById('mobile-modal-close');
+  const overlay = document.getElementById('mobile-overlay');
+  if (closeBtn) closeBtn.addEventListener('click', closeMobileModal);
+  if (overlay) overlay.addEventListener('click', closeMobileModal);
+});
+
+window.addEventListener("load",init);
+
+</script>
+</body>
+</html>
