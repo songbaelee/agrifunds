@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "Who lends to Guatemala's agri-SMEs? What the public record shows",
+    "csaf_figure": {
+      "members": 8,
+      "disbursed_usd_m": 34,
+      "businesses": 19,
+      "country": "Guatemala",
+      "year": 2025,
+      "source_label": "CSAF Open Data Portal — Data Table",
+      "source_url": "https://data.csaf.org/data-table"
+    },
+    "researched": "November 2026",
+    "method": "Public web search of CSAF members' and affiliates' own publications (annual and quarterly reports, partner pages, impact reports), CSAF's State of the Sector 2025 report, and third-party sources. No non-public data used."
+  },
+  "evidence_levels": {
+    "A": {
+      "label": "Recent named lending",
+      "description": "Lender or CSAF names the business as a borrower in a 2024–2025 publication."
+    },
+    "B": {
+      "label": "Relationship confirmed, recent loan not shown",
+      "description": "Lender publicly lists the business as a borrower or partner, but no public source shows a 2025 disbursement."
+    },
+    "C": {
+      "label": "Older evidence",
+      "description": "Most recent public evidence of lending predates 2024."
+    },
+    "L": {
+      "label": "Lender only — no named borrower",
+      "description": "Lender publicly lists Guatemala as a country of operation, but no Guatemalan borrower could be identified."
+    }
+  },
+  "lenders": [
+    { "id": "root", "name": "Root Capital", "csaf_role": "Member (co-founder)", "url": "https://rootcapital.org" },
+    { "id": "oiko", "name": "Oikocredit", "csaf_role": "Member (founding)", "url": "https://www.oikocredit.coop" },
+    { "id": "sidi", "name": "SIDI", "csaf_role": "Affiliate", "url": "https://www.sidi.fr" },
+    { "id": "gp", "name": "Global Partnerships", "csaf_role": "Member", "url": "https://globalpartnerships.org" },
+    { "id": "incofin", "name": "Incofin (Fairtrade Access Fund)", "csaf_role": "Member", "url": "https://incofin.com" },
+    { "id": "alterfin", "name": "Alterfin", "csaf_role": "Member (founding)", "url": "https://www.alterfin.be" }
+  ],
+  "relationships": [
+    {
+      "business": "Asociación Chajulense Va'l Vaq Quyol",
+      "commodity": "Coffee",
+      "lender": "root",
+      "evidence": "A",
+      "note": "Featured as a client story in Root Capital's Q2 2025 performance report. Lending client since 2006; advisory client since 2012.",
+      "source_label": "Root Capital, Performance Report Q2 2025",
+      "source_url": "https://rootcapital.org/wp-content/uploads/2025/08/QPR_Q2-2025_FINAL.pdf"
+    },
+    {
+      "business": "APODIP (Asociación de Productores Orgánicos para el Desarrollo Integral del Polochic)",
+      "commodity": "Cocoa, coffee",
+      "lender": "oiko",
+      "evidence": "A",
+      "note": "Borrower profile in CSAF State of the Sector 2025: capital expenditure loan from Oikocredit to expand its processing plant. Rikolto reports a $550,000 Oikocredit loan for a cocoa liquor and paste plant.",
+      "source_label": "CSAF State of the Sector 2025 (borrower profile)",
+      "source_url": "https://globaldevincubator.org/wp-content/uploads/2025/09/CSAF_State_of_Sector_Report_2025_Final-1.pdf",
+      "source_label_2": "Rikolto — Guatemala",
+      "source_url_2": "https://www.rikolto.org/countries/guatemala"
+    },
+    {
+      "business": "APODIP (Asociación de Productores Orgánicos para el Desarrollo Integral del Polochic)",
+      "commodity": "Cocoa, coffee",
+      "lender": "sidi",
+      "evidence": "A",
+      "note": "SIDI partner page lists SIDI loan financing; partnership began 2024. CSAF's 2025 report also describes trade credit via SIDI's partnership with buyer Ethiquable.",
+      "source_label": "SIDI partner page — APODIP",
+      "source_url": "https://www.sidi.fr/en/partners/partenaires/apodip/"
+    },
+    {
+      "business": "FECCEG (Federación Comercializadora de Café Especial de Guatemala)",
+      "commodity": "Coffee",
+      "lender": "root",
+      "evidence": "B",
+      "note": "Root Capital lending client since 2020; the loan that took Root Capital past $2 billion in cumulative lending was made to FECCEG.",
+      "source_label": "Root Capital — $2 billion milestone",
+      "source_url": "https://rootcapital.org/?p=30766"
+    },
+    {
+      "business": "FECCEG (Federación Comercializadora de Café Especial de Guatemala)",
+      "commodity": "Coffee",
+      "lender": "sidi",
+      "evidence": "B",
+      "note": "SIDI partner page lists SIDI loan financing. Start date and loan status not shown.",
+      "source_label": "SIDI partner page — FECCEG",
+      "source_url": "https://www.sidi.fr/en/partners/partenaires/fecceg/"
+    },
+    {
+      "business": "Asobagri (Asociación Barillense de Agricultores)",
+      "commodity": "Coffee",
+      "lender": "root",
+      "evidence": "B",
+      "note": "Root Capital's first-ever client (1999). November 2024 story describes the ongoing relationship; no 2025 loan disclosed.",
+      "source_label": "Root Capital — Our First Client",
+      "source_url": "https://rootcapital.org/stories/our-first-client-improving-farmer-livelihoods-for-25-years-and-counting/"
+    },
+    {
+      "business": "Asociación Chajulense Va'l Vaq Quyol",
+      "commodity": "Coffee",
+      "lender": "oiko",
+      "evidence": "B",
+      "note": "One of Oikocredit's oldest partners, financed since 1990. 2021 article reports a repaid export pre-financing loan and a new loan.",
+      "source_label": "Oikocredit — Dreaming of coffee trees (2021)",
+      "source_url": "https://oikocredit.coop/k/fr/n171/news/view/332545/462/dreaming-of-coffee-trees.html"
+    },
+    {
+      "business": "Dinámica International Crops",
+      "commodity": "Coffee (exporter)",
+      "lender": "oiko",
+      "evidence": "B",
+      "note": "Exports fair trade and organic coffee from seven smallholder associations (3,800+ members). Oikocredit partner since 2016; partner data last synced May 2024.",
+      "source_label": "Oikocredit partner page — Dinámica International Crops",
+      "source_url": "https://www.oikocredit.coop/what-we-do/partners/partner-detail/50753/dinamica-international-crops"
+    },
+    {
+      "business": "Uniespecies S.A.",
+      "commodity": "Vegetables (exporter)",
+      "lender": "oiko",
+      "evidence": "B",
+      "note": "Working capital to buy fresh vegetables from smallholders. Oikocredit partner since 2010; partner data last synced January 2025.",
+      "source_label": "Oikocredit partner page — Uniespecies",
+      "source_url": "https://oikocredit.coop/en/what-we-do/partners/partner-detail/11277/uniespecies-s.a"
+    },
+    {
+      "business": "Manos Campesinas (Asociación Civil de Pequeños Productores de Café)",
+      "commodity": "Coffee",
+      "lender": "gp",
+      "evidence": "C",
+      "note": "Borrower of Global Partnerships Impact-First Development Fund as of March 31, 2023, under its Smallholder Farmer Market Access initiative.",
+      "source_label": "Global Partnerships partner profile (May 2023)",
+      "source_url": "https://globalpartnerships.org/wp-content/uploads/bsk-pdf-manager/all/IFDF-Partner-Profile-Q1-2023-Manos-Campesinas.pdf"
+    },
+    {
+      "business": null,
+      "commodity": "—",
+      "lender": "incofin",
+      "evidence": "L",
+      "note": "Fairtrade Access Fund lists Guatemala among its Latin America investment countries. No Guatemalan borrower named publicly.",
+      "source_label": "BIO — Fairtrade Access Fund",
+      "source_url": "https://www.bio-invest.be/en/investments/fairtrade-access-fund"
+    },
+    {
+      "business": null,
+      "commodity": "—",
+      "lender": "alterfin",
+      "evidence": "L",
+      "note": "Guatemala appears in Alterfin's Latin America country list in a fair trade pre-finance guide (older source). No Guatemalan borrower named publicly.",
+      "source_label": "Plate-Forme pour le Commerce Équitable — Prefinancing guide",
+      "source_url": "https://www.commercequitable.org/wp-content/uploads/assistant-edition/prefin-en.pdf"
+    }
+  ],
+  "not_found": {
+    "note": "Searched with no Guatemala lending found: Shared Interest (its 2025 Central America producer committee covered Costa Rica, Honduras, Mexico and Nicaragua), Triodos Investment Management, responsAbility, Rabo Rural Fund, MCE Social Capital, NESsT.",
+    "source_label": "Shared Interest — Producer Committee Meetings 2025",
+    "source_url": "https://www.shared-interest.com/media/Social%20Accounts/2025/APPENDICES/V2/Appendix%2010%20-%20Producer%20Committee%20Meetings%202025.pdf"
+  },
+  "gap_sources": [
+    {
+      "label": "CSAF State of the Sector 2025 — Appendix 1 (data methodology)",
+      "url": "https://globaldevincubator.org/wp-content/uploads/2025/09/CSAF_State_of_Sector_Report_2025_Final-1.pdf"
+    }
+  ]
+}

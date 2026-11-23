@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who lends to Guatemala's agri-SMEs? — The public record vs. CSAF's aggregate</title>
+<meta name="description" content="CSAF reports 8 members disbursed $34M to 19 agricultural businesses in Guatemala in 2025, but the data names no one. This page maps what lenders disclose publicly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2a2e;
+    --muted: #5b6b70;
+    --line: #dde3e4;
+    --bg: #fafbfa;
+    --card: #ffffff;
+    --accent: #2f6b4f;
+    --A: #2f6b4f;
+    --B: #4f7fa3;
+    --C: #b07a2a;
+    --L: #8a8f91;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  main { max-width: 1080px; margin: 0 auto; padding: 40px 20px 64px; }
+  a { color: var(--accent); }
+  h1 { font-size: 1.15rem; font-weight: 600; color: var(--muted); margin: 0 0 12px; letter-spacing: .01em; }
+  .stat {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 8px;
+  }
+  .stat .src { display: block; font-size: .9rem; font-weight: 400; color: var(--muted); margin-top: 6px; }
+  .gap {
+    border-left: 4px solid var(--accent);
+    background: var(--card);
+    padding: 18px 22px;
+    margin: 28px 0;
+  }
+  .gap h2 { margin: 0 0 8px; font-size: 1.35rem; }
+  .gap p { margin: 0 0 10px; }
+  .gap p:last-child { margin-bottom: 0; }
+  .tally { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0 32px; }
+  .tile { background: var(--card); border: 1px solid var(--line); padding: 14px 16px; }
+  .tile .n { font-size: 2rem; font-weight: 700; line-height: 1; }
+  .tile .n small { font-size: 1rem; font-weight: 400; color: var(--muted); }
+  .tile .lbl { color: var(--muted); font-size: .95rem; margin-top: 4px; }
+  h2.sec { font-size: 1.2rem; margin: 36px 0 10px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+  .chip {
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    padding: 6px 12px; border-radius: 999px; font: inherit; font-size: .9rem; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+  .legend { font-size: .9rem; color: var(--muted); margin: 0 0 16px; padding: 0; list-style: none; }
+  .legend li { margin: 3px 0; display: flex; gap: 8px; align-items: baseline; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  th { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; background: #f3f5f4; }
+  td.biz { font-weight: 600; }
+  td.biz .com { display: block; font-weight: 400; color: var(--muted); font-size: .85rem; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; white-space: nowrap; }
+  .none { color: var(--muted); font-style: italic; font-weight: 400; }
+  .src a { font-size: .85rem; }
+  .notfound, .method { background: var(--card); border: 1px solid var(--line); padding: 14px 18px; font-size: .95rem; }
+  footer { margin-top: 40px; font-size: .85rem; color: var(--muted); }
+  @media (max-width: 720px) {
+    table, thead, tbody, tr, td { display: block; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+    td { border: none; padding: 4px 12px; }
+    td[data-label]::before { content: attr(data-label); display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agricultural SME finance · Guatemala · 2025</h1>
+
+  <p class="stat" id="stat">
+    8 CSAF members disbursed $34M to 19 agricultural businesses in Guatemala in 2025.
+    <span class="src">Source: <a href="https://data.csaf.org/data-table" target="_blank" rel="noopener">CSAF Open Data Portal</a></span>
+  </p>
+
+  <section class="gap">
+    <h2>Which 8 lenders? Which 19 businesses? The data can't say.</h2>
+    <p>CSAF members report their lending under a nondisclosure agreement, and CSAF publishes it only as an aggregate that identifies neither the lender nor the borrower. That's a deliberate trade-off: lenders share more data because it's anonymized. The result is that one of the best datasets on agri-SME finance can tell you <em>how much</em> went to Guatemala, but not <em>who</em> lent it or <em>who</em> received it.</p>
+    <p>This page reconstructs what the public record does show, using only what lenders publish themselves (partner pages, annual and quarterly reports) plus CSAF's own State of the Sector report. None of these relationships can be confirmed as part of CSAF's 2025 figure.</p>
+  </section>
+
+  <div class="tally" id="tally"></div>
+
+  <h2 class="sec">Publicly disclosed lender–borrower relationships</h2>
+  <ul class="legend" id="legend"></ul>
+  <div class="filters" id="filters" role="group" aria-label="Filter by evidence level"></div>
+
+  <table>
+    <thead>
+      <tr><th>Business</th><th>Lender</th><th>Evidence</th><th>What the public record shows</th><th>Source</th></tr>
+    </thead>
+    <tbody id="rows"><tr><td colspan="5">Loading…</td></tr></tbody>
+  </table>
+
+  <h2 class="sec">Searched, nothing found</h2>
+  <div class="notfound" id="notfound"></div>
+
+  <h2 class="sec">Method</h2>
+  <div class="method" id="method"></div>
+
+  <footer id="footer"></footer>
+</main>
+
+<script>
+(function () {
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const link = (url, label) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>` : "";
+  const ORDER = ["A", "B", "C", "L"];
+  let data, active = new Set(ORDER);
+
+  fetch("data.json")
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => { data = d; init(); })
+    .catch(() => {
+      document.getElementById("rows").innerHTML =
+        '<tr><td colspan="5">Could not load data.json. If you opened this file directly from disk, view it through a local server or the live site instead.</td></tr>';
+    });
+
+  function init() {
+    const lenders = Object.fromEntries(data.lenders.map(l => [l.id, l]));
+    const rels = data.relationships;
+    const f = data.meta.csaf_figure;
+
+    // Tally
+    const lenderIds = new Set(rels.map(r => r.lender));
+    const namedLenderIds = new Set(rels.filter(r => r.business).map(r => r.lender));
+    const businesses = new Set(rels.filter(r => r.business).map(r => r.business));
+    const recent = new Set(rels.filter(r => r.business && r.evidence === "A").map(r => r.business));
+    document.getElementById("tally").innerHTML = [
+      [lenderIds.size, f.members, "CSAF lenders publicly linked to Guatemala"],
+      [namedLenderIds.size, f.members, "of those, with a named Guatemalan borrower"],
+      [businesses.size, f.businesses, "Guatemalan businesses publicly named as borrowers"],
+      [recent.size, f.businesses, "of those, named in a 2024–25 publication"]
+    ].map(([n, of, lbl]) => `<div class="tile"><div class="n">${n} <small>vs. ${of} in CSAF's count</small></div><div class="lbl">${esc(lbl)}</div></div>`).join("");
+
+    // Legend + filters
+    const lv = data.evidence_levels;
+    document.getElementById("legend").innerHTML = ORDER.map(k =>
+      `<li><span class="dot" style="background:var(--${k})"></span><span><strong>${esc(lv[k].label)}</strong> — ${esc(lv[k].description)}</span></li>`).join("");
+    const filters = document.getElementById("filters");
+    filters.innerHTML = ORDER.map(k =>
+      `<button class="chip" data-k="${k}" aria-pressed="true"><span class="dot" style="background:var(--${k})"></span>${esc(lv[k].label)}</button>`).join("");
+    filters.addEventListener("click", e => {
+      const b = e.target.closest(".chip"); if (!b) return;
+      const k = b.dataset.k;
+      active.has(k) ? active.delete(k) : active.add(k);
+      b.setAttribute("aria-pressed", active.has(k));
+      render(lenders);
+    });
+
+    // Not found, method, footer
+    const nf = data.not_found;
+    document.getElementById("notfound").innerHTML = `${esc(nf.note)} <span class="src">(${link(nf.source_url, nf.source_label)})</span>`;
+    document.getElementById("method").innerHTML =
+      `<p style="margin-top:0">${esc(data.meta.method)}</p>
+       <p style="margin-bottom:0">On the data gap: ${data.gap_sources.map(s => link(s.url, s.label)).join("; ")}. The CSAF figure is from the ${link(f.source_url, f.source_label)}.</p>`;
+    document.getElementById("footer").textContent = `Researched ${data.meta.researched}. Corrections welcome.`;
+
+    render(lenders);
+  }
+
+  function render(lenders) {
+    const lv = data.evidence_levels;
+    const rows = data.relationships
+      .filter(r => active.has(r.evidence))
+      .sort((a, b) => ORDER.indexOf(a.evidence) - ORDER.indexOf(b.evidence));
+    document.getElementById("rows").innerHTML = rows.length ? rows.map(r => {
+      const l = lenders[r.lender];
+      const biz = r.business
+        ? `${esc(r.business)}<span class="com">${esc(r.commodity)}</span>`
+        : `<span class="none">No borrower named</span>`;
+      const srcs = [link(r.source_url, r.source_label), link(r.source_url_2, r.source_label_2 || "Second source")].filter(Boolean).join("<br>");
+      return `<tr>
+        <td class="biz" data-label="Business">${biz}</td>
+        <td data-label="Lender">${link(l.url, l.name)}<br><span class="none" style="font-style:normal;font-size:.85rem">CSAF ${esc(l.csaf_role.toLowerCase())}</span></td>
+        <td data-label="Evidence"><span class="badge"><span class="dot" style="background:var(--${r.evidence})"></span>${esc(lv[r.evidence].label)}</span></td>
+        <td data-label="Public record">${esc(r.note)}</td>
+        <td class="src" data-label="Source">${srcs}</td>
+      </tr>`;
+    }).join("") : '<tr><td colspan="5">No rows match the selected evidence levels.</td></tr>';
+  }
+})();
+</script>
+</body>
+</html>
