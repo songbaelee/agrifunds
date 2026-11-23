@@ -11,43 +11,30 @@
   :root {
     --ink: #1f2a2e;
     --muted: #5b6b70;
+    --faint: #9aa6a9;
     --line: #dde3e4;
     --bg: #fafbfa;
     --card: #ffffff;
-    --accent: #2f6b4f;
-    --A: #2f6b4f;
-    --B: #4f7fa3;
-    --C: #b07a2a;
+    --accent: #1d5a3e;
+    /* Evidence strength: one-hue ordinal ramp (validated), plus neutral for "no borrower named" */
+    --A: #1d5a3e;
+    --B: #4a8a69;
+    --C: #8dbba1;
     --L: #8a8f91;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "Source Sans 3", system-ui, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.5;
-  }
+  body { margin: 0; font-family: "Source Sans 3", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.5; }
   main { max-width: 1080px; margin: 0 auto; padding: 40px 20px 64px; }
   a { color: var(--accent); }
   h1 { font-size: 1.15rem; font-weight: 600; color: var(--muted); margin: 0 0 12px; letter-spacing: .01em; }
-  .stat {
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0 0 8px;
-  }
+  .stat { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; line-height: 1.2; margin: 0 0 8px; }
   .stat .src { display: block; font-size: .9rem; font-weight: 400; color: var(--muted); margin-top: 6px; }
-  .gap {
-    border-left: 4px solid var(--accent);
-    background: var(--card);
-    padding: 18px 22px;
-    margin: 28px 0;
-  }
+  .gap { border-left: 4px solid var(--accent); background: var(--card); padding: 18px 22px; margin: 28px 0; }
   .gap h2 { margin: 0 0 8px; font-size: 1.35rem; }
   .gap p { margin: 0 0 10px; }
   .gap p:last-child { margin-bottom: 0; }
-  .tally { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0 32px; }
+
+  .tally { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0 8px; }
   .tile {
     background: var(--card); border: 1px solid var(--line); padding: 14px 16px;
     font: inherit; color: inherit; text-align: left; cursor: pointer;
@@ -55,31 +42,47 @@
   }
   .tile:hover { border-color: var(--muted); }
   .tile[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--ink); }
-  .tile .hint { font-size: .8rem; color: var(--muted); margin-top: 8px; }
-  .tally-note { font-size: .9rem; color: var(--muted); margin: -20px 0 28px; }
   .tile .n { font-size: 2rem; font-weight: 700; line-height: 1; }
   .tile .n small { font-size: 1rem; font-weight: 400; color: var(--muted); }
   .tile .lbl { color: var(--muted); font-size: .95rem; margin-top: 4px; }
-  h2.sec { font-size: 1.2rem; margin: 36px 0 10px; }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
-  .chip {
-    border: 1px solid var(--line); background: var(--card); color: var(--ink);
-    padding: 6px 12px; border-radius: 999px; font: inherit; font-size: .9rem; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 6px;
+  .note { font-size: .9rem; color: var(--muted); margin: 0 0 20px; }
+
+  h2.sec { font-size: 1.2rem; margin: 36px 0 6px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: .9rem; color: var(--muted); margin: 6px 0 12px; padding: 0; list-style: none; }
+  .legend li { display: flex; align-items: center; gap: 8px; }
+  .legend strong { color: var(--ink); font-weight: 600; }
+  .legend-desc { font-size: .85rem; color: var(--muted); margin: 0 0 14px; padding-left: 0; list-style: none; }
+  .legend-desc li { margin: 2px 0; }
+
+  .diagram { background: var(--card); border: 1px solid var(--line); overflow-x: auto; position: relative; }
+  .diagram svg { display: block; width: 100%; min-width: 720px; height: auto; }
+  .node rect { fill: var(--card); stroke: var(--ink); stroke-width: 1; }
+  .node.empty rect { fill: none; stroke: var(--faint); stroke-dasharray: 4 3; }
+  .node text { fill: var(--ink); font-family: inherit; }
+  .node .sub, .node.empty text { fill: var(--muted); }
+  .node, .link { transition: opacity .15s; }
+  .node.named { cursor: pointer; }
+  .dim { opacity: .14; }
+  .link { fill: none; stroke-linecap: round; }
+  .link-hit { fill: none; stroke: transparent; stroke-width: 12; cursor: pointer; }
+  .col-head { font-size: 13px; font-weight: 600; fill: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+  .tip {
+    position: absolute; pointer-events: none; background: var(--ink); color: #fff; font-size: .85rem;
+    padding: 8px 10px; max-width: 300px; line-height: 1.35; opacity: 0; transition: opacity .1s; z-index: 2;
   }
-  .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
-  .legend { font-size: .9rem; color: var(--muted); margin: 0 0 16px; padding: 0; list-style: none; }
-  .legend li { margin: 3px 0; display: flex; gap: 8px; align-items: baseline; }
+  .tip strong { display: block; margin-bottom: 2px; }
+
   table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); }
   th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: .95rem; }
   th { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; background: #f3f5f4; }
   td.biz { font-weight: 600; }
   td.biz .com { display: block; font-weight: 400; color: var(--muted); font-size: .85rem; }
-  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; white-space: nowrap; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
   .none { color: var(--muted); font-style: italic; font-weight: 400; }
+  .role { color: var(--muted); font-size: .85rem; }
   .src a { font-size: .85rem; }
-  .notfound, .method { background: var(--card); border: 1px solid var(--line); padding: 14px 18px; font-size: .95rem; }
+  .boxed { background: var(--card); border: 1px solid var(--line); padding: 14px 18px; font-size: .95rem; }
   footer { margin-top: 40px; font-size: .85rem; color: var(--muted); }
   @media (max-width: 720px) {
     table, thead, tbody, tr, td { display: block; }
@@ -94,7 +97,7 @@
 <main>
   <h1>Agricultural SME finance · Guatemala · 2025</h1>
 
-  <p class="stat" id="stat">
+  <p class="stat">
     8 CSAF members disbursed $34M to 19 agricultural businesses in Guatemala in 2025.
     <span class="src">Source: <a href="https://data.csaf.org/data-table" target="_blank" rel="noopener">CSAF Open Data Portal</a></span>
   </p>
@@ -105,12 +108,19 @@
     <p>This page reconstructs what the public record does show, using only what lenders publish themselves (partner pages, annual and quarterly reports) plus CSAF's own State of the Sector report. None of these relationships can be confirmed as part of CSAF's 2025 figure.</p>
   </section>
 
-  <div class="tally" id="tally" role="group" aria-label="Filter the table"></div>
-  <p class="tally-note">Click a box to filter the table below. Click it again to show everything.</p>
+  <div class="tally" id="tally" role="group" aria-label="Highlight in the diagram"></div>
+  <p class="note">Click a box to highlight it in the diagram below. Click it again to clear.</p>
 
-  <h2 class="sec">Publicly disclosed lender–borrower relationships</h2>
+  <h2 class="sec">The public record against CSAF's count</h2>
   <ul class="legend" id="legend"></ul>
+  <div class="diagram" id="diagram">
+    <svg id="svg" role="img" aria-label="Diagram linking publicly identified CSAF lenders to Guatemalan businesses, with empty slots for those not publicly identified"></svg>
+    <div class="tip" id="tip"></div>
+  </div>
+  <p class="note" style="margin-top:8px">Dashed boxes are slots in CSAF's count that no public source fills. Hover over a name or a line for details.</p>
 
+  <h2 class="sec">All publicly disclosed relationships</h2>
+  <ul class="legend-desc" id="legend-desc"></ul>
   <table>
     <thead>
       <tr><th>Business</th><th>Lender</th><th>Evidence</th><th>What the public record shows</th><th>Source</th></tr>
@@ -119,10 +129,10 @@
   </table>
 
   <h2 class="sec">Searched, nothing found</h2>
-  <div class="notfound" id="notfound"></div>
+  <div class="boxed" id="notfound"></div>
 
   <h2 class="sec">Method</h2>
-  <div class="method" id="method"></div>
+  <div class="boxed" id="method"></div>
 
   <footer id="footer"></footer>
 </main>
@@ -132,7 +142,9 @@
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const link = (url, label) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>` : "";
   const ORDER = ["A", "B", "C", "L"];
-  let data, active = new Set(ORDER);
+  const STROKE = { A: { w: 3, dash: "" }, B: { w: 2, dash: "" }, C: { w: 2, dash: "5 4" } };
+  const SVGNS = "http://www.w3.org/2000/svg";
+  let data, lenders, short;
 
   fetch("data.json")
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -143,65 +155,198 @@
     });
 
   function init() {
-    const lenders = Object.fromEntries(data.lenders.map(l => [l.id, l]));
-    const rels = data.relationships;
-    const f = data.meta.csaf_figure;
-
-    // Tally
-    const lenderIds = new Set(rels.map(r => r.lender));
-    const namedLenderIds = new Set(rels.filter(r => r.business).map(r => r.lender));
-    const businesses = new Set(rels.filter(r => r.business).map(r => r.business));
-    const recent = new Set(rels.filter(r => r.business && r.evidence === "A").map(r => r.business));
-    // Tiles double as filters: each sets which evidence levels the table shows.
-    const tiles = [
-      [lenderIds.size, f.members, "CSAF lenders publicly linked to Guatemala", "A,B,C,L", "Shows all rows"],
-      [namedLenderIds.size, f.members, "of those, with a named Guatemalan borrower", "A,B,C", "Shows rows with a named borrower"],
-      [businesses.size, f.businesses, "Guatemalan businesses publicly named as borrowers", "A,B,C", "Shows rows with a named borrower"],
-      [recent.size, f.businesses, "of those, named in a 2024–25 publication", "A", "Shows recent named lending only"]
-    ];
-    const tally = document.getElementById("tally");
-    tally.innerHTML = tiles.map(([n, of, lbl, levels, hint]) =>
-      `<button class="tile" data-levels="${levels}" aria-pressed="false">
-         <div class="n">${n} <small>vs. ${of} in CSAF's count</small></div>
-         <div class="lbl">${esc(lbl)}</div>
-         <div class="hint">${esc(hint)}</div>
-       </button>`).join("");
-    const ALL = ORDER.join(",");
-    const syncTiles = () => {
-      const cur = ORDER.filter(k => active.has(k)).join(",");
-      tally.querySelectorAll(".tile").forEach(t =>
-        t.setAttribute("aria-pressed", cur !== ALL && t.dataset.levels === cur));
-    };
-    tally.addEventListener("click", e => {
-      const t = e.target.closest(".tile"); if (!t) return;
-      const already = t.getAttribute("aria-pressed") === "true";
-      active = new Set((already ? ALL : t.dataset.levels).split(","));
-      syncTiles();
-      render(lenders);
-    });
-
-    // Legend
+    lenders = Object.fromEntries(data.lenders.map(l => [l.id, l]));
+    short = n => (data.short_names && data.short_names[n]) || n;
     const lv = data.evidence_levels;
-    document.getElementById("legend").innerHTML = ORDER.map(k =>
-      `<li><span class="dot" style="background:var(--${k})"></span><span><strong>${esc(lv[k].label)}</strong> — ${esc(lv[k].description)}</span></li>`).join("");
 
-    // Not found, method, footer
+    // Legends
+    const swatch = k => k === "L"
+      ? `<span class="dot" style="background:var(--L)"></span>`
+      : `<svg width="28" height="10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="var(--${k})" stroke-width="${STROKE[k].w}" stroke-dasharray="${STROKE[k].dash}" stroke-linecap="round"/></svg>`;
+    document.getElementById("legend").innerHTML = ORDER.map(k =>
+      `<li>${swatch(k)}<strong>${esc(lv[k].label)}</strong></li>`).join("");
+    document.getElementById("legend-desc").innerHTML = ORDER.map(k =>
+      `<li><span class="dot" style="background:var(--${k})"></span> <strong>${esc(lv[k].label)}</strong> — ${esc(lv[k].description)}</li>`).join("");
+
+    drawDiagram();
+    buildTiles();
+    renderTable();
+
     const nf = data.not_found;
     document.getElementById("notfound").innerHTML = `${esc(nf.note)} <span class="src">(${link(nf.source_url, nf.source_label)})</span>`;
+    const f = data.meta.csaf_figure;
     document.getElementById("method").innerHTML =
       `<p style="margin-top:0">${esc(data.meta.method)}</p>
        <p style="margin-bottom:0">On the data gap: ${data.gap_sources.map(s => link(s.url, s.label)).join("; ")}. The CSAF figure is from the ${link(f.source_url, f.source_label)}.</p>`;
     document.getElementById("footer").textContent = `Researched ${data.meta.researched}. Corrections welcome.`;
-
-    render(lenders);
   }
 
-  function render(lenders) {
+  // ---------- Diagram ----------
+  let nodesEl = {}, linksEl = [];
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function drawDiagram() {
+    const f = data.meta.csaf_figure;
+    const rels = data.relationships.filter(r => r.business);
+    const lOrder = data.diagram_order.lenders;
+    const bOrder = data.diagram_order.businesses;
+
+    const W = 900, top = 56, rowH = 30, bH = 24;
+    const span = f.businesses * rowH;
+    const H = top + span + 16;
+    const lX = 24, lW = 250, bX = 610, bW = 266;
+    const lSlot = span / f.members, lH = 46;
+
+    const svg = document.getElementById("svg");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.innerHTML = "";
+
+    el("text", { x: lX, y: 32, class: "col-head" }, svg).textContent = `Lenders · ${f.members} in CSAF's count`;
+    el("text", { x: bX, y: 32, class: "col-head" }, svg).textContent = `Businesses · ${f.businesses} in CSAF's count`;
+
+    const gLinks = el("g", {}, svg);
+    const gNodes = el("g", {}, svg);
+    const lY = {}, bY = {};
+
+    // Lender slots
+    for (let i = 0; i < f.members; i++) {
+      const id = lOrder[i];
+      const y = top + i * lSlot + (lSlot - lH) / 2;
+      const g = el("g", { class: "node " + (id ? "named" : "empty"), transform: `translate(${lX},${y})` }, gNodes);
+      el("rect", { width: lW, height: lH, rx: 4 }, g);
+      if (id) {
+        const L = lenders[id];
+        const n = new Set(rels.filter(r => r.lender === id).map(r => r.business)).size;
+        lY[id] = y + lH / 2;
+        el("text", { x: 12, y: 20, "font-size": 15, "font-weight": 600 }, g).textContent = L.name;
+        const sub = el("text", { x: 12, y: 37, "font-size": 12.5, class: "sub" }, g);
+        sub.textContent = n ? `${n} named borrower${n > 1 ? "s" : ""} in Guatemala` : "Lists Guatemala · no borrower named";
+        if (!n) el("circle", { cx: lW - 14, cy: lH / 2, r: 5, fill: "var(--L)" }, g);
+        g.dataset.key = "L:" + id;
+        nodesEl["L:" + id] = g;
+        hoverable(g, () => tipLender(L, n), () => focusOn("L:" + id));
+      } else {
+        el("text", { x: 12, y: lH / 2 + 5, "font-size": 13 }, g).textContent = "Not publicly identified";
+      }
+    }
+
+    // Business slots
+    for (let i = 0; i < f.businesses; i++) {
+      const name = bOrder[i];
+      const y = top + i * rowH + (rowH - bH) / 2;
+      const g = el("g", { class: "node " + (name ? "named" : "empty"), transform: `translate(${bX},${y})` }, gNodes);
+      el("rect", { width: bW, height: bH, rx: 4 }, g);
+      if (name) {
+        bY[name] = y + bH / 2;
+        el("text", { x: 10, y: 16.5, "font-size": 14, "font-weight": 600 }, g).textContent = short(name);
+        g.dataset.key = "B:" + name;
+        nodesEl["B:" + name] = g;
+        const mine = rels.filter(r => r.business === name);
+        hoverable(g, () => tipBusiness(name, mine), () => focusOn("B:" + name));
+      } else {
+        el("text", { x: 10, y: 16.5, "font-size": 12 }, g).textContent = "Not publicly identified";
+      }
+    }
+
+    // Links, weakest first so strongest draw on top
+    rels.slice().sort((a, b) => ORDER.indexOf(b.evidence) - ORDER.indexOf(a.evidence)).forEach(r => {
+      const x1 = lX + lW, y1 = lY[r.lender], x2 = bX, y2 = bY[r.business];
+      if (y1 == null || y2 == null) return;
+      const mx = (x1 + x2) / 2;
+      const d = `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`;
+      const s = STROKE[r.evidence];
+      const p = el("path", { d, class: "link", stroke: `var(--${r.evidence})`, "stroke-width": s.w, "stroke-dasharray": s.dash }, gLinks);
+      const hit = el("path", { d, class: "link-hit" }, gLinks);
+      const rec = { r, p, keys: ["L:" + r.lender, "B:" + r.business] };
+      linksEl.push(rec);
+      hoverable(hit, () => tipLink(r), () => ({ nodes: new Set(rec.keys), links: new Set([rec]) }));
+    });
+  }
+
+  // ---------- Highlighting ----------
+  let pinned = null; // {nodes:Set, links:Set} from a tile
+  function apply(sel) {
+    for (const k in nodesEl) nodesEl[k].classList.toggle("dim", !!sel && !sel.nodes.has(k));
+    linksEl.forEach(l => l.p.classList.toggle("dim", !!sel && !sel.links.has(l)));
+  }
+  function focusOn(key) {
+    const links = new Set(linksEl.filter(l => l.keys.includes(key)));
+    const nodes = new Set([key]);
+    links.forEach(l => l.keys.forEach(k => nodes.add(k)));
+    return { nodes, links };
+  }
+
+  const tip = () => document.getElementById("tip");
+  function hoverable(target, html, sel) {
+    target.addEventListener("mouseenter", () => { apply(sel()); showTip(html()); });
+    target.addEventListener("mousemove", moveTip);
+    target.addEventListener("mouseleave", () => { apply(pinned); tip().style.opacity = 0; });
+  }
+  function showTip(h) { tip().innerHTML = h; tip().style.opacity = 1; }
+  function moveTip(e) {
+    const box = document.getElementById("diagram").getBoundingClientRect();
+    const t = tip();
+    let x = e.clientX - box.left + 14, y = e.clientY - box.top + 14;
+    if (x + t.offsetWidth > box.width) x = e.clientX - box.left - t.offsetWidth - 14;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  function tipLender(L, n) {
+    return `<strong>${esc(L.name)}</strong>CSAF ${esc(L.csaf_role.toLowerCase())}<br>${
+      n ? `${n} Guatemalan borrower${n > 1 ? "s" : ""} named publicly` : "Lists Guatemala as a country of operation; no borrower named publicly"}`;
+  }
+  function tipBusiness(name, mine) {
     const lv = data.evidence_levels;
-    const rows = data.relationships
-      .filter(r => active.has(r.evidence))
-      .sort((a, b) => ORDER.indexOf(a.evidence) - ORDER.indexOf(b.evidence));
-    document.getElementById("rows").innerHTML = rows.length ? rows.map(r => {
+    return `<strong>${esc(name)}</strong>${esc(mine[0].commodity)}<br>${mine.map(r =>
+      `${esc(lenders[r.lender].name)} — ${esc(lv[r.evidence].label.toLowerCase())}`).join("<br>")}`;
+  }
+  function tipLink(r) {
+    return `<strong>${esc(lenders[r.lender].name)} → ${esc(short(r.business))}</strong>${esc(data.evidence_levels[r.evidence].label)}<br>${esc(r.note)}`;
+  }
+
+  // ---------- Tiles ----------
+  function buildTiles() {
+    const f = data.meta.csaf_figure;
+    const rels = data.relationships;
+    const named = rels.filter(r => r.business);
+    const allLenderKeys = data.lenders.map(l => "L:" + l.id);
+    const namedLenderKeys = [...new Set(named.map(r => "L:" + r.lender))];
+    const bizKeys = [...new Set(named.map(r => "B:" + r.business))];
+    const recentRecs = linksEl.filter(l => l.r.evidence === "A");
+    const recentBizKeys = [...new Set(recentRecs.map(l => "B:" + l.r.business))];
+    const sel = (nodes, links) => ({ nodes: new Set(nodes), links: new Set(links) });
+
+    const tiles = [
+      [allLenderKeys.length, f.members, "CSAF lenders publicly linked to Guatemala", () => sel(allLenderKeys, [])],
+      [namedLenderKeys.length, f.members, "of those, with a named Guatemalan borrower", () => sel(namedLenderKeys, [])],
+      [bizKeys.length, f.businesses, "Guatemalan businesses publicly named as borrowers", () => sel(bizKeys, [])],
+      [recentBizKeys.length, f.businesses, "of those, named in a 2024–25 publication", () => sel([...recentBizKeys, ...recentRecs.map(l => "L:" + l.r.lender)], recentRecs)]
+    ];
+    const tally = document.getElementById("tally");
+    tally.innerHTML = tiles.map(([n, of, lbl], i) =>
+      `<button class="tile" data-i="${i}" aria-pressed="false">
+         <div class="n">${n} <small>vs. ${of} in CSAF's count</small></div>
+         <div class="lbl">${esc(lbl)}</div>
+       </button>`).join("");
+    tally.addEventListener("click", e => {
+      const t = e.target.closest(".tile"); if (!t) return;
+      const on = t.getAttribute("aria-pressed") !== "true";
+      tally.querySelectorAll(".tile").forEach(b => b.setAttribute("aria-pressed", "false"));
+      t.setAttribute("aria-pressed", on);
+      pinned = on ? tiles[+t.dataset.i][3]() : null;
+      apply(pinned);
+    });
+  }
+
+  // ---------- Table ----------
+  function renderTable() {
+    const lv = data.evidence_levels;
+    const rows = data.relationships.slice().sort((a, b) => ORDER.indexOf(a.evidence) - ORDER.indexOf(b.evidence));
+    document.getElementById("rows").innerHTML = rows.map(r => {
       const l = lenders[r.lender];
       const biz = r.business
         ? `${esc(r.business)}<span class="com">${esc(r.commodity)}</span>`
@@ -209,12 +354,12 @@
       const srcs = [link(r.source_url, r.source_label), link(r.source_url_2, r.source_label_2 || "Second source")].filter(Boolean).join("<br>");
       return `<tr>
         <td class="biz" data-label="Business">${biz}</td>
-        <td data-label="Lender">${link(l.url, l.name)}<br><span class="none" style="font-style:normal;font-size:.85rem">CSAF ${esc(l.csaf_role.toLowerCase())}</span></td>
+        <td data-label="Lender">${link(l.url, l.name)}<br><span class="role">CSAF ${esc(l.csaf_role.toLowerCase())}</span></td>
         <td data-label="Evidence"><span class="badge"><span class="dot" style="background:var(--${r.evidence})"></span>${esc(lv[r.evidence].label)}</span></td>
         <td data-label="Public record">${esc(r.note)}</td>
         <td class="src" data-label="Source">${srcs}</td>
       </tr>`;
-    }).join("") : '<tr><td colspan="5">No rows match the selected evidence levels.</td></tr>';
+    }).join("");
   }
 })();
 </script>

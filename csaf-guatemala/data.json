@@ -31,6 +31,27 @@
       "description": "Lender publicly lists Guatemala as a country of operation, but no Guatemalan borrower could be identified."
     }
   },
+  "short_names": {
+    "Asociación Chajulense Va'l Vaq Quyol": "Asociación Chajulense",
+    "APODIP (Asociación de Productores Orgánicos para el Desarrollo Integral del Polochic)": "APODIP",
+    "FECCEG (Federación Comercializadora de Café Especial de Guatemala)": "FECCEG",
+    "Asobagri (Asociación Barillense de Agricultores)": "Asobagri",
+    "Dinámica International Crops": "Dinámica International Crops",
+    "Uniespecies S.A.": "Uniespecies",
+    "Manos Campesinas (Asociación Civil de Pequeños Productores de Café)": "Manos Campesinas"
+  },
+  "diagram_order": {
+    "lenders": ["root", "sidi", "oiko", "gp", "incofin", "alterfin"],
+    "businesses": [
+      "Asobagri (Asociación Barillense de Agricultores)",
+      "FECCEG (Federación Comercializadora de Café Especial de Guatemala)",
+      "Asociación Chajulense Va'l Vaq Quyol",
+      "APODIP (Asociación de Productores Orgánicos para el Desarrollo Integral del Polochic)",
+      "Dinámica International Crops",
+      "Uniespecies S.A.",
+      "Manos Campesinas (Asociación Civil de Pequeños Productores de Café)"
+    ]
+  },
   "lenders": [
     { "id": "root", "name": "Root Capital", "csaf_role": "Member (co-founder)", "url": "https://rootcapital.org" },
     { "id": "oiko", "name": "Oikocredit", "csaf_role": "Member (founding)", "url": "https://www.oikocredit.coop" },
