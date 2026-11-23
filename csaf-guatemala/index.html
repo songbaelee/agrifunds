@@ -48,7 +48,15 @@
   .gap p { margin: 0 0 10px; }
   .gap p:last-child { margin-bottom: 0; }
   .tally { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0 32px; }
-  .tile { background: var(--card); border: 1px solid var(--line); padding: 14px 16px; }
+  .tile {
+    background: var(--card); border: 1px solid var(--line); padding: 14px 16px;
+    font: inherit; color: inherit; text-align: left; cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .tile:hover { border-color: var(--muted); }
+  .tile[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--ink); }
+  .tile .hint { font-size: .8rem; color: var(--muted); margin-top: 8px; }
+  .tally-note { font-size: .9rem; color: var(--muted); margin: -20px 0 28px; }
   .tile .n { font-size: 2rem; font-weight: 700; line-height: 1; }
   .tile .n small { font-size: 1rem; font-weight: 400; color: var(--muted); }
   .tile .lbl { color: var(--muted); font-size: .95rem; margin-top: 4px; }
@@ -97,11 +105,11 @@
     <p>This page reconstructs what the public record does show, using only what lenders publish themselves (partner pages, annual and quarterly reports) plus CSAF's own State of the Sector report. None of these relationships can be confirmed as part of CSAF's 2025 figure.</p>
   </section>
 
-  <div class="tally" id="tally"></div>
+  <div class="tally" id="tally" role="group" aria-label="Filter the table"></div>
+  <p class="tally-note">Click a box to filter the table below. Click it again to show everything.</p>
 
   <h2 class="sec">Publicly disclosed lender–borrower relationships</h2>
   <ul class="legend" id="legend"></ul>
-  <div class="filters" id="filters" role="group" aria-label="Filter by evidence level"></div>
 
   <table>
     <thead>
@@ -144,27 +152,38 @@
     const namedLenderIds = new Set(rels.filter(r => r.business).map(r => r.lender));
     const businesses = new Set(rels.filter(r => r.business).map(r => r.business));
     const recent = new Set(rels.filter(r => r.business && r.evidence === "A").map(r => r.business));
-    document.getElementById("tally").innerHTML = [
-      [lenderIds.size, f.members, "CSAF lenders publicly linked to Guatemala"],
-      [namedLenderIds.size, f.members, "of those, with a named Guatemalan borrower"],
-      [businesses.size, f.businesses, "Guatemalan businesses publicly named as borrowers"],
-      [recent.size, f.businesses, "of those, named in a 2024–25 publication"]
-    ].map(([n, of, lbl]) => `<div class="tile"><div class="n">${n} <small>vs. ${of} in CSAF's count</small></div><div class="lbl">${esc(lbl)}</div></div>`).join("");
+    // Tiles double as filters: each sets which evidence levels the table shows.
+    const tiles = [
+      [lenderIds.size, f.members, "CSAF lenders publicly linked to Guatemala", "A,B,C,L", "Shows all rows"],
+      [namedLenderIds.size, f.members, "of those, with a named Guatemalan borrower", "A,B,C", "Shows rows with a named borrower"],
+      [businesses.size, f.businesses, "Guatemalan businesses publicly named as borrowers", "A,B,C", "Shows rows with a named borrower"],
+      [recent.size, f.businesses, "of those, named in a 2024–25 publication", "A", "Shows recent named lending only"]
+    ];
+    const tally = document.getElementById("tally");
+    tally.innerHTML = tiles.map(([n, of, lbl, levels, hint]) =>
+      `<button class="tile" data-levels="${levels}" aria-pressed="false">
+         <div class="n">${n} <small>vs. ${of} in CSAF's count</small></div>
+         <div class="lbl">${esc(lbl)}</div>
+         <div class="hint">${esc(hint)}</div>
+       </button>`).join("");
+    const ALL = ORDER.join(",");
+    const syncTiles = () => {
+      const cur = ORDER.filter(k => active.has(k)).join(",");
+      tally.querySelectorAll(".tile").forEach(t =>
+        t.setAttribute("aria-pressed", cur !== ALL && t.dataset.levels === cur));
+    };
+    tally.addEventListener("click", e => {
+      const t = e.target.closest(".tile"); if (!t) return;
+      const already = t.getAttribute("aria-pressed") === "true";
+      active = new Set((already ? ALL : t.dataset.levels).split(","));
+      syncTiles();
+      render(lenders);
+    });
 
-    // Legend + filters
+    // Legend
     const lv = data.evidence_levels;
     document.getElementById("legend").innerHTML = ORDER.map(k =>
       `<li><span class="dot" style="background:var(--${k})"></span><span><strong>${esc(lv[k].label)}</strong> — ${esc(lv[k].description)}</span></li>`).join("");
-    const filters = document.getElementById("filters");
-    filters.innerHTML = ORDER.map(k =>
-      `<button class="chip" data-k="${k}" aria-pressed="true"><span class="dot" style="background:var(--${k})"></span>${esc(lv[k].label)}</button>`).join("");
-    filters.addEventListener("click", e => {
-      const b = e.target.closest(".chip"); if (!b) return;
-      const k = b.dataset.k;
-      active.has(k) ? active.delete(k) : active.add(k);
-      b.setAttribute("aria-pressed", active.has(k));
-      render(lenders);
-    });
 
     // Not found, method, footer
     const nf = data.not_found;
